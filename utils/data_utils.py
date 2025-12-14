@@ -27,6 +27,7 @@ def add_multi_index(df, display_names):
     df.columns = pd.MultiIndex.from_tuples(new_columns)
     return df
 
+
 def inspect_structure(df):
     """
     Prints the structure of the DataFrame including column names and data types.
@@ -35,7 +36,7 @@ def inspect_structure(df):
     df (pd.DataFrame): The input DataFrame.
     """
     print(f"Structure of {df.name}:")
-    print("Shape: ", df.shape)
+    print("Shape: ", df.shape[0], ' rows x ', df.shape[1], ' columns')
     print(df.info())
-    print("\nColumn Names:")
-    print(df.columns.tolist())
+
+
