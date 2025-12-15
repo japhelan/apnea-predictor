@@ -55,3 +55,33 @@ race and native language both not important and potentially harmful in creating 
 level of school is encdoed ordinally
 
 should perhaps combine school/ work columns into a common "schedule"
+
+The following columns were flagged for now as they have >80% missing values:
+
+("Participant's ethnicity (sub hispanic or latino origin)", 'dem_0910'),
+
+("Participant's proficiency in English", 'dem_1120')
+
+('Level of school', 'sched_0100')
+
+('Days per week in school', 'sched_0200')
+
+('Time School Starts ', 'sched_0300')
+
+('Time School Starts - Varies', 'sched_0301')
+
+('Time School Ends', 'sched_0400')
+
+('Time School Ends - Varies', 'sched_0401')
+
+('Self-reported work start time, next shift', 'sched_1100')
+
+('Self-reported work end time, next shift', 'sched_1200')
+
+('Self-reported work start time, 3rd shift', 'sched_1500')
+
+('Self-reported work start time, no 3rd shift', 'sched_1501')
+
+('Self-reported work end time, 3rd shift', 'sched_1600')
+
+('How often change work shifts', 'sched_2100')
