@@ -91,7 +91,7 @@ def check_nulls(datasets):
         else:
             print("No null values detected.")
 
-def flag_high_nulls(df, threshold=0.8):
+def flag_high_nulls(df, threshold=0.8, return_df=True):
     """
     Flags columns in the DataFrame that have a high percentage of null values.
 
@@ -105,9 +105,19 @@ def flag_high_nulls(df, threshold=0.8):
     total_rows = len(df)
     null_percent = df.isnull().sum() / total_rows
     high_nulls = null_percent[null_percent > threshold].index.tolist()
-    
-    print(f"Columns with more than {threshold*100}% null values: {high_nulls}")
-    return high_nulls
+
+    if return_df:
+
+        null_df = pd.DataFrame({
+            'Column Name': high_nulls,
+            'Null Percentage': null_percent[high_nulls] * 100
+        })
+        
+        print(f"Columns with more than {threshold*100}% null values: {high_nulls}")
+        return null_df
+    else:
+        print(f"Columns with more than {threshold*100}% null values: {high_nulls}")
+        return high_nulls
 
 def export_column_description_table(df, display_names, filepath):
     """
