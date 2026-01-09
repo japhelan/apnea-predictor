@@ -98,26 +98,42 @@ def flag_high_nulls(df, threshold=0.8, return_df=True):
     Parameters:
     df (pd.DataFrame): The input DataFrame.
     threshold (float): The threshold percentage (between 0 and 1) to flag columns.
+    return_df (bool): If True, returns a DataFrame with details; otherwise returns a list of column names.
 
     Returns:
-    list: List of column names with high null percentages.
+    pd.DataFrame or list: DataFrame with details if return_df is True, else list of column names with high null percentages.
     """
     total_rows = len(df)
     null_percent = df.isnull().sum() / total_rows
     high_nulls = null_percent[null_percent > threshold].index.tolist()
 
-    if return_df:
+    high_null_pct = null_percent[null_percent > threshold]
 
-        null_df = pd.DataFrame({
-            'Column Name': high_nulls,
-            'Null Percentage': null_percent[high_nulls] * 100
-        })
+
+    if return_df:
+    
+        dict = {'Column Name': [],  'Column Description': [],
+                  'Null Percentage': [], 'Index': []}
         
-        print(f"Columns with more than {threshold*100}% null values: {high_nulls}")
+        for i, col in enumerate(high_nulls):
+            null_percentage = high_null_pct.iloc[i]
+            index = high_nulls[i]
+            name = index[1]
+            desc = index[0]
+            dict['Column Name'].append(name)
+            dict['Column Description'].append(desc)
+            dict['Null Percentage'].append(null_percentage)
+            dict['Index'].append(index)
+        
+    
+        null_df = pd.DataFrame.from_dict(dict, orient='columns')
+
         return null_df
     else:
         print(f"Columns with more than {threshold*100}% null values: {high_nulls}")
         return high_nulls
+    
+
 
 def export_column_description_table(df, display_names, filepath):
     """

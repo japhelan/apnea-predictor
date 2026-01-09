@@ -41,6 +41,7 @@ for now, don't make any drastic changes to the data.
       5. Frequency analysis
 
 3. Bivariate and multivariate analysis
+
    1. Bivariate visualizations
    2. Multivariate visualizations
    3. Bivariate/multivariate diagnostics
