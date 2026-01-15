@@ -35,6 +35,8 @@ def inspect_structure(df):
     Parameters:
     df (pd.DataFrame): The input DataFrame.
     """
+    if not hasattr(df, 'name'):
+        df.name = 'DataFrame'
     print(f"Structure of {df.name}:")
     print("Shape: ", df.shape[0], ' rows x ', df.shape[1], ' columns')
     print(df.info())
@@ -133,25 +135,67 @@ def flag_high_nulls(df, threshold=0.8, return_df=True):
         print(f"Columns with more than {threshold*100}% null values: {high_nulls}")
         return high_nulls
     
-
-
-def export_column_description_table(df, display_names, filepath):
+        
+def make_column_description_table(df, 
+                                  add_display_names=False, display_names=None, 
+                                  return_df=True, show_null_pct=False,
+                                  return_md=False, filepath=None
+                                  ):
     """
-    Exports a markdown table describing the DataFrame columns, their display names, and data types. 
+    Creates a DataFrame describing the DataFrame columns, their display names, and data types. 
     Mostly used for documentation purposes.
+    
     Parameters:
     df (pd.DataFrame): The input DataFrame.
+    add_display_names (bool): If True, adds display names to the description table.
     display_names (dict): A dictionary mapping column names to display names.
-    filepath (str): The file path to save the markdown table.
+    return_df (bool): If True, returns the description DataFrame; otherwise prints it.
+    show_null_pct (bool): If True, includes a column for the percentage of null values in each column.
+    return_md (bool): If True, exports the description as a markdown file.
+    filepath (str): The file path to save the markdown table if return_md is True.
+
+    Returns:
+    pd.DataFrame or None: Description DataFrame if return_df is True, else None.
     """
-
-    data = {"Column Name": [], "Display Name": [], "Data Type": []}
-    for col in df.columns:
-        data["Column Name"].append(col)
-        data["Display Name"].append(display_names.get(col, "N/A"))
-        data["Data Type"].append(str(df[col].dtype))
-
-    desc_df = pd.DataFrame(data)
-    desc_df.to_markdown(filepath, index=False)
-        
     
+    if show_null_pct:
+        total_rows = len(df)
+        null_percent = (df.isnull().sum() / total_rows) * 100
+        df.loc['Null Percentage'] = null_percent
+        
+        data = {"Column Name": [], "Display Name": [], "Data Type": [], "Null Percentage": []}
+    else:
+         data = {"Column Name": [], "Display Name": [], "Data Type": []}
+
+    
+    for col in df.columns:
+        data["Column Name"].append(col[1] if isinstance(col, tuple) else col) # for multi indexes
+        if add_display_names:
+            if display_names is not None: 
+                if isinstance(display_names, pd.Index): # use pandas indexing
+                    display_name = display_names[df.columns.get_loc(col)] 
+                else: # not a pandas index
+                    display_name = display_names.get(col, "") 
+                data["Display Name"].append(display_name)
+            else:  # no display names provided
+                data["Display Name"].append("")
+        else: # not using display names
+            data["Display Name"].append("") 
+        data["Data Type"].append(str(df[col].dtype))
+        if show_null_pct: # if showing null percentage
+            null_pct = round((df[col].isnull().sum() / len(df)) * 100, 2)
+            null_pct = f"{null_pct}%"
+            data["Null Percentage"].append(null_pct)
+    
+    desc_df = pd.DataFrame(data)
+    
+    if return_df:
+        return desc_df
+    else:
+        print(desc_df)
+
+    if return_md and filepath:
+        desc_df.to_markdown(filepath, index=False)
+        
+
+
