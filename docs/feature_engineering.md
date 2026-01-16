@@ -39,3 +39,8 @@ cut participants*ethnicity*(hispanic*or_latino)', 'participants_ethnicity*(sub_h
   - renamed dry_and/or_irritated_eyes to dry_and_or_irritated_eyes_days_per_week for clarity and unity
   - subsetted the fss, gad7, phq9, and nose surveys
   - dropped the above columns
+
+## Medical History Notes (v1.0)
+
+- Changes made:
+  - Removed 'genetic_testing_source_self-reported', 'dialysis_self-reported', 'dentures_removed_while_sleeping_self-reported' as they had extremely low numbers of present values
