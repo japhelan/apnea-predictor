@@ -6,7 +6,7 @@ Starting with the Demographics subset
 
 - all columns with >80% missing are not being considered right now
 
-## Initial Notes
+## Demographic Notes (v1.0)
 
 - height in feet, height in inches, weight, and bmi are all different features and a subset should be selected. this will require more analysis later but is worth noting now.
 - Need to combine work and school columns
@@ -23,3 +23,19 @@ New columns made:
 cut participants*ethnicity*(hispanic*or_latino)', 'participants_ethnicity*(sub_hispanic_or_latino_origin)',
 
 'participants*race*(main)', 'participants*race*(sub)', 'english_as_native_language' , 'participants_proficiency_in_english' as they are either not important and/or could lead to unethical biases
+
+## Lifestyle Notes (v1.0)
+
+- lots of these are surveys and are therefore highly correlated
+- lots of diet columns that should be fixed
+- going to split each survey into its own subset as I believe it will be useful later
+- Dropped the following columns:
+
+  - 'usual_additional_meal/snack_time1', 'usually_no_additional_meal/snack1', 'usual_additional_meal/snack_time2', 'usually_no_additional_meal/snack2', 'usual_additional_meal/snack_time3', 'usually_no_additional_meal/snack3', 'usual_additional_meal/snack_time4', 'usually_no_additional_meal/snack4', 'usual_additional_meal/snack_time5', 'usually_no_additional_meal/snack5', 'percentage_of_snack_2_among_all_food_intake_over_24_hours', 'percentage_of_snack_3_among_all_food_intake_over_24_hours', 'percentage_of_snack_4_among_all_food_intake_over_24_hours', 'percentage_of_snack_5_among_all_food_intake_over_24_hours', 'percentage_of_breakfast_among_all_food_intake_over_24_hours', 'percentage_of_lunch_among_all_food_intake_over_24_hours', 'percentage_of_dinner_among_all_food_intake_over_24_hours', 'percentage_of_snack_1_among_all_food_intake_over_24_hours', 'food_intake_no_regular_meals'
+    - I didn't think any of these would be useful and most had high null pcts
+
+- Changes made:
+
+  - renamed dry_and/or_irritated_eyes to dry_and_or_irritated_eyes_days_per_week for clarity and unity
+  - subsetted the fss, gad7, phq9, and nose surveys
+  - dropped the above columns
