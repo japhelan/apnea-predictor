@@ -2,13 +2,13 @@
 
 Sleep Apnea predictive model using data from the STAGES sleep study. Initially a project for a ML class, I wanted to redo it with a more analytical and exploratory approach using the extra knowledge I have learned since taking it.
 
-The repository for the initial project is private as it relied on the presence of the STAGES dataset that I am not allowed to publicize- this project, however, once completed, should function as a complete replacement.
+The repository for the initial project is private as it relied on the presence of the STAGES dataset that I am not allowed to publicize. Instead of significantly refactoring it in order to be public, I thought it would be better to simply start it over from the ground up; once completed it will be a complete replacement.
 
-# Notes on Usage
+Notes on Usage
 
-- [ ] The datasets provided must be personally acquired from the National Sleep Research Resource (NSRR). When downloaded to the `./data` directory (will result in `/data/stages/`), the notebooks containing data preparation and exploration shall function properly.
+- The datasets provided must be personally acquired from the National Sleep Research Resource (NSRR). When downloaded to the `./data` directory (will result in `/data/stages/`), the notebooks containing data preparation and exploration shall function properly.
 
-More can be found at https://sleepdata.org/datasets/stages
+More can be found at [https://sleepdata.org/datasets/stages](https://sleepdata.org/datasets/stages)
 
 # Acknowledgements
 
