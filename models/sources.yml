@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: workspace
+    schema: dbt_jphelan
+    description: testing things
+    tables:
+      - name: stages_dataset_0_3_0
+        description: the data
