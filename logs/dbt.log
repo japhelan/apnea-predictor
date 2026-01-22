@@ -1,0 +1,799 @@
+==================== 2026-01-22T02:11:17.367408Z | 019be378-66eb-7d00-8ad0-20b01d51864e ====================
+==================== 2026-01-22T02:14:17.614147Z | 019be37b-270d-7250-9be0-18806ba27249 ====================
+02:14:17.615750 [info ]: dbt-fusion 2.0.0-preview.96
+02:14:17.619030 [info ]: Started loading project
+02:14:17.628363 [info ]: Finished loading project [  0.01s]
+02:14:17.630457 [error]: dbt1005: No profile specified in dbt_project.yml
+02:14:17.897175 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' with 1 error [283ms]
+02:14:17.982364 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [3m]
+==================== 2026-01-22T02:16:17.624158Z | 019be37c-fbcd-7401-9fa8-2cea2cb0ca05 ====================
+==================== 2026-01-22T02:16:23.726603Z | 019be37d-13ae-7202-80a5-c664fefaa5e4 ====================
+02:16:23.727654 [info ]: dbt-fusion 2.0.0-preview.96
+02:16:23.730777 [info ]: Started loading project
+02:16:23.744440 [info ]: Loading ~/.dbt/profiles.yml
+02:16:23.750428 [info ]: Finished loading project [  0.02s]
+02:16:23.751268 [info ]: Started debugging
+02:16:23.751395 [info ]: Debugging profile: dev
+02:16:23.751412 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:16:23.751419 [info ]: Debugging platform: macos aarch64 (unix)
+02:16:23.751665 [info ]: Debugging adapter type: postgres (remote)
+02:16:23.760472 [info ]: Debugging dependencies:
+  git: OK
+02:16:23.761756 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:16:23.765182 [info ]: Finished debugging [  0.01s]
+02:16:23.766225 [error]: dbt1011: Serde YAML Error: missing field `password`
+02:16:24.201595 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' with 1 error for target 'dev' [474ms]
+02:16:24.287923 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [6.7s]
+==================== 2026-01-22T02:17:53.861804Z | 019be37e-73bb-7dd1-ac0c-fe47b32bbaa7 ====================
+==================== 2026-01-22T02:17:56.633639Z | 019be37e-7e98-7fc0-88c7-3bae75ea3ddc ====================
+02:17:56.634650 [info ]: dbt-fusion 2.0.0-preview.96
+02:17:56.637718 [info ]: Started loading project
+02:17:56.651644 [info ]: Loading ~/.dbt/profiles.yml
+02:17:56.657672 [info ]: Finished loading project [  0.02s]
+02:17:56.658504 [info ]: Started debugging
+02:17:56.658632 [info ]: Debugging profile: dev
+02:17:56.658649 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:17:56.658656 [info ]: Debugging platform: macos aarch64 (unix)
+02:17:56.658893 [info ]: Debugging adapter type: postgres (remote)
+02:17:56.667786 [info ]: Debugging dependencies:
+  git: OK
+02:17:56.669898 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:17:56.673251 [info ]: Finished debugging [  0.01s]
+02:17:56.674324 [error]: dbt1011: Serde YAML Error: missing field `password`
+02:17:57.047781 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' with 1 error for target 'dev' [414ms]
+02:17:57.142187 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [3.3s]
+==================== 2026-01-22T02:20:42.655648Z | 019be381-0714-7ae1-9629-bb508e898019 ====================
+==================== 2026-01-22T02:20:45.793369Z | 019be381-1360-7ff2-ad29-069f1342d6db ====================
+02:20:45.794967 [info ]: dbt-fusion 2.0.0-preview.96
+02:20:45.797405 [info ]: Started loading project
+02:20:45.812255 [info ]: Loading ~/.dbt/profiles.yml
+02:20:45.818393 [info ]: Finished loading project [  0.02s]
+02:20:45.819236 [info ]: Started debugging
+02:20:45.819361 [info ]: Debugging profile: dev
+02:20:45.819379 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:20:45.819386 [info ]: Debugging platform: macos aarch64 (unix)
+02:20:45.819636 [info ]: Debugging adapter type: postgres (remote)
+02:20:45.829084 [info ]: Debugging dependencies:
+  git: OK
+02:20:45.830376 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:20:46.647395 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [4.0s]
+==================== 2026-01-22T02:21:12.073557Z | 019be381-7a08-7590-95f4-6c2f41e493ca ====================
+==================== 2026-01-22T02:21:15.949404Z | 019be381-892c-7cf1-ab13-f8895d73d55b ====================
+02:21:15.949487 [info ]: dbt-fusion 2.0.0-preview.96
+02:21:15.949569 [info ]: Started loading project
+02:21:15.951146 [info ]: Loading ~/.dbt/profiles.yml
+02:21:15.951512 [info ]: Finished loading project [  0.00s]
+02:21:15.951557 [info ]: Started debugging
+02:21:15.951581 [info ]: Debugging profile: dev
+02:21:15.951594 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:21:15.951603 [info ]: Debugging platform: macos aarch64 (unix)
+02:21:15.951614 [info ]: Debugging adapter type: postgres (remote)
+02:21:15.962890 [info ]: Debugging dependencies:
+  git: OK
+02:21:15.962961 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:21:16.113168 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [4.0s]
+==================== 2026-01-22T02:21:57.994842Z | 019be382-2d69-77a0-bb15-beebd99aaf05 ====================
+==================== 2026-01-22T02:21:59.919032Z | 019be382-34ee-7462-903e-240ec8cce6af ====================
+02:21:59.919124 [info ]: dbt-fusion 2.0.0-preview.96
+02:21:59.919208 [info ]: Started loading project
+02:21:59.920758 [info ]: Loading ~/.dbt/profiles.yml
+02:21:59.921417 [info ]: Finished loading project [  0.00s]
+02:21:59.921461 [info ]: Started debugging
+02:21:59.921482 [info ]: Debugging profile: dev
+02:21:59.921500 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:21:59.921511 [info ]: Debugging platform: macos aarch64 (unix)
+02:21:59.921524 [info ]: Debugging adapter type: postgres (remote)
+02:21:59.932519 [info ]: Debugging dependencies:
+  git: OK
+02:21:59.932571 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:22:00.070109 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [2.1s]
+==================== 2026-01-22T02:23:41.953679Z | 019be383-c376-7360-9ec1-05dce1465b97 ====================
+==================== 2026-01-22T02:23:43.438862Z | 019be383-c94d-7f01-ada2-1a60bd93cc06 ====================
+02:23:43.440135 [info ]: dbt-fusion 2.0.0-preview.96
+02:23:43.442820 [info ]: Started loading project
+02:23:43.458308 [info ]: Loading ~/.dbt/profiles.yml
+02:23:43.464356 [info ]: Finished loading project [  0.02s]
+02:23:43.465191 [info ]: Started debugging
+02:23:43.465315 [info ]: Debugging profile: dev
+02:23:43.465331 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:23:43.465337 [info ]: Debugging platform: macos aarch64 (unix)
+02:23:43.465559 [info ]: Debugging adapter type: postgres (remote)
+02:23:43.475235 [info ]: Debugging dependencies:
+  git: OK
+02:23:43.476533 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:23:43.620034 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [1.7s]
+==================== 2026-01-22T02:25:39.776574Z | 019be385-8fb4-7853-8847-1d0c8da99f01 ====================
+==================== 2026-01-22T02:25:43.796257Z | 019be385-9f73-77e1-b972-ca9d9cac9a7a ====================
+02:25:43.797429 [info ]: dbt-fusion 2.0.0-preview.96
+02:25:43.799770 [info ]: Started loading project
+02:25:43.814432 [info ]: Loading ~/.dbt/profiles.yml
+02:25:43.820504 [info ]: Finished loading project [  0.02s]
+02:25:43.821339 [info ]: Started debugging
+02:25:43.821464 [info ]: Debugging profile: dev
+02:25:43.821482 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:25:43.821489 [info ]: Debugging platform: macos aarch64 (unix)
+02:25:43.821712 [info ]: Debugging adapter type: postgres (remote)
+02:25:43.831347 [info ]: Debugging dependencies:
+  git: OK
+02:25:43.832643 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:25:43.972265 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [4.2s]
+==================== 2026-01-22T02:27:19.507447Z | 019be387-1548-7c80-bfce-dd1085a01afc ====================
+==================== 2026-01-22T02:27:21.365173Z | 019be387-1c94-71d1-b59d-5914d3f4e790 ====================
+02:27:21.366335 [info ]: dbt-fusion 2.0.0-preview.96
+02:27:21.368712 [info ]: Started loading project
+02:27:21.381064 [info ]: Loading ~/.dbt/profiles.yml
+02:27:21.390004 [info ]: Finished loading project [  0.02s]
+02:27:21.390745 [info ]: Started debugging
+02:27:21.390811 [info ]: Debugging profile: dev
+02:27:21.390837 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:27:21.390845 [info ]: Debugging platform: macos aarch64 (unix)
+02:27:21.391111 [info ]: Debugging adapter type: postgres (remote)
+02:27:21.402767 [info ]: Debugging dependencies:
+  git: OK
+02:27:21.404186 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:27:21.562569 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [2.1s]
+==================== 2026-01-22T02:29:15.827427Z | 019be388-dbb2-7080-93a5-0786e63e8c63 ====================
+==================== 2026-01-22T02:29:17.615564Z | 019be388-e2ae-78b3-88f1-d0b85f4fb9da ====================
+02:29:17.615647 [info ]: dbt-fusion 2.0.0-preview.96
+02:29:17.615733 [info ]: Started loading project
+02:29:17.617249 [info ]: Loading ~/.dbt/profiles.yml
+02:29:17.617620 [info ]: Finished loading project [  0.00s]
+02:29:17.617663 [info ]: Started debugging
+02:29:17.617684 [info ]: Debugging profile: dev
+02:29:17.617699 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:29:17.617709 [info ]: Debugging platform: macos aarch64 (unix)
+02:29:17.617722 [info ]: Debugging adapter type: postgres (remote)
+02:29:17.628347 [info ]: Debugging dependencies:
+  git: OK
+02:29:17.628415 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:29:17.765271 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [1.9s]
+==================== 2026-01-22T02:30:37.497759Z | 019be38a-1ab9-71d0-bf64-052314f86c02 ====================
+==================== 2026-01-22T02:30:39.681521Z | 019be38a-2340-78a2-9cf8-7c99a309c213 ====================
+02:30:39.681608 [info ]: dbt-fusion 2.0.0-preview.96
+02:30:39.681690 [info ]: Started loading project
+02:30:39.683313 [info ]: Loading ~/.dbt/profiles.yml
+02:30:39.683678 [info ]: Finished loading project [  0.00s]
+02:30:39.683723 [info ]: Started debugging
+02:30:39.683746 [info ]: Debugging profile: dev
+02:30:39.683760 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:30:39.683769 [info ]: Debugging platform: macos aarch64 (unix)
+02:30:39.683783 [info ]: Debugging adapter type: postgres (remote)
+02:30:39.694417 [info ]: Debugging dependencies:
+  git: OK
+02:30:39.694472 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:30:39.834950 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [2.3s]
+[0m18:37:38.477314 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c52900>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107277c50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107277ed0>]}
+
+
+============================== 18:37:38.479241 | 34ab51af-a1cb-47d7-886e-4596891b2306 ==============================
+[0m18:37:38.479241 [info ] [MainThread]: Running with dbt=1.11.2
+[0m18:37:38.479474 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'invocation_command': 'dbt debug', 'indirect_selection': 'eager', 'profiles_dir': '/Users/jack/.dbt', 'target_path': 'None', 'introspect': 'True', 'log_path': '/Users/jack/Repos/apnea-predictor/logs', 'static_parser': 'True', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'log_cache_events': 'False', 'debug': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'use_colors': 'True', 'write_json': 'True', 'cache_selected_only': 'False', 'empty': 'None', 'printer_width': '80', 'warn_error': 'None', 'log_format': 'default', 'fail_fast': 'False'}
+[0m18:37:38.482991 [info ] [MainThread]: dbt version: 1.11.2
+[0m18:37:38.483132 [info ] [MainThread]: python version: 3.13.9
+[0m18:37:38.483237 [info ] [MainThread]: python path: /opt/anaconda3/bin/python
+[0m18:37:38.483335 [info ] [MainThread]: os info: macOS-26.2-arm64-arm-64bit-Mach-O
+[0m18:37:38.500484 [info ] [MainThread]: Using profiles dir at /Users/jack/.dbt
+[0m18:37:38.500639 [info ] [MainThread]: Using profiles.yml file at /Users/jack/.dbt/profiles.yml
+[0m18:37:38.500744 [info ] [MainThread]: Using dbt_project.yml file at /Users/jack/Repos/apnea-predictor/dbt_project.yml
+[0m18:37:38.500910 [info ] [MainThread]: adapter type: postgres
+[0m18:37:38.501010 [info ] [MainThread]: adapter version: 1.10.0
+[0m18:37:38.518388 [info ] [MainThread]: Configuration:
+[0m18:37:38.518544 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:37:38.518654 [info ] [MainThread]:   dbt_project.yml file [[31mERROR invalid[0m]
+[0m18:37:38.518757 [info ] [MainThread]: Required dependencies:
+[0m18:37:38.518899 [debug] [MainThread]: Executing "git --help"
+[0m18:37:38.528460 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:37:38.528834 [debug] [MainThread]: STDERR: "b''"
+[0m18:37:38.528953 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:37:38.529072 [info ] [MainThread]: Connection:
+[0m18:37:38.529201 [info ] [MainThread]:   host: aws-1-us-east-2.pooler.supabase.com
+[0m18:37:38.529302 [info ] [MainThread]:   port: 5432
+[0m18:37:38.529398 [info ] [MainThread]:   user: postgres.zbeqyvazewwuoxgmlrav
+[0m18:37:38.529495 [info ] [MainThread]:   database: postgres
+[0m18:37:38.529588 [info ] [MainThread]:   schema: public
+[0m18:37:38.529684 [info ] [MainThread]:   connect_timeout: 10
+[0m18:37:38.529779 [info ] [MainThread]:   role: None
+[0m18:37:38.529872 [info ] [MainThread]:   search_path: None
+[0m18:37:38.529963 [info ] [MainThread]:   keepalives_idle: 0
+[0m18:37:38.530053 [info ] [MainThread]:   sslmode: None
+[0m18:37:38.530146 [info ] [MainThread]:   sslcert: None
+[0m18:37:38.530237 [info ] [MainThread]:   sslkey: None
+[0m18:37:38.530330 [info ] [MainThread]:   sslrootcert: None
+[0m18:37:38.530419 [info ] [MainThread]:   application_name: dbt
+[0m18:37:38.530513 [info ] [MainThread]:   retries: 1
+[0m18:37:38.530755 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m18:37:38.554159 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m18:37:38.572795 [debug] [MainThread]: Using postgres connection "debug"
+[0m18:37:38.572956 [debug] [MainThread]: On debug: select 1 as id
+[0m18:37:38.573064 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:37:39.106872 [debug] [MainThread]: SQL status: SELECT 1 in 0.533 seconds
+[0m18:37:39.109471 [debug] [MainThread]: On debug: Close
+[0m18:37:39.110309 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m18:37:39.110725 [info ] [MainThread]: [31m1 check failed:[0m
+[0m18:37:39.110971 [info ] [MainThread]: Project loading failed for the following reason:
+Runtime Error
+  at path ['name']: 'apnea-predictor' does not match '^[^\\d\\W]\\w*$'
+
+Error encountered in /Users/jack/Repos/apnea-predictor/dbt_project.yml
+
+
+[0m18:37:39.114325 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.6606596, "process_in_blocks": "0", "process_kernel_time": 0.117187, "process_mem_max_rss": "141148160", "process_out_blocks": "0", "process_user_time": 0.530027}
+[0m18:37:39.114887 [debug] [MainThread]: Command `dbt debug` failed at 18:37:39.114779 after 0.66 seconds
+[0m18:37:39.115249 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m18:37:39.115584 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108111350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107926f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1073a4270>]}
+[0m18:37:39.116183 [debug] [MainThread]: Flushing usage events
+[0m18:37:39.442772 [debug] [MainThread]: An error was encountered while trying to flush usage events
+==================== 2026-01-22T02:38:35.678793Z | 019be391-669e-7700-80b0-8266edef0e92 ====================
+==================== 2026-01-22T02:38:37.133467Z | 019be391-6c4c-7c02-82a2-00823997447d ====================
+02:38:37.133551 [info ]: dbt-fusion 2.0.0-preview.96
+02:38:37.133628 [info ]: Started loading project
+02:38:37.135102 [info ]: Loading ~/.dbt/profiles.yml
+02:38:37.135444 [info ]: Finished loading project [  0.00s]
+02:38:37.135488 [info ]: Started debugging
+02:38:37.135509 [info ]: Debugging profile: dev
+02:38:37.135523 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:38:37.135531 [info ]: Debugging platform: macos aarch64 (unix)
+02:38:37.135541 [info ]: Debugging adapter type: postgres (remote)
+02:38:37.145947 [info ]: Debugging dependencies:
+  git: OK
+02:38:37.146009 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:38:37.312825 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [1.6s]
+[0m18:38:48.473040 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10572a900>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110c4bc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110c4bed0>]}
+
+
+============================== 18:38:48.475038 | 330ccdc3-6b6d-4479-ac82-7c4d8ba801cf ==============================
+[0m18:38:48.475038 [info ] [MainThread]: Running with dbt=1.11.2
+[0m18:38:48.475302 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'empty': 'None', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'no_print': 'None', 'use_colors': 'True', 'fail_fast': 'False', 'log_cache_events': 'False', 'log_path': '/Users/jack/Repos/apnea-predictor/logs', 'warn_error': 'None', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt debug', 'partial_parse': 'True', 'quiet': 'False', 'cache_selected_only': 'False', 'printer_width': '80', 'use_experimental_parser': 'False', 'write_json': 'True', 'version_check': 'True', 'profiles_dir': '/Users/jack/.dbt', 'static_parser': 'True', 'log_format': 'default', 'debug': 'False'}
+[0m18:38:48.479437 [info ] [MainThread]: dbt version: 1.11.2
+[0m18:38:48.479605 [info ] [MainThread]: python version: 3.13.9
+[0m18:38:48.479717 [info ] [MainThread]: python path: /opt/anaconda3/bin/python
+[0m18:38:48.479820 [info ] [MainThread]: os info: macOS-26.2-arm64-arm-64bit-Mach-O
+[0m18:38:48.498492 [info ] [MainThread]: Using profiles dir at /Users/jack/.dbt
+[0m18:38:48.498685 [info ] [MainThread]: Using profiles.yml file at /Users/jack/.dbt/profiles.yml
+[0m18:38:48.498799 [info ] [MainThread]: Using dbt_project.yml file at /Users/jack/Repos/apnea-predictor/dbt_project.yml
+[0m18:38:48.498981 [info ] [MainThread]: adapter type: postgres
+[0m18:38:48.499085 [info ] [MainThread]: adapter version: 1.10.0
+[0m18:38:48.530975 [info ] [MainThread]: Configuration:
+[0m18:38:48.531195 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:38:48.531312 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m18:38:48.531416 [info ] [MainThread]: Required dependencies:
+[0m18:38:48.531582 [debug] [MainThread]: Executing "git --help"
+[0m18:38:48.542526 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:38:48.542980 [debug] [MainThread]: STDERR: "b''"
+[0m18:38:48.543104 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:38:48.543241 [info ] [MainThread]: Connection:
+[0m18:38:48.543369 [info ] [MainThread]:   host: aws-1-us-east-2.pooler.supabase.com
+[0m18:38:48.543467 [info ] [MainThread]:   port: 5432
+[0m18:38:48.543565 [info ] [MainThread]:   user: postgres.zbeqyvazewwuoxgmlrav
+[0m18:38:48.543661 [info ] [MainThread]:   database: postgres
+[0m18:38:48.543755 [info ] [MainThread]:   schema: public
+[0m18:38:48.543851 [info ] [MainThread]:   connect_timeout: 10
+[0m18:38:48.543944 [info ] [MainThread]:   role: None
+[0m18:38:48.544037 [info ] [MainThread]:   search_path: None
+[0m18:38:48.544143 [info ] [MainThread]:   keepalives_idle: 0
+[0m18:38:48.544238 [info ] [MainThread]:   sslmode: None
+[0m18:38:48.544329 [info ] [MainThread]:   sslcert: None
+[0m18:38:48.544421 [info ] [MainThread]:   sslkey: None
+[0m18:38:48.544513 [info ] [MainThread]:   sslrootcert: None
+[0m18:38:48.544603 [info ] [MainThread]:   application_name: dbt
+[0m18:38:48.544697 [info ] [MainThread]:   retries: 1
+[0m18:38:48.544964 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m18:38:48.569728 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m18:38:48.590390 [debug] [MainThread]: Using postgres connection "debug"
+[0m18:38:48.590568 [debug] [MainThread]: On debug: select 1 as id
+[0m18:38:48.590682 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:38:49.152590 [debug] [MainThread]: SQL status: SELECT 1 in 0.561 seconds
+[0m18:38:49.155586 [debug] [MainThread]: On debug: Close
+[0m18:38:49.156769 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m18:38:49.157245 [info ] [MainThread]: [32mAll checks passed![0m
+[0m18:38:49.161343 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.7132546, "process_in_blocks": "0", "process_kernel_time": 0.128543, "process_mem_max_rss": "142917632", "process_out_blocks": "0", "process_user_time": 0.557208}
+[0m18:38:49.162002 [debug] [MainThread]: Command `dbt debug` succeeded at 18:38:49.161881 after 0.71 seconds
+[0m18:38:49.162328 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m18:38:49.162728 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1029622c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1051ed370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x110d749e0>]}
+[0m18:38:49.163137 [debug] [MainThread]: Flushing usage events
+[0m18:38:49.500915 [debug] [MainThread]: An error was encountered while trying to flush usage events
+==================== 2026-01-22T02:42:25.420099Z | 019be394-e80b-7e13-b769-258d7dd7dddf ====================
+==================== 2026-01-22T02:42:34.000253Z | 019be395-098f-7400-adb5-f1d6d854c69f ====================
+02:42:34.000355 [info ]: dbt-fusion 2.0.0-preview.96
+02:42:34.000452 [info ]: Started loading project
+02:42:34.002052 [info ]: Loading ~/.dbt/profiles.yml
+02:42:34.002450 [info ]: Finished loading project [  0.00s]
+02:42:34.002498 [info ]: Started debugging
+02:42:34.002519 [info ]: Debugging profile: dev
+02:42:34.002533 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:42:34.002543 [info ]: Debugging platform: macos aarch64 (unix)
+02:42:34.002554 [info ]: Debugging adapter type: postgres (remote)
+02:42:34.014456 [info ]: Debugging dependencies:
+  git: OK
+02:42:34.014529 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:42:34.159975 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [8.7s]
+[0m18:43:04.990821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103936900>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f5bc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f5bed0>]}
+
+
+============================== 18:43:04.992739 | 0b9cd320-36b8-4e65-b2e0-0b08308442bb ==============================
+[0m18:43:04.992739 [info ] [MainThread]: Running with dbt=1.11.2
+[0m18:43:04.992981 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'profiles_dir': '/Users/jack/.dbt', 'introspect': 'True', 'debug': 'False', 'partial_parse': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'log_path': '/Users/jack/Repos/apnea-predictor/logs', 'write_json': 'True', 'empty': 'None', 'invocation_command': 'dbt debug', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'target_path': 'None', 'no_print': 'None', 'use_colors': 'True', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'printer_width': '80', 'warn_error': 'None', 'quiet': 'False', 'static_parser': 'True', 'log_format': 'default'}
+[0m18:43:04.996567 [info ] [MainThread]: dbt version: 1.11.2
+[0m18:43:04.996716 [info ] [MainThread]: python version: 3.13.9
+[0m18:43:04.996827 [info ] [MainThread]: python path: /opt/anaconda3/bin/python
+[0m18:43:04.996928 [info ] [MainThread]: os info: macOS-26.2-arm64-arm-64bit-Mach-O
+[0m18:43:05.014521 [info ] [MainThread]: Using profiles dir at /Users/jack/.dbt
+[0m18:43:05.014687 [info ] [MainThread]: Using profiles.yml file at /Users/jack/.dbt/profiles.yml
+[0m18:43:05.014802 [info ] [MainThread]: Using dbt_project.yml file at /Users/jack/Repos/apnea-predictor/dbt_project.yml
+[0m18:43:05.014978 [info ] [MainThread]: adapter type: postgres
+[0m18:43:05.015079 [info ] [MainThread]: adapter version: 1.10.0
+[0m18:43:05.044780 [info ] [MainThread]: Configuration:
+[0m18:43:05.044994 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:43:05.045109 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m18:43:05.045211 [info ] [MainThread]: Required dependencies:
+[0m18:43:05.045369 [debug] [MainThread]: Executing "git --help"
+[0m18:43:05.054756 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:43:05.055101 [debug] [MainThread]: STDERR: "b''"
+[0m18:43:05.055212 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:43:05.055332 [info ] [MainThread]: Connection:
+[0m18:43:05.055453 [info ] [MainThread]:   host: aws-1-us-east-2.pooler.supabase.com
+[0m18:43:05.055548 [info ] [MainThread]:   port: 5432
+[0m18:43:05.055647 [info ] [MainThread]:   user: postgres.zbeqyvazewwuoxgmlrav
+[0m18:43:05.055742 [info ] [MainThread]:   database: postgres
+[0m18:43:05.055836 [info ] [MainThread]:   schema: public
+[0m18:43:05.055929 [info ] [MainThread]:   connect_timeout: 10
+[0m18:43:05.056021 [info ] [MainThread]:   role: None
+[0m18:43:05.056115 [info ] [MainThread]:   search_path: None
+[0m18:43:05.056207 [info ] [MainThread]:   keepalives_idle: 0
+[0m18:43:05.056298 [info ] [MainThread]:   sslmode: None
+[0m18:43:05.056393 [info ] [MainThread]:   sslcert: None
+[0m18:43:05.056489 [info ] [MainThread]:   sslkey: None
+[0m18:43:05.056580 [info ] [MainThread]:   sslrootcert: None
+[0m18:43:05.056673 [info ] [MainThread]:   application_name: dbt
+[0m18:43:05.056763 [info ] [MainThread]:   retries: 1
+[0m18:43:05.056993 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m18:43:05.081019 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m18:43:05.102121 [debug] [MainThread]: Using postgres connection "debug"
+[0m18:43:05.102351 [debug] [MainThread]: On debug: select 1 as id
+[0m18:43:05.102478 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:43:05.843894 [debug] [MainThread]: SQL status: SELECT 1 in 0.741 seconds
+[0m18:43:05.847086 [debug] [MainThread]: On debug: Close
+[0m18:43:05.848336 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m18:43:05.848806 [info ] [MainThread]: [32mAll checks passed![0m
+[0m18:43:05.853694 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.8870097, "process_in_blocks": "0", "process_kernel_time": 0.12058, "process_mem_max_rss": "142721024", "process_out_blocks": "0", "process_user_time": 0.546937}
+[0m18:43:05.854384 [debug] [MainThread]: Command `dbt debug` succeeded at 18:43:05.854268 after 0.89 seconds
+[0m18:43:05.854719 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m18:43:05.855065 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x100b662c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1033f9370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1050889e0>]}
+[0m18:43:05.855467 [debug] [MainThread]: Flushing usage events
+[0m18:43:06.206692 [debug] [MainThread]: An error was encountered while trying to flush usage events
+==================== 2026-01-22T02:45:05.034257Z | 019be397-5789-7a92-93b2-c7c6202e2c7b ====================
+==================== 2026-01-22T02:45:12.373423Z | 019be397-7434-7c62-9196-6c611272c9ad ====================
+02:45:12.373517 [info ]: dbt-fusion 2.0.0-preview.96
+02:45:12.373601 [info ]: Started loading project
+02:45:12.375350 [info ]: Loading ~/.dbt/profiles.yml
+02:45:12.375732 [info ]: Finished loading project [  0.00s]
+02:45:12.375779 [info ]: Started debugging
+02:45:12.375802 [info ]: Debugging profile: dev
+02:45:12.375816 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:45:12.375827 [info ]: Debugging platform: macos aarch64 (unix)
+02:45:12.375838 [info ]: Debugging adapter type: postgres (remote)
+02:45:12.387050 [info ]: Debugging dependencies:
+  git: OK
+02:45:12.387120 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:45:12.524989 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [7.5s]
+==================== 2026-01-22T02:47:22.241984Z | 019be399-6f7a-7b90-a7d9-76459d94ea3f ====================
+==================== 2026-01-22T02:47:23.987157Z | 019be399-7651-7732-8ce0-23ffaa29dfc1 ====================
+02:47:23.989064 [info ]: dbt-fusion 2.0.0-preview.96
+02:47:23.991413 [info ]: Started loading project
+02:47:24.005652 [info ]: Loading ~/.dbt/profiles.yml
+02:47:24.012259 [info ]: Finished loading project [  0.02s]
+02:47:24.013150 [info ]: Started debugging
+02:47:24.013207 [info ]: Debugging profile: dev
+02:47:24.013228 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:47:24.013235 [info ]: Debugging platform: macos aarch64 (unix)
+02:47:24.013385 [info ]: Debugging adapter type: postgres (remote)
+02:47:24.023947 [info ]: Debugging dependencies:
+  git: OK
+02:47:24.025330 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:47:24.162370 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [1.9s]
+==================== 2026-01-22T02:48:25.991621Z | 019be39a-687f-78a2-8537-95d0c5b27873 ====================
+==================== 2026-01-22T02:48:28.733134Z | 019be39a-733c-7872-8874-51d7d902e9ed ====================
+02:48:28.734261 [info ]: dbt-fusion 2.0.0-preview.96
+02:48:28.736230 [info ]: Started loading project
+02:48:28.749148 [info ]: Loading ~/.dbt/profiles.yml
+02:48:28.755013 [info ]: Finished loading project [  0.02s]
+02:48:28.755799 [info ]: Started debugging
+02:48:28.755855 [info ]: Debugging profile: dev
+02:48:28.755870 [info ]: Debugging dbt version: 2.0.0-preview.96
+02:48:28.755878 [info ]: Debugging platform: macos aarch64 (unix)
+02:48:28.756159 [info ]: Debugging adapter type: postgres (remote)
+02:48:28.766087 [info ]: Debugging dependencies:
+  git: OK
+02:48:28.767498 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+02:48:28.908023 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [2.9s]
+==================== 2026-01-22T02:51:36.370458Z | 019be39d-5031-76a0-884f-46b26a849261 ====================
+02:51:36.370521 [info ]: dbt-fusion 2.0.0-preview.96
+02:51:36.370812 [info ]: Started loading project
+02:51:36.371925 [info ]: Loading ~/.dbt/profiles.yml
+02:51:36.489133 [debug]:    Started loading packages
+02:51:36.491984 [debug]:     Loaded [  0.00s] packages
+02:51:36.491998 [debug]:    Started loading internal packages
+02:51:36.494387 [debug]:     Loaded [  0.00s] internal packages
+02:51:36.495244 [info ]: Finished loading project [  0.12s]
+02:51:36.496791 [info ]: Started parsing
+02:51:36.524966 [info ]: Finished parsing [  0.03s]
+02:51:36.534022 [info ]: Started scheduling
+02:51:36.534737 [info ]: Finished scheduling [  0.00s]
+02:51:36.536088 [info ]: Started deferring state
+02:51:36.536100 [info ]: Finished deferring state [  0.00s]
+02:51:36.548283 [info ]: Started downloading schemas
+02:51:36.548557 [debug]: Started downloading relations
+02:51:36.549389 [debug]: Finished downloading relations [  0.00s]
+02:51:36.549414 [info ]: Finished downloading schemas [  0.00s]
+02:51:36.589037 [info ]: Started building task graph
+02:51:36.590286 [info ]: Finished building task graph [  0.00s]
+==================== 2026-01-22T02:51:51.614971Z | 019be39d-8bbe-7513-9b13-f8174a9e48b7 ====================
+==================== 2026-01-22T02:59:41.768833Z | 019be3a4-b847-7a23-9897-164f65476870 ====================
+02:59:41.768921 [info ]: dbt-fusion 2.0.0-preview.96
+02:59:41.769022 [info ]: Started loading project
+02:59:41.770314 [info ]: Finished loading project [  0.00s]
+02:59:41.771511 [error]: dbt1013: YAML error: deserializing from YAML containing more than one document is not supported
+  --> dbt_project.yml
+02:59:42.035445 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' with 1 error [266ms]
+02:59:42.117064 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [7m 51s]
+==================== 2026-01-22T03:05:07.917250Z | 019be3a9-b244-7911-928c-082cd31da2f4 ====================
+==================== 2026-01-22T03:05:09.713945Z | 019be3a9-b951-79e1-9ca2-e819656b8412 ====================
+03:05:09.715289 [info ]: dbt-fusion 2.0.0-preview.96
+03:05:09.717389 [info ]: Started loading project
+03:05:09.732604 [info ]: Loading ~/.dbt/profiles.yml
+03:05:09.739540 [info ]: Finished loading project [  0.02s]
+03:05:09.740475 [info ]: Started debugging
+03:05:09.740523 [info ]: Debugging profile: dev
+03:05:09.740540 [info ]: Debugging dbt version: 2.0.0-preview.96
+03:05:09.740546 [info ]: Debugging platform: macos aarch64 (unix)
+03:05:09.740719 [info ]: Debugging adapter type: postgres (remote)
+03:05:09.750282 [info ]: Debugging dependencies:
+  git: OK
+03:05:09.751822 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+03:05:09.890914 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [2.0s]
+[0m19:06:02.093225 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1071f2900>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a04bc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a04bed0>]}
+
+
+============================== 19:06:02.095752 | d0b25222-6645-49c1-ac2e-e97d7f5b0378 ==============================
+[0m19:06:02.095752 [info ] [MainThread]: Running with dbt=1.11.2
+[0m19:06:02.095998 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'log_path': '/Users/jack/Repos/apnea-predictor/logs', 'debug': 'False', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'invocation_command': 'dbt init', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'no_print': 'None', 'introspect': 'True', 'indirect_selection': 'eager', 'log_format': 'default', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'static_parser': 'True', 'profiles_dir': '/Users/jack/.dbt', 'printer_width': '80', 'warn_error': 'None', 'quiet': 'False', 'target_path': 'None', 'partial_parse': 'True', 'use_colors': 'True'}
+[0m19:06:02.103387 [info ] [MainThread]: Setting up your profile.
+[0m19:07:12.178841 [info ] [MainThread]: Profile apnea-predictor written to /Users/jack/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m19:07:12.183219 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 70.11876, "process_in_blocks": "0", "process_kernel_time": 0.131827, "process_mem_max_rss": "124502016", "process_out_blocks": "0", "process_user_time": 0.490322}
+[0m19:07:12.183864 [debug] [MainThread]: Command `dbt init` succeeded at 19:07:12.183742 after 70.12 seconds
+[0m19:07:12.184331 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a0d7490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107265eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a0cb9b0>]}
+[0m19:07:12.184742 [debug] [MainThread]: Flushing usage events
+[0m19:07:12.526189 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:07:20.000371 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107d76900>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11314bc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11314bed0>]}
+
+
+============================== 19:07:20.002238 | ed5ba06f-3845-4b6a-898f-63a1f8eb0fc1 ==============================
+[0m19:07:20.002238 [info ] [MainThread]: Running with dbt=1.11.2
+[0m19:07:20.002469 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/jack/.dbt', 'no_print': 'None', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'log_format': 'default', 'use_colors': 'True', 'warn_error': 'None', 'log_path': '/Users/jack/Repos/apnea-predictor/logs', 'introspect': 'True', 'fail_fast': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'printer_width': '80', 'debug': 'False', 'write_json': 'True', 'quiet': 'False', 'target_path': 'None', 'static_parser': 'True', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt debug', 'version_check': 'True'}
+[0m19:07:20.006384 [info ] [MainThread]: dbt version: 1.11.2
+[0m19:07:20.006527 [info ] [MainThread]: python version: 3.13.9
+[0m19:07:20.006633 [info ] [MainThread]: python path: /opt/anaconda3/bin/python
+[0m19:07:20.006726 [info ] [MainThread]: os info: macOS-26.2-arm64-arm-64bit-Mach-O
+[0m19:07:20.023599 [info ] [MainThread]: Using profiles dir at /Users/jack/.dbt
+[0m19:07:20.023753 [info ] [MainThread]: Using profiles.yml file at /Users/jack/.dbt/profiles.yml
+[0m19:07:20.023862 [info ] [MainThread]: Using dbt_project.yml file at /Users/jack/Repos/apnea-predictor/dbt_project.yml
+[0m19:07:20.024221 [info ] [MainThread]: adapter type: postgres
+[0m19:07:20.024323 [info ] [MainThread]: adapter version: 1.10.0
+[0m19:07:20.053546 [info ] [MainThread]: Configuration:
+[0m19:07:20.053747 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m19:07:20.053857 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m19:07:20.053957 [info ] [MainThread]: Required dependencies:
+[0m19:07:20.054113 [debug] [MainThread]: Executing "git --help"
+[0m19:07:20.063321 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m19:07:20.063644 [debug] [MainThread]: STDERR: "b''"
+[0m19:07:20.063746 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m19:07:20.063856 [info ] [MainThread]: Connection:
+[0m19:07:20.063980 [info ] [MainThread]:   host: aws-1-us-east-2.pooler.supabase.com
+[0m19:07:20.064075 [info ] [MainThread]:   port: 5432
+[0m19:07:20.064167 [info ] [MainThread]:   user: postgres.zbeqyvazewwuoxgmlrav
+[0m19:07:20.064259 [info ] [MainThread]:   database: postgres
+[0m19:07:20.064348 [info ] [MainThread]:   schema: public
+[0m19:07:20.064441 [info ] [MainThread]:   connect_timeout: 10
+[0m19:07:20.064531 [info ] [MainThread]:   role: None
+[0m19:07:20.064622 [info ] [MainThread]:   search_path: None
+[0m19:07:20.064713 [info ] [MainThread]:   keepalives_idle: 0
+[0m19:07:20.064795 [info ] [MainThread]:   sslmode: None
+[0m19:07:20.064885 [info ] [MainThread]:   sslcert: None
+[0m19:07:20.064973 [info ] [MainThread]:   sslkey: None
+[0m19:07:20.065062 [info ] [MainThread]:   sslrootcert: None
+[0m19:07:20.065154 [info ] [MainThread]:   application_name: dbt
+[0m19:07:20.065241 [info ] [MainThread]:   retries: 1
+[0m19:07:20.065462 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m19:07:20.092152 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m19:07:20.136278 [debug] [MainThread]: Using postgres connection "debug"
+[0m19:07:20.136465 [debug] [MainThread]: On debug: select 1 as id
+[0m19:07:20.136572 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m19:07:20.774758 [debug] [MainThread]: SQL status: SELECT 1 in 0.638 seconds
+[0m19:07:20.777630 [debug] [MainThread]: On debug: Close
+[0m19:07:20.779332 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m19:07:20.779980 [info ] [MainThread]: [32mAll checks passed![0m
+[0m19:07:20.784165 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.80639184, "process_in_blocks": "0", "process_kernel_time": 0.11723, "process_mem_max_rss": "142131200", "process_out_blocks": "0", "process_user_time": 0.541428}
+[0m19:07:20.784908 [debug] [MainThread]: Command `dbt debug` succeeded at 19:07:20.784771 after 0.81 seconds
+[0m19:07:20.785292 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m19:07:20.785696 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1049462c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107679370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1132749e0>]}
+[0m19:07:20.786158 [debug] [MainThread]: Flushing usage events
+[0m19:07:21.109451 [debug] [MainThread]: An error was encountered while trying to flush usage events
+==================== 2026-01-22T03:07:50.021429Z | 019be3ac-2b7c-78e2-b78f-c6bb41e128fe ====================
+==================== 2026-01-22T03:08:03.488664Z | 019be3ac-601f-73d1-ae41-60a954c96eec ====================
+03:08:03.490305 [info ]: dbt-fusion 2.0.0-preview.96
+03:08:03.492478 [info ]: Started loading project
+03:08:03.507241 [info ]: Loading ~/.dbt/profiles.yml
+03:08:03.514133 [info ]: Finished loading project [  0.02s]
+03:08:03.515046 [info ]: Started debugging
+03:08:03.515093 [info ]: Debugging profile: dev
+03:08:03.515114 [info ]: Debugging dbt version: 2.0.0-preview.96
+03:08:03.515124 [info ]: Debugging platform: macos aarch64 (unix)
+03:08:03.515300 [info ]: Debugging adapter type: postgres (remote)
+03:08:03.525519 [info ]: Debugging dependencies:
+  git: OK
+03:08:03.527031 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+03:08:03.531294 [info ]: Finished debugging [  0.02s]
+03:08:03.532051 [error]: dbt1011: Serde YAML Error: missing field `password`
+03:08:03.960803 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' with 1 error for target 'dev' [472ms]
+03:08:04.044245 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [14.0s]
+==================== 2026-01-22T03:08:59.587170Z | 019be3ad-3b42-7712-bfaf-cefd32b24b7c ====================
+==================== 2026-01-22T03:09:01.177201Z | 019be3ad-4178-7e82-aa73-7999c8d59bf5 ====================
+03:09:01.177284 [info ]: dbt-fusion 2.0.0-preview.96
+03:09:01.177366 [info ]: Started loading project
+03:09:01.178897 [info ]: Loading ~/.dbt/profiles.yml
+03:09:01.179248 [info ]: Finished loading project [  0.00s]
+03:09:01.179286 [info ]: Started debugging
+03:09:01.179307 [info ]: Debugging profile: dev
+03:09:01.179323 [info ]: Debugging dbt version: 2.0.0-preview.96
+03:09:01.179332 [info ]: Debugging platform: macos aarch64 (unix)
+03:09:01.179344 [info ]: Debugging adapter type: postgres (remote)
+03:09:01.190146 [info ]: Debugging dependencies:
+  git: OK
+03:09:01.190201 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+03:09:01.330349 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [1.7s]
+==================== 2026-01-22T03:10:45.904342Z | 019be3ae-da8f-79e1-90c1-5da5e3720381 ====================
+==================== 2026-01-22T03:10:48.991749Z | 019be3ae-e69e-7732-89d7-fa2e9be85230 ====================
+03:10:48.991837 [info ]: dbt-fusion 2.0.0-preview.96
+03:10:48.991918 [info ]: Started loading project
+03:10:48.993509 [info ]: Loading ~/.dbt/profiles.yml
+03:10:48.993888 [info ]: Finished loading project [  0.00s]
+03:10:48.993929 [info ]: Started debugging
+03:10:48.993952 [info ]: Debugging profile: dev
+03:10:48.993967 [info ]: Debugging dbt version: 2.0.0-preview.96
+03:10:48.993976 [info ]: Debugging platform: macos aarch64 (unix)
+03:10:48.993987 [info ]: Debugging adapter type: postgres (remote)
+03:10:49.005181 [info ]: Debugging dependencies:
+  git: OK
+03:10:49.005249 [info ]: Debugging connection:
+  "port": 5432,
+  "database": "postgres",
+  "schema": "public",
+  "host": "aws-1-us-east-2.pooler.supabase.com",
+  "user": "postgres.zbeqyvazewwuoxgmlrav"
+03:10:49.143488 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [3.2s]
+==================== 2026-01-22T03:37:21.804321Z | 019be3c7-348b-7d32-b8bf-7eb6eb086303 ====================
+==================== 2026-01-22T03:37:25.594037Z | 019be3c7-4359-7a81-8286-f45d1fb68d53 ====================
+03:37:25.595424 [info ]: dbt-fusion 2.0.0-preview.96
+03:37:25.597752 [info ]: Started loading project
+03:37:25.612364 [info ]: Loading ~/.dbt/profiles.yml
+03:37:25.619026 [info ]: Finished loading project [  0.02s]
+03:37:25.619997 [info ]: Started debugging
+03:37:25.620050 [info ]: Debugging profile: dev
+03:37:25.620070 [info ]: Debugging dbt version: 2.0.0-preview.96
+03:37:25.620080 [info ]: Debugging platform: macos aarch64 (unix)
+03:37:25.620247 [info ]: Debugging adapter type: databricks (remote)
+03:37:25.629695 [info ]: Debugging dependencies:
+  git: OK
+03:37:25.631407 [info ]: Debugging connection:
+  "schema": "default",
+  "host": "dbc-0b88690f-daa9.cloud.databricks.com",
+  "http_path": "/sql/1.0/warehouses/519c1717f32245a3"
+03:37:26.646998 [debug]: Query executed on node unknown:
+select 1 as id
+03:37:26.648798 [info ]: Debugging connection test: OK
+03:37:26.649556 [info ]: Debugged All checks passed!
+03:37:26.649596 [info ]: Finished debugging [  1.03s]
+03:37:26.849964 [info ]: 
+==================== Execution Summary =====================
+Finished 'debug' successfully for target 'dev' [1.3s]
+==================== 2026-01-22T03:37:32.335575Z | 019be3c7-5dae-7b52-82fa-76d0b5a74dd4 ====================
+03:37:32.335659 [info ]: dbt-fusion 2.0.0-preview.96
+03:37:32.335742 [info ]: Started loading project
+03:37:32.337269 [info ]: Loading ~/.dbt/profiles.yml
+03:37:32.446651 [debug]:    Started loading packages
+03:37:32.446884 [debug]:     Loaded [  0.00s] packages
+03:37:32.446896 [debug]:    Started loading internal packages
+03:37:32.449162 [debug]:     Loaded [  0.00s] internal packages
+03:37:32.449220 [info ]: Finished loading project [  0.11s]
+03:37:32.449394 [info ]: Started parsing
+03:37:32.464930 [info ]: Finished parsing [  0.02s]
+03:37:32.472460 [info ]: Started scheduling
+03:37:32.473217 [info ]: Finished scheduling [  0.00s]
+03:37:32.474988 [info ]: Started deferring state
+03:37:32.475005 [info ]: Finished deferring state [  0.00s]
+03:37:32.488457 [info ]: Started downloading schemas
+03:37:32.488883 [debug]: Started downloading relations
+03:37:32.489479 [debug]: Finished downloading relations [  0.00s]
+03:37:32.489500 [info ]: Finished downloading schemas [  0.00s]
+03:37:32.563496 [info ]: Started building task graph
+03:37:32.564954 [info ]: Finished building task graph [  0.00s]
+03:37:32.773884 [info ]: 
+==================== Execution Summary =====================
+Finished 'compile' successfully for target 'dev' [438ms]
+==================== 2026-01-22T03:37:34.078625Z | 019be3c7-647d-7521-be0a-70a934dbd22f ====================
+03:37:34.078707 [info ]: dbt-fusion 2.0.0-preview.96
+03:37:34.078787 [info ]: Started loading project
+03:37:34.080336 [info ]: Loading ~/.dbt/profiles.yml
+03:37:34.189743 [debug]:    Started loading packages
+03:37:34.189992 [debug]:     Loaded [  0.00s] packages
+03:37:34.190004 [debug]:    Started loading internal packages
+03:37:34.192227 [debug]:     Loaded [  0.00s] internal packages
+03:37:34.192276 [info ]: Finished loading project [  0.11s]
+03:37:34.192451 [info ]: Started parsing
+03:37:34.208105 [info ]: Finished parsing [  0.02s]
+03:37:34.215073 [info ]: Started scheduling
+03:37:34.215116 [info ]: Finished scheduling [  0.00s]
+03:37:34.215358 [info ]: Started deferring state
+03:37:34.215369 [info ]: Finished deferring state [  0.00s]
+03:37:34.215740 [info ]: Started downloading schemas
+03:37:34.215756 [debug]: Started downloading relations
+03:37:34.215781 [debug]: Finished downloading relations [  0.00s]
+03:37:34.215791 [info ]: Finished downloading schemas [  0.00s]
+03:37:34.287113 [info ]: Started building task graph
+03:37:34.287164 [info ]: Finished building task graph [  0.00s]
+03:37:35.038622 [info ]: 
+==================== Execution Summary =====================
+Finished 'compile' successfully for target 'dev' [959ms]
+03:37:35.145240 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully [13.3s]

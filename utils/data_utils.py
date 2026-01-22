@@ -1,10 +1,10 @@
-'''
+"""
 Docstring for python.functions
 This module contains various utility functions used throughout the project.
-'''
+"""
 
 import pandas as pd
-import numpy as np
+
 
 def add_multi_index(df, display_names):
     """
@@ -22,8 +22,8 @@ def add_multi_index(df, display_names):
         if col in display_names:
             new_columns.append((display_names[col], col))
         else:
-            new_columns.append(('', col))
-    
+            new_columns.append(("", col))
+
     df.columns = pd.MultiIndex.from_tuples(new_columns)
     return df
 
@@ -35,10 +35,10 @@ def inspect_structure(df):
     Parameters:
     df (pd.DataFrame): The input DataFrame.
     """
-    if not hasattr(df, 'name'):
-        df.name = 'DataFrame'
+    if not hasattr(df, "name"):
+        df.name = "DataFrame"
     print(f"Structure of {df.name}:")
-    print("Shape: ", df.shape[0], ' rows x ', df.shape[1], ' columns')
+    print("Shape: ", df.shape[0], " rows x ", df.shape[1], " columns")
     print(df.info())
 
 
@@ -49,7 +49,7 @@ def check_duplicates(datasets):
     datasets (dict): A dictionary where keys are dataset names and values are DataFrames.
     """
     if isinstance(datasets, pd.DataFrame):
-        datasets = {'Dataset': datasets}
+        datasets = {"Dataset": datasets}
 
     for name, df in datasets.items():
         print(f"\n {name} - Duplicate Rows Check:")
@@ -58,7 +58,7 @@ def check_duplicates(datasets):
         dup_count = dup_rows.sum()
         dup_percent = round((dup_count / total_rows) * 100, 2)
 
-        if dup_count > 0: 
+        if dup_count > 0:
             print(f"Found {dup_count} duplicate rows ({dup_percent}%)")
             print("Sample duplicates:\n", df[dup_rows].head())
         else:
@@ -68,12 +68,12 @@ def check_duplicates(datasets):
 def check_nulls(datasets):
     """
     Checks for null values in each DataFrame within the provided dictionary.
-    
+
     Parameters:
     datasets (dict): A dictionary where keys are dataset names and values are DataFrames.
     """
     if isinstance(datasets, pd.DataFrame):
-        datasets = {'Dataset': datasets}
+        datasets = {"Dataset": datasets}
 
     for name, df in datasets.items():
         print(f"\n {name} - Null Values Check:")
@@ -81,17 +81,17 @@ def check_nulls(datasets):
         null_counts = df.isnull().sum()
         null_percent = (null_counts / total_rows) * 100
 
-        null_summary = pd.DataFrame({
-            'Null Count': null_counts,
-            'Null Percentage': null_percent
-        })
+        null_summary = pd.DataFrame(
+            {"Null Count": null_counts, "Null Percentage": null_percent}
+        )
 
-        null_summary = null_summary[null_summary['Null Count'] > 0]
-        
+        null_summary = null_summary[null_summary["Null Count"] > 0]
+
         if not null_summary.empty:
             print(null_summary)
         else:
             print("No null values detected.")
+
 
 def flag_high_nulls(df, threshold=0.8, return_df=True):
     """
@@ -111,40 +111,45 @@ def flag_high_nulls(df, threshold=0.8, return_df=True):
 
     high_null_pct = null_percent[null_percent > threshold]
 
-
     if return_df:
-    
-        dict = {'Column Name': [],  'Column Description': [],
-                  'Null Percentage': [], 'Index': []}
-        
+        dict = {
+            "Column Name": [],
+            "Column Description": [],
+            "Null Percentage": [],
+            "Index": [],
+        }
+
         for i, col in enumerate(high_nulls):
             null_percentage = high_null_pct.iloc[i]
             index = high_nulls[i]
             name = index[1]
             desc = index[0]
-            dict['Column Name'].append(name)
-            dict['Column Description'].append(desc)
-            dict['Null Percentage'].append(null_percentage)
-            dict['Index'].append(index)
-        
-    
-        null_df = pd.DataFrame.from_dict(dict, orient='columns')
+            dict["Column Name"].append(name)
+            dict["Column Description"].append(desc)
+            dict["Null Percentage"].append(null_percentage)
+            dict["Index"].append(index)
+
+        null_df = pd.DataFrame.from_dict(dict, orient="columns")
 
         return null_df
     else:
-        print(f"Columns with more than {threshold*100}% null values: {high_nulls}")
+        print(f"Columns with more than {threshold * 100}% null values: {high_nulls}")
         return high_nulls
-    
-        
-def make_column_description_table(df, 
-                                  add_display_names=False, display_names=None, 
-                                  return_df=True, show_null_pct=False,
-                                  return_md=False, filepath=None
-                                  ):
+
+
+def make_column_description_table(
+    df,
+    add_display_names=False,
+    display_names=None,
+    return_df=True,
+    show_null_pct=False,
+    return_md=False,
+    filepath=None,
+):
     """
-    Creates a DataFrame describing the DataFrame columns, their display names, and data types. 
+    Creates a DataFrame describing the DataFrame columns, their display names, and data types.
     Mostly used for documentation purposes.
-    
+
     Parameters:
     df (pd.DataFrame): The input DataFrame.
     add_display_names (bool): If True, adds display names to the description table.
@@ -157,38 +162,44 @@ def make_column_description_table(df,
     Returns:
     pd.DataFrame or None: Description DataFrame if return_df is True, else None.
     """
-    
+
     if show_null_pct:
         total_rows = len(df)
         null_percent = (df.isnull().sum() / total_rows) * 100
-        df.loc['Null Percentage'] = null_percent
-        
-        data = {"Column Name": [], "Display Name": [], "Data Type": [], "Null Percentage": []}
-    else:
-         data = {"Column Name": [], "Display Name": [], "Data Type": []}
+        df.loc["Null Percentage"] = null_percent
 
-    
+        data = {
+            "Column Name": [],
+            "Display Name": [],
+            "Data Type": [],
+            "Null Percentage": [],
+        }
+    else:
+        data = {"Column Name": [], "Display Name": [], "Data Type": []}
+
     for col in df.columns:
-        data["Column Name"].append(col[1] if isinstance(col, tuple) else col) # for multi indexes
+        data["Column Name"].append(
+            col[1] if isinstance(col, tuple) else col
+        )  # for multi indexes
         if add_display_names:
-            if display_names is not None: 
-                if isinstance(display_names, pd.Index): # use pandas indexing
-                    display_name = display_names[df.columns.get_loc(col)] 
-                else: # not a pandas index
-                    display_name = display_names.get(col, "") 
+            if display_names is not None:
+                if isinstance(display_names, pd.Index):  # use pandas indexing
+                    display_name = display_names[df.columns.get_loc(col)]
+                else:  # not a pandas index
+                    display_name = display_names.get(col, "")
                 data["Display Name"].append(display_name)
             else:  # no display names provided
                 data["Display Name"].append("")
-        else: # not using display names
-            data["Display Name"].append("") 
+        else:  # not using display names
+            data["Display Name"].append("")
         data["Data Type"].append(str(df[col].dtype))
-        if show_null_pct: # if showing null percentage
+        if show_null_pct:  # if showing null percentage
             null_pct = round((df[col].isnull().sum() / len(df)) * 100, 2)
             null_pct = f"{null_pct}%"
             data["Null Percentage"].append(null_pct)
-    
+
     desc_df = pd.DataFrame(data)
-    
+
     if return_df:
         return desc_df
     else:
@@ -196,6 +207,21 @@ def make_column_description_table(df,
 
     if return_md and filepath:
         desc_df.to_markdown(filepath, index=False)
-        
 
 
+def strip_column_names(df):
+    """
+    Standardizes DataFrame column names by converting to lowercase and replacing/removing special characters.
+    Parameters:
+    df (pd.DataFrame): The input DataFrame.
+    Returns:
+    pd.DataFrame: DataFrame with standardized column names.
+    """
+    df.columns = df.columns.str.lower()
+    df.columns = df.columns.str.replace(" - ", "_")
+    df.columns = df.columns.str.replace("?", "")
+    df.columns = df.columns.str.replace(" ", "_")
+    df.columns = df.columns.str.replace("'", "")
+    df.columns = df.columns.str.replace(",", "")
+    df.columns = df.columns.str.replace(":", "")
+    return df

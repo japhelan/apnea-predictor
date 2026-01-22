@@ -1,0 +1,319 @@
+==================== 2026-01-22T02:11:14.548275Z | 509fe444-5438-4e8e-ad19-3b330073af42 ====================
+02:11:14.548499 [info ]: Starting dbt LSP server
+02:11:14.548547 [info ]: Connecting to LSP client on port 8001
+02:11:14.548767 [info ]: Successfully connected to LSP client
+02:11:14.548778 [info ]: Creating LSP service...
+02:11:14.583392 [info ]: Creating LSP server...
+02:11:14.583413 [info ]: Starting LSP server...
+02:11:14.592092 [info ]: Started loading project
+02:11:14.593026 [info ]: Finished loading project [  0.00s]
+02:16:01.591825 [info ]: Started loading project
+02:16:01.594197 [info ]: Loading ~/.dbt/profiles.yml
+02:16:01.719706 [info ]: Started parsing
+02:16:01.729742 [info ]: Finished loading project [  0.14s]
+02:16:01.732543 [info ]: Finished parsing [  0.01s]
+02:16:01.732706 [info ]: Cached model count updated: 0 models (estimate)
+02:16:01.732714 [info ]: Cached model count updated: 0 models (accurate)
+02:16:01.732814 [info ]: Started scheduling
+02:16:01.733009 [info ]: Finished scheduling [  0.00s]
+02:16:01.772374 [info ]: Started building task graph
+02:16:01.772530 [info ]: Finished building task graph [  0.00s]
+02:16:01.773873 [info ]: Cached model count updated: 0 models (accurate)
+02:16:02.131063 [info ]: Loading ~/.dbt/profiles.yml
+02:17:46.262796 [info ]: Started loading project
+02:17:46.263099 [info ]: Loading ~/.dbt/profiles.yml
+02:17:46.264776 [info ]: Started loading project
+02:17:46.264875 [info ]: Loading ~/.dbt/profiles.yml
+02:17:46.264893 [info ]: Finished loading project [  0.00s]
+02:17:46.387738 [info ]: Started parsing
+02:17:46.396653 [info ]: Finished loading project [  0.13s]
+02:17:46.397610 [info ]: Finished parsing [  0.01s]
+02:17:46.397659 [info ]: Cached model count updated: 0 models (estimate)
+02:17:46.397666 [info ]: Cached model count updated: 0 models (accurate)
+02:17:46.397678 [info ]: Started scheduling
+02:17:46.397691 [info ]: Finished scheduling [  0.00s]
+02:17:46.434234 [info ]: Started building task graph
+02:17:46.434256 [info ]: Finished building task graph [  0.00s]
+02:17:46.435405 [info ]: Cached model count updated: 0 models (accurate)
+02:17:46.701879 [info ]: Loading ~/.dbt/profiles.yml
+02:21:57.446068 [info ]: Started loading project
+02:21:57.446437 [info ]: Loading ~/.dbt/profiles.yml
+02:21:57.447530 [info ]: Started loading project
+02:21:57.447613 [info ]: Loading ~/.dbt/profiles.yml
+02:21:57.447692 [info ]: Finished loading project [  0.00s]
+02:21:57.570454 [info ]: Started parsing
+02:21:57.579093 [info ]: Finished loading project [  0.13s]
+02:21:57.580087 [info ]: Finished parsing [  0.01s]
+02:21:57.580142 [info ]: Cached model count updated: 0 models (estimate)
+02:21:57.580149 [info ]: Cached model count updated: 0 models (accurate)
+02:21:57.580162 [info ]: Started scheduling
+02:21:57.580176 [info ]: Finished scheduling [  0.00s]
+02:21:57.615405 [info ]: Started building task graph
+02:21:57.615428 [info ]: Finished building task graph [  0.00s]
+02:21:57.616589 [info ]: Cached model count updated: 0 models (accurate)
+02:21:57.906453 [info ]: Loading ~/.dbt/profiles.yml
+02:23:41.150568 [info ]: Started loading project
+02:23:41.150854 [info ]: Loading ~/.dbt/profiles.yml
+02:23:41.151868 [info ]: Started loading project
+02:23:41.151965 [info ]: Loading ~/.dbt/profiles.yml
+02:23:41.151983 [info ]: Finished loading project [  0.00s]
+02:23:41.273441 [info ]: Started parsing
+02:23:41.282438 [info ]: Finished loading project [  0.13s]
+02:23:41.283438 [info ]: Finished parsing [  0.01s]
+02:23:41.283494 [info ]: Cached model count updated: 0 models (estimate)
+02:23:41.283500 [info ]: Cached model count updated: 0 models (accurate)
+02:23:41.283514 [info ]: Started scheduling
+02:23:41.283527 [info ]: Finished scheduling [  0.00s]
+02:23:41.319325 [info ]: Started building task graph
+02:23:41.319347 [info ]: Finished building task graph [  0.00s]
+02:23:41.320678 [info ]: Cached model count updated: 0 models (accurate)
+02:23:41.587073 [info ]: Loading ~/.dbt/profiles.yml
+02:29:14.577433 [info ]: Started loading project
+02:29:14.577833 [info ]: Loading ~/.dbt/profiles.yml
+02:29:14.579165 [info ]: Started loading project
+02:29:14.579266 [info ]: Loading ~/.dbt/profiles.yml
+02:29:14.579284 [info ]: Finished loading project [  0.00s]
+02:29:14.701716 [info ]: Started parsing
+02:29:14.710357 [info ]: Finished loading project [  0.13s]
+02:29:14.711220 [info ]: Finished parsing [  0.01s]
+02:29:14.711282 [info ]: Cached model count updated: 0 models (estimate)
+02:29:14.711289 [info ]: Cached model count updated: 0 models (accurate)
+02:29:14.711298 [info ]: Started scheduling
+02:29:14.711312 [info ]: Finished scheduling [  0.00s]
+02:29:14.746878 [info ]: Started building task graph
+02:29:14.746906 [info ]: Finished building task graph [  0.00s]
+02:29:14.748261 [info ]: Cached model count updated: 0 models (accurate)
+02:29:15.046564 [info ]: Loading ~/.dbt/profiles.yml
+02:29:45.739728 [info ]: Started loading project
+02:29:45.740087 [info ]: Loading ~/.dbt/profiles.yml
+02:29:45.741410 [info ]: Started loading project
+02:29:45.741515 [info ]: Loading ~/.dbt/profiles.yml
+02:29:45.741547 [info ]: Finished loading project [  0.00s]
+02:29:45.862685 [info ]: Started parsing
+02:29:45.870976 [info ]: Finished loading project [  0.13s]
+02:29:45.871894 [info ]: Finished parsing [  0.01s]
+02:29:45.871959 [info ]: Cached model count updated: 0 models (estimate)
+02:29:45.871965 [info ]: Cached model count updated: 0 models (accurate)
+02:29:45.871973 [info ]: Started scheduling
+02:29:45.871985 [info ]: Finished scheduling [  0.00s]
+02:29:45.905604 [info ]: Started building task graph
+02:29:45.905627 [info ]: Finished building task graph [  0.00s]
+02:29:45.906686 [info ]: Cached model count updated: 0 models (accurate)
+02:29:46.212250 [info ]: Loading ~/.dbt/profiles.yml
+02:30:34.424004 [info ]: Started loading project
+02:30:34.424233 [info ]: Loading ~/.dbt/profiles.yml
+02:30:34.425110 [info ]: Started loading project
+02:30:34.425189 [info ]: Loading ~/.dbt/profiles.yml
+02:30:34.425214 [info ]: Finished loading project [  0.00s]
+02:30:34.540730 [info ]: Started parsing
+02:30:34.549445 [info ]: Finished loading project [  0.12s]
+02:30:34.550348 [info ]: Finished parsing [  0.01s]
+02:30:34.550417 [info ]: Cached model count updated: 0 models (estimate)
+02:30:34.550424 [info ]: Cached model count updated: 0 models (accurate)
+02:30:34.550433 [info ]: Started scheduling
+02:30:34.550444 [info ]: Finished scheduling [  0.00s]
+02:30:34.586732 [info ]: Started building task graph
+02:30:34.586755 [info ]: Finished building task graph [  0.00s]
+02:30:34.587849 [info ]: Cached model count updated: 0 models (accurate)
+02:30:34.891310 [info ]: Loading ~/.dbt/profiles.yml
+02:38:29.731971 [info ]: Started loading project
+02:38:29.732206 [info ]: Loading ~/.dbt/profiles.yml
+02:38:29.733209 [info ]: Started loading project
+02:38:29.733354 [info ]: Loading ~/.dbt/profiles.yml
+02:38:29.733376 [info ]: Finished loading project [  0.00s]
+02:38:29.853552 [info ]: Started parsing
+02:38:29.862034 [info ]: Finished loading project [  0.13s]
+02:38:29.862988 [info ]: Finished parsing [  0.01s]
+02:38:29.863046 [info ]: Cached model count updated: 0 models (estimate)
+02:38:29.863058 [info ]: Cached model count updated: 0 models (accurate)
+02:38:29.863067 [info ]: Started scheduling
+02:38:29.863079 [info ]: Finished scheduling [  0.00s]
+02:38:29.897641 [info ]: Started building task graph
+02:38:29.897666 [info ]: Finished building task graph [  0.00s]
+02:38:29.898982 [info ]: Cached model count updated: 0 models (accurate)
+02:38:30.208555 [info ]: Loading ~/.dbt/profiles.yml
+02:38:43.130058 [info ]: Started loading project
+02:38:43.130458 [info ]: Loading ~/.dbt/profiles.yml
+02:38:43.131827 [info ]: Started loading project
+02:38:43.131988 [info ]: Loading ~/.dbt/profiles.yml
+02:38:43.132018 [info ]: Finished loading project [  0.00s]
+02:38:43.257624 [info ]: Started parsing
+02:38:43.266011 [info ]: Finished loading project [  0.13s]
+02:38:43.267041 [info ]: Finished parsing [  0.01s]
+02:38:43.267090 [info ]: Cached model count updated: 0 models (estimate)
+02:38:43.267097 [info ]: Cached model count updated: 0 models (accurate)
+02:38:43.267104 [info ]: Started scheduling
+02:38:43.267115 [info ]: Finished scheduling [  0.00s]
+02:38:43.301939 [info ]: Started building task graph
+02:38:43.301967 [info ]: Finished building task graph [  0.00s]
+02:38:43.303148 [info ]: Cached model count updated: 0 models (accurate)
+02:38:43.601426 [info ]: Loading ~/.dbt/profiles.yml
+02:38:54.412795 [info ]: Started loading project
+02:38:54.413018 [info ]: Loading ~/.dbt/profiles.yml
+02:38:54.413845 [info ]: Started loading project
+02:38:54.413915 [info ]: Loading ~/.dbt/profiles.yml
+02:38:54.413938 [info ]: Finished loading project [  0.00s]
+02:38:54.528162 [info ]: Started parsing
+02:38:54.536377 [info ]: Finished loading project [  0.12s]
+02:38:54.537460 [info ]: Finished parsing [  0.01s]
+02:38:54.537513 [info ]: Cached model count updated: 0 models (estimate)
+02:38:54.537520 [info ]: Cached model count updated: 0 models (accurate)
+02:38:54.537528 [info ]: Started scheduling
+02:38:54.537539 [info ]: Finished scheduling [  0.00s]
+02:38:54.572876 [info ]: Started building task graph
+02:38:54.572900 [info ]: Finished building task graph [  0.00s]
+02:38:54.574177 [info ]: Cached model count updated: 0 models (accurate)
+02:38:54.842877 [info ]: Loading ~/.dbt/profiles.yml
+==================== 2026-01-22T02:47:36.281211Z | fce31c0e-6028-4204-9e20-a4e9b2344725 ====================
+02:47:36.281252 [info ]: Starting dbt LSP server
+02:47:36.281270 [info ]: Connecting to LSP client on port 8001
+02:47:36.281509 [info ]: Successfully connected to LSP client
+02:47:36.281522 [info ]: Creating LSP service...
+02:47:36.315095 [info ]: Creating LSP server...
+02:47:36.315106 [info ]: Starting LSP server...
+02:47:36.321744 [info ]: Started loading project
+02:47:36.322777 [info ]: Loading ~/.dbt/profiles.yml
+02:47:36.438642 [info ]: Started parsing
+02:47:36.447206 [info ]: Finished loading project [  0.13s]
+02:47:36.448463 [info ]: Finished parsing [  0.01s]
+02:47:36.448549 [info ]: Cached model count updated: 0 models (estimate)
+02:47:36.448557 [info ]: Cached model count updated: 0 models (accurate)
+02:47:36.448579 [info ]: Started scheduling
+02:47:36.448613 [info ]: Finished scheduling [  0.00s]
+02:47:36.483647 [info ]: Started building task graph
+02:47:36.483687 [info ]: Finished building task graph [  0.00s]
+02:47:36.484550 [info ]: Cached model count updated: 0 models (accurate)
+02:47:36.793872 [info ]: Loading ~/.dbt/profiles.yml
+==================== 2026-01-22T02:47:39.172811Z | c66bb90c-5f74-4cad-83b4-e648001495c1 ====================
+02:47:39.172847 [info ]: Starting dbt LSP server
+02:47:39.172863 [info ]: Connecting to LSP client on port 8001
+02:47:39.173052 [info ]: Successfully connected to LSP client
+02:47:39.173068 [info ]: Creating LSP service...
+02:47:39.206004 [info ]: Creating LSP server...
+02:47:39.206017 [info ]: Starting LSP server...
+02:47:39.212150 [info ]: Started loading project
+02:47:39.213196 [info ]: Loading ~/.dbt/profiles.yml
+02:47:39.329089 [info ]: Started parsing
+02:47:39.337690 [info ]: Finished loading project [  0.13s]
+02:47:39.338793 [info ]: Finished parsing [  0.01s]
+02:47:39.338869 [info ]: Cached model count updated: 0 models (estimate)
+02:47:39.338878 [info ]: Cached model count updated: 0 models (accurate)
+02:47:39.338901 [info ]: Started scheduling
+02:47:39.338934 [info ]: Finished scheduling [  0.00s]
+02:47:39.374092 [info ]: Started building task graph
+02:47:39.374132 [info ]: Finished building task graph [  0.00s]
+02:47:39.374906 [info ]: Cached model count updated: 0 models (accurate)
+02:47:39.680311 [info ]: Loading ~/.dbt/profiles.yml
+==================== 2026-01-22T02:47:40.571762Z | d3d49ccd-6c5c-4f24-bcc8-fb611086f214 ====================
+02:47:40.571801 [info ]: Starting dbt LSP server
+02:47:40.571817 [info ]: Connecting to LSP client on port 8001
+02:47:40.572011 [info ]: Successfully connected to LSP client
+02:47:40.572028 [info ]: Creating LSP service...
+02:47:40.605537 [info ]: Creating LSP server...
+02:47:40.605546 [info ]: Starting LSP server...
+02:47:40.611661 [info ]: Started loading project
+02:47:40.612721 [info ]: Loading ~/.dbt/profiles.yml
+02:47:40.728730 [info ]: Started parsing
+02:47:40.737398 [info ]: Finished loading project [  0.13s]
+02:47:40.738631 [info ]: Finished parsing [  0.01s]
+02:47:40.738709 [info ]: Cached model count updated: 0 models (estimate)
+02:47:40.738718 [info ]: Cached model count updated: 0 models (accurate)
+02:47:40.738745 [info ]: Started scheduling
+02:47:40.738780 [info ]: Finished scheduling [  0.00s]
+02:47:40.775156 [info ]: Started building task graph
+02:47:40.775194 [info ]: Finished building task graph [  0.00s]
+02:47:40.776108 [info ]: Cached model count updated: 0 models (accurate)
+02:47:41.035956 [info ]: Loading ~/.dbt/profiles.yml
+02:59:38.457689 [info ]: Started loading project
+02:59:38.458074 [info ]: Finished loading project [  0.00s]
+03:02:20.429046 [info ]: Started loading project
+03:02:20.429216 [info ]: Finished loading project [  0.00s]
+03:02:29.052903 [info ]: Started loading project
+03:02:29.052988 [info ]: Finished loading project [  0.00s]
+03:05:02.404867 [info ]: Started loading project
+03:05:02.405139 [info ]: Loading ~/.dbt/profiles.yml
+03:05:02.531385 [info ]: Started parsing
+03:05:02.541013 [info ]: Finished loading project [  0.14s]
+03:05:02.542148 [info ]: Finished parsing [  0.01s]
+03:05:02.542209 [info ]: Cached model count updated: 0 models (estimate)
+03:05:02.542216 [info ]: Cached model count updated: 0 models (accurate)
+03:05:02.542224 [info ]: Started scheduling
+03:05:02.542237 [info ]: Finished scheduling [  0.00s]
+03:05:02.578785 [info ]: Started building task graph
+03:05:02.578811 [info ]: Finished building task graph [  0.00s]
+03:05:02.579807 [info ]: Cached model count updated: 0 models (accurate)
+03:05:02.861923 [info ]: Loading ~/.dbt/profiles.yml
+03:05:04.469519 [info ]: Started loading project
+03:05:04.469694 [info ]: Loading ~/.dbt/profiles.yml
+03:05:04.470394 [info ]: Started loading project
+03:05:04.470466 [info ]: Loading ~/.dbt/profiles.yml
+03:05:04.470482 [info ]: Finished loading project [  0.00s]
+03:05:04.582753 [info ]: Started parsing
+03:05:04.590939 [info ]: Finished loading project [  0.12s]
+03:05:04.592073 [info ]: Finished parsing [  0.01s]
+03:05:04.592131 [info ]: Cached model count updated: 0 models (estimate)
+03:05:04.592138 [info ]: Cached model count updated: 0 models (accurate)
+03:05:04.592150 [info ]: Started scheduling
+03:05:04.592164 [info ]: Finished scheduling [  0.00s]
+03:05:04.626317 [info ]: Started building task graph
+03:05:04.626339 [info ]: Finished building task graph [  0.00s]
+03:05:04.627310 [info ]: Cached model count updated: 0 models (accurate)
+03:05:04.933752 [info ]: Loading ~/.dbt/profiles.yml
+==================== 2026-01-22T03:07:37.079220Z | 472a3062-2b89-4a85-bb76-708e2af170e5 ====================
+03:07:37.079243 [info ]: Starting dbt LSP server
+03:07:37.079257 [info ]: Connecting to LSP client on port 8000
+03:07:37.079390 [info ]: Successfully connected to LSP client
+03:07:37.079399 [info ]: Creating LSP service...
+03:07:37.104742 [info ]: Creating LSP server...
+03:07:37.104757 [info ]: Starting LSP server...
+03:07:37.315028 [info ]: Started loading project
+03:07:37.316004 [info ]: Loading ~/.dbt/profiles.yml
+03:07:37.470296 [info ]: Started parsing
+03:07:37.480021 [info ]: Finished loading project [  0.16s]
+03:07:37.481181 [info ]: Finished parsing [  0.01s]
+03:07:37.481265 [info ]: Cached model count updated: 0 models (estimate)
+03:07:37.481272 [info ]: Cached model count updated: 0 models (accurate)
+03:07:37.481295 [info ]: Started scheduling
+03:07:37.481334 [info ]: Finished scheduling [  0.00s]
+03:07:37.536894 [info ]: Started building task graph
+03:07:37.536932 [info ]: Finished building task graph [  0.00s]
+03:07:37.537876 [info ]: Cached model count updated: 0 models (accurate)
+03:07:37.661096 [info ]: Loading ~/.dbt/profiles.yml
+==================== 2026-01-22T03:34:18.519781Z | 1a13d597-6987-47e3-85c3-1396f92731d5 ====================
+03:34:18.519806 [info ]: Starting dbt LSP server
+03:34:18.519820 [info ]: Connecting to LSP client on port 8000
+03:34:18.520012 [info ]: Successfully connected to LSP client
+03:34:18.520025 [info ]: Creating LSP service...
+03:34:18.544863 [info ]: Creating LSP server...
+03:34:18.544877 [info ]: Starting LSP server...
+03:34:18.720947 [info ]: Started loading project
+03:34:18.721836 [info ]: Loading ~/.dbt/profiles.yml
+03:34:18.847273 [info ]: Started parsing
+03:34:18.856752 [info ]: Finished loading project [  0.14s]
+03:34:18.858005 [info ]: Finished parsing [  0.01s]
+03:34:18.858094 [info ]: Cached model count updated: 0 models (estimate)
+03:34:18.858105 [info ]: Cached model count updated: 0 models (accurate)
+03:34:18.858125 [info ]: Started scheduling
+03:34:18.858157 [info ]: Finished scheduling [  0.00s]
+03:34:18.899102 [info ]: Started building task graph
+03:34:18.899142 [info ]: Finished building task graph [  0.00s]
+03:34:18.900073 [info ]: Cached model count updated: 0 models (accurate)
+03:34:19.153965 [info ]: Loading ~/.dbt/profiles.yml
+03:37:07.481146 [info ]: Started loading project
+03:37:07.481420 [info ]: Loading ~/.dbt/profiles.yml
+03:37:07.482636 [info ]: Started loading project
+03:37:07.482737 [info ]: Loading ~/.dbt/profiles.yml
+03:37:07.482765 [info ]: Finished loading project [  0.00s]
+03:37:07.611541 [info ]: Started parsing
+03:37:07.625396 [info ]: Finished loading project [  0.14s]
+03:37:07.627141 [info ]: Finished parsing [  0.02s]
+03:37:07.627209 [info ]: Cached model count updated: 0 models (estimate)
+03:37:07.627218 [info ]: Cached model count updated: 0 models (accurate)
+03:37:07.627229 [info ]: Started scheduling
+03:37:07.627242 [info ]: Finished scheduling [  0.00s]
+03:37:07.703361 [info ]: Started building task graph
+03:37:07.703392 [info ]: Finished building task graph [  0.00s]
+03:37:07.704540 [info ]: Cached model count updated: 0 models (accurate)
+03:37:07.915446 [info ]: Loading ~/.dbt/profiles.yml
+03:41:46.433616 [info ]: Started loading project
+03:41:46.433688 [info ]: Finished loading project [  0.00s]
