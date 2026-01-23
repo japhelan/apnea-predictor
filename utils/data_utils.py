@@ -275,3 +275,15 @@ def strip_text(text):
         # Handle dict_values, dict_keys, and other iterables
         text = [strip_text_sub(t) for t in text]
     return text
+
+
+def df_quality_check(df):
+    """
+    Performs a quality check on the DataFrame by checking for duplicates and null values.
+
+    Parameters:
+    df (pd.DataFrame): The input DataFrame.
+    """
+    print("Performing Data Quality Check...")
+    check_duplicates(df)
+    check_nulls(df)
