@@ -287,3 +287,27 @@ def df_quality_check(df):
     print("Performing Data Quality Check...")
     check_duplicates(df)
     check_nulls(df)
+
+
+def make_histogram(df, column, bins=10):
+    """
+    Creates a histogram for the specified column in the DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): The input DataFrame.
+    column (str): The column name for which to create the histogram.
+    bins (int): The number of bins for the histogram.
+
+    Returns:
+    matplotlib.axes.Axes: The axes object of the histogram plot.
+    """
+    import matplotlib.pyplot as plt
+
+    plt.figure(figsize=(10, 6))
+    ax = df[column].hist(bins=bins)
+    ax.set_title(f"Histogram of {column}")
+    ax.set_xlabel(column)
+    ax.set_ylabel("Frequency")
+    plt.grid(False)
+    plt.show()
+    return ax
