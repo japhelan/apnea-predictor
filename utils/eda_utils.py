@@ -129,16 +129,14 @@ def make_countplot(df, column, order_by_count=False):
             f"Warning: Column '{feature}' has more than 20 unique values. Count plot may be cluttered."
         )
 
-    # TODO : ADD datetime handling somehow
     if pd.api.types.is_datetime64_any_dtype(df[column]):
-        column = convert_dt_object(
-            df, return_all=False, singular=True, dt_cols=[column]
-        )
+        converted_col = df[column].dt.time  # Direct conversion to time objects
+
         if order_by_count:
-            order = column.value_counts().index
-            ax = sns.countplot(data=df, x=column, order=order)
+            order = converted_col.value_counts().index
+            ax = sns.countplot(x=converted_col, order=order)
         else:
-            ax = sns.countplot(data=df, x=column)
+            ax = sns.countplot(x=converted_col)
 
         ax.set_title(f"Count Plot of {feature}" + (f" ({desc})" if desc else ""))
         ax.set_xlabel(feature)
@@ -218,10 +216,14 @@ def convert_dt_object(df, dt_cols=None, return_all=False, singular=False):
     df_copy.loc[:, dt_cols] = df_copy.loc[:, dt_cols].apply(lambda x: x.dt.time)
 
     obj_cols = df_copy.loc[:, dt_names]
+    if singular:
+        return obj_cols.iloc[:, 0]
+
+    obj_df = pd.DataFrame(obj_cols)
 
     if return_all:
         return df_copy
-    return obj_cols
+    return obj_df
 
 
 ### Bivariate/Multivariate Visualizations
