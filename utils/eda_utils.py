@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import seaborn as sns
 
@@ -246,3 +247,40 @@ def make_correlation_heatmap(df, columns):
     ax.set_title("Correlation Heatmap")
     plt.show()
     return ax
+
+
+def correlation_above_threshold(df, threshold=0.5, return_table=False):
+    """
+    Identifies pairs of columns in the DataFrame that have a correlation coefficient above a specified threshold.
+
+    Parameters:
+    df : The input DataFrame.
+    threshold : The correlation coefficient threshold for identifying correlated pairs.
+    return_table : If True, returns a DataFrame of correlated pairs with their correlation values.
+
+    Returns:
+    if return_table: df with columns + their correlation value
+    else: list of tuples of pairs of columns that are above the threshold
+    """
+    corr_matrix = df.corr().abs()
+    upper_triangle = corr_matrix.where(
+        np.triu(np.ones(corr_matrix.shape), k=1).astype(bool)
+    )
+    correlated_pairs = [
+        (col1, col2)
+        for col1 in upper_triangle.columns
+        for col2 in upper_triangle.index
+        if upper_triangle.loc[col2, col1] > threshold
+    ]
+
+    if return_table:
+        correlated_pairs = [
+            (col1, col2, upper_triangle.loc[col2, col1])
+            for col1, col2 in correlated_pairs
+        ]
+
+        return pd.DataFrame(
+            correlated_pairs, columns=["Column 1", "Column 2", "Correlation"]
+        )
+    else:
+        return correlated_pairs

@@ -1,29 +1,25 @@
-# EDA 1.0 LOG
-
-observations, changes, notes, questions, etc.
+# Feature Classification
 
 # Demographics Subset
 
-## Feature Classification
+## Categories
 
-### Categories
-
-#### Nominal Categories
+### Nominal Categories
 
 - (participants_sex, dem_0500)
 
-#### Ordinal Categories
+### Ordinal Categories
 
 - (time_school_or_work_starts, sched_9910)
 - (time_school_or_work_ends, sched_9920)
 
-#### Binary Categories
+### Binary Categories
 
 - (irregular_schedule, sched_9910)
 
-### Measures
+## Measures
 
-#### Discrete Measures
+### Discrete Measures
 
 - (participants_age, modified_dem_0110) - Ratio
 - (height_in_inches, dem_0610) - Ratio
@@ -34,26 +30,22 @@ observations, changes, notes, questions, etc.
 - (number_of_adults_aged_60_years_of_older_living_in_your_household, bthbts_0540) - Ratio
 - (days_per_week_in_school_or_work, sched_9900) - Ratio
 
-#### Continuous Measures
+### Continuous Measures
 
 - (body_mass_index_(bmi), dem_0800) - Ratio
 - (weight_in_pounds, dem_0700) - Ratio
 
-## Demographics Notes
-
 # Health Subset
 
-## Feature Classification
+## Categories
 
-### Categories
-
-#### Nominal Categories
+### Nominal Categories
 
 - excercise time of day (soclhx_0600)
 - ('street_or_recreational_drugs_consumption_ever', 'soclhx_1500')
 - ('self-perception_of_weight', 'diet_0700')
 
-#### Ordinal Categories
+### Ordinal Categories
 
 - All nose columns
   - ('nasal_congestion_or_stuffiness', 'nose_0100')
@@ -99,7 +91,7 @@ observations, changes, notes, questions, etc.
   - ('fatigue_severity_scale_total_score','fss_1000')
 - ('eating_impact_on_alertness/wakefulness', 'diet_0400')
 
-#### Binary Categories
+### Binary Categories
 
 - excercise rarely or never
 - alcohol consumption, rarely or never
@@ -120,16 +112,16 @@ observations, changes, notes, questions, etc.
 - ('cigarette_smoking_current_smoker', 'current_cigarette_smoker')
 - ('smokeless_user_current_smoker', 'current_smokeless_user')
 
-#### Time Data
+### Time Data
 
 - ('caffeine_consumption_time_of_last_drink', 'soclhx_1000')
 - ('usual_breakfast_time', 'diet_0800')
 - ('usual_lunch_time', 'diet_0810')
 - ('usual_dinner_time', 'diet_0820')
 
-### Measures
+## Measures
 
-#### Discrete Measures
+### Discrete Measures
 
 - bed partner or roomate
 - alcohol consumption # of times
@@ -149,40 +141,26 @@ observations, changes, notes, questions, etc.
   - ('percentage_of_snack_4_among_all_food_intake_over_24_hours', 'diet_0370')
   - ('percentage_of_snack_5_among_all_food_intake_over_24_hours', 'diet_0380')
 
-#### Continuous Measures
+### Continuous Measures
 
-#### Unsure
+### Unsure
 
 - ('food_intake_no_regular_meals', 'diet_0340'): only 1 value
 
-## Health Notes
+# Medhx Subset
 
-2/25
+## Categories
 
-- the time frame features are associated with the count features, as in they mean if the count is over a week/month i think.
-- Categories for time of snack2-5 and usually yes/no snack2-5 will most likely be removed as they are sparsley answered and not very related to what I am looking to solve (i think)
-- as mentioned above the feature diet_0340 is only 1 value and should probably be removed
+### Nominal Categories
 
-- alcohol consumption features should probably be condensed as they are sparse and dont give a lot of info directly
-- same with cigarettes  and less so recreational drugs sets
-- look into correlation with survey answers ; if problematic then figure that out later
-- the usual meal time data might be kind of useless / overlap with the wake up go to bed time data from demographics; look into
+### Ordinary Categories
 
-changes made as of now: dropped diet_0340.
+### Binary Categories
 
-NEXT STEP: bivariate/multivariate stuff, correlation heatmaps and stuff
+### Time Data
 
-2/26
+## Measures
 
-Correlation Notes
+### Discrete Measures
 
-- Fatigue questionnares total score has high correlation with a lot of the columns. Perhaps best to remove that and then perhaps condense the subquestions
-- Same with GAD questionnaire
-- usual meal time features are highly correlated; maybe has to do with nulls?
-- also some crossover between some questionnaires total score and other subquestions
-
-Changes will be made in first set of feature engineering, but for now will keep everything. first action will be to remove the total_score columns of all the quests and rerun the correlation scores.
-
-## Mdhx Notes
-
-2/26
+### Continuous Measures
