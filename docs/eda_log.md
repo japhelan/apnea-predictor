@@ -98,7 +98,6 @@ observations, changes, notes, questions, etc.
   - ('fatigue_severity_scale_fatigue_interferes_with_my_work_family_or_social_life','fss_0900')
   - ('fatigue_severity_scale_total_score','fss_1000')
 - ('eating_impact_on_alertness/wakefulness', 'diet_0400')
--
 
 #### Binary Categories
 
@@ -162,3 +161,5 @@ observations, changes, notes, questions, etc.
 
 - the time frame features are associated with the count features, as in they mean if the count is over a week/month i think.
 - Categories for time of snack2-5 and usually yes/no snack2-5 will most likely be removed as they are sparsley answered and not very related to what I am looking to solve (i think)
+- as mentioned above the feature diet_0340 is only 1 value and should probably be removed
+-
