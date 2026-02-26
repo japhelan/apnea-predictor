@@ -162,4 +162,12 @@ observations, changes, notes, questions, etc.
 - the time frame features are associated with the count features, as in they mean if the count is over a week/month i think.
 - Categories for time of snack2-5 and usually yes/no snack2-5 will most likely be removed as they are sparsley answered and not very related to what I am looking to solve (i think)
 - as mentioned above the feature diet_0340 is only 1 value and should probably be removed
--
+
+- alcohol consumption features should probably be condensed as they are sparse and dont give a lot of info directly
+- same with cigarettes  and less so recreational drugs sets
+- look into correlation with survey answers ; if problematic then figure that out later
+- the usual meal time data might be kind of useless / overlap with the wake up go to bed time data from demographics; look into
+
+changes made as of now: dropped diet_0340.
+
+NEXT STEP: bivariate/multivariate stuff, correlation heatmaps and stuff
