@@ -123,9 +123,11 @@ def make_countplot(df, column, order_by_count=False):
         feature = column[1]  # for multi indexes
 
     plt.figure(figsize=(10, 6))
-    if isinstance(df[column].dtype, pd.BooleanDtype):  # handle boolean columns
-        df[column] = df[column].astype(str)
-    if df[column].nunique() > 20:  # handle high cardinality columns
+    if isinstance(df[column].dtype, pd.BooleanDtype):
+        df[column] = df[column].astype(
+            str
+        )  # this raises a warning but its okay (i think) because it's not supposed to be permanent
+    if df[column].nunique() > 20:
         print(
             f"Warning: Column '{feature}' has more than 20 unique values. Count plot may be cluttered."
         )

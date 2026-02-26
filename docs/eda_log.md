@@ -186,3 +186,7 @@ Changes will be made in first set of feature engineering, but for now will keep 
 ## Mdhx Notes
 
 2/26
+
+the only notes here is of a column that has 98% missing and 1 unique response. features of family history of depression/anxiety/ psychiatric care are correlated moderatley but those also make sense. maybe will be condensed later
+
+right now changes made: ('dialysis_self-reported', 'mdhx_6420') removed
