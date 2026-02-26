@@ -153,14 +153,61 @@
 
 ### Nominal Categories
 
-### Ordinary Categories
+- None
+
+### Ordinal Categories
+
+- ('menopausal_status', 'mdhx_1300')
+- ('number_of_full_siblings_from_the_same_birth_parents', 'famhx_1300')
 
 ### Binary Categories
 
-### Time Data
+- All other categories are binary:
+- ('pregnancy_current','mdhx_1200')
+- ('oophorectomy_bilateral_self-reported','mdhx_1400')
+- ('hypertension_self-reported','mdhx_5700')
+- ('congestive_heart_failure_self-reported','mdhx_5710')
+- ('cardiovascular_problem_other_self-reported','mdhx_5720')
+- ('asthma_self-reported','mdhx_5800')
+- ('chronic_obstructive_pulmonary_disease_self-reported','mdhx_5810')
+- ('pulmonary_problem_other_self-reported','mdhx_5820')
+- ('allergies_or_sinus_problems_self-reported','mdhx_5900')
+- ('tonsillectomy_or_adenoidectomy_self-reported','mdhx_5910')
+- ('nasal_jaw_or_apnea_surgery_self-reported','mdhx_5920')
+- ('ear_nose_and_throat_problem_or_surgery_other_self-reported','mdhx_5950')
+- ('dental_problems_self-reported','mdhx_6000')
+- ('dentures_removed_while_sleeping_self-reported','mdhx_6030')
+- ('gastrointestinal_problem_or_surgery_self-reported','mdhx_6100')
+- ('neurologic_problem_self-reported','mdhx_6200'),('hypercholesterolemia_self-reported','mdhx_6300')
+- ('type_2_diabetes_self-reported','mdhx_6310'),('endocrine_or_metabolic_problem_self-reported','mdhx_6320')
+- ('urologic_or_kidney_problem_self-reported','mdhx_6400')
+- ('psychiatric_or_mental_health_problem_self-reported','mdhx_6600')
+- ('medical_problem_or_surgery_other_self-reported','mdhx_6700')
+- ('genetic_testing_self-reported','mdhx_6900')
+- ('genetic_testing_source_self-reported','mdhx_6910')
+- ('family_history_of_insomnia','famhx_0100')
+- ('family_history_of_sleep_apnea','famhx_0200')
+- ('family_history_of_narcolepsy','famhx_0300')
+- ('family_history_of_restless_leg_syndrome','famhx_0400')
+- ('family_history_of_other_sleep_disorder','famhx_0500')
+- ('family_history_of_sleepwalking','famhx_0600')
+- ('family_history_of_fibromyalgia_or_chronic_fatigue','famhx_0700')
+- ('family_history_of_depression','famhx_0800')
+- ('family_history_of_anxiety','famhx_0900')
+- ('family_history_of_other_psychiatric_illness','famhx_1000')
+- ('family_history_of_psychiatric_treatment','famhx_1100')
+- ('family_history_of_death_during_sleep','famhx_1200')
 
 ## Measures
 
 ### Discrete Measures
 
+- None
+
 ### Continuous Measures
+
+- None
+
+### Unsure
+
+('dialysis_self-reported', 'mdhx_6420') (only 0 and only 28 total responses)
