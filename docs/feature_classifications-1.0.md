@@ -1,4 +1,4 @@
-# Feature Classification
+# Feature Classification (Pre EDA-1.0)
 
 # Demographics Subset
 
@@ -210,4 +210,78 @@
 
 ### Unsure
 
-('dialysis_self-reported', 'mdhx_6420') (only 0 and only 28 total responses)
+('dialysis_self-reported', 'mdhx_6420') (only 0 and only 28 total responses) (REMOVED after eda 1.0)
+
+# Sleep Patterns Subset
+
+## Categories
+
+### Nominal Categories
+
+### Ordinal Categories
+
+- ('last_use_tv_or_computer_before_bed','bthbts_0300') (unit = hours)
+- _('self-reported_sleep_quality_for_irregular_work_current_shift','sched_2600')_
+- _('self-reported_sleep_quality_on_week_nights_school_nights_work_nights_or_days_next_shift','sched_3100')_
+- _('self-reported_sleep_quality_on_week_nights_school_nights_work_nights_or_days_3rd_shift','sched_3600')_
+- ('self-reported_sleep_quality_for_weekend_nights_non-school_nights_non-work_nights_or_days','sched_4100')
+- ('self-reported_frequency_of_napping','soclhx_0100')
+- ('self-reported_frequency_of_napping','soclhx_0110')
+- ('feeling_refreshed_after_nap','soclhx_0300')
+- ('easily_awakened_after_nap','soclhx_0400')
+- ('feeling_that_sleep_is_not_sound','isq_0400')
+- ('feeling_that_sleep_is_not_sound_number','isq_0410')
+- ('feeling_that_sleep_is_not_sound_time_frame','isq_0420')
+- ('feeling_that_sleep_is_unrefreshing','isq_0500')
+- ('feeling_that_sleep_is_unrefreshing__number','isq_0510')
+- ('feeling_that_sleep_is_unrefreshing_time_frame','isq_0520')
+- ('how_much_does_your_sleep_bother_you','isq_0600')
+- ('frequency_of_eat/drink_in_sleep_time_frame','par_0310')
+
+### Binary Categories
+
+- ('alcohol_consumption_as_sleep_aid','soclhx_0800')
+- ('frequency_of_eat/drink_in_sleep_never_or_dont_know','par_0301')
+
+### Time Data
+
+- ('self-reported_in-bed_time_on_week_nights_school_nights_work_nights_or_days_current_shift','sched_0900')
+- ('self-reported_out-bed_time_on_week_nights_school_nights_work_nights_or_days_current_shift','sched_1000')
+- ('self-reported_in-bed_time_on_week_nights_school_nights_work_nights_or_days_next_shift','sched_1300')
+- ('self-reported_out-bed_time_on_week_nights_school_nights_work_nights_or_days_next_shift','sched_1400')
+- ('self-reported_in-bed_time_on_week_nights_school_nights_work_nights_or_days_3rd_shift','sched_1700')
+- ('self-reported_in-bed_time_on_week_nights_school_nights_work_nights_or_days_3rd_shift','sched_1800')
+- ('self-reported_in-bed_time_on_weekend_nights_non-school_nights_non-work_nights_or_days','sched_1900')
+- ('self-reported_out-bed_time_on_weekend_nights_non-school_nights_non-work_nights_or_days','sched_2000')
+
+## Measures
+
+### Discrete Measures
+
+- ('self-reported_usual_duration_of_naps','soclhx_0200')
+- ('self-reported_usual_duration_of_naps','soclhx_0210')
+- ('amount_of_sleep_needed_to_feel_fully_rested_hours','sched_4200')
+- ('amount_of_sleep_needed_to_feel_fully_rested_minutes','sched_4210')
+- _('self-reported_sleep_latency_on_weekend_nights_non-school_nights_non-work_nights_or_days','sched_3700')_
+- _('self-reported_sleep_latency_on_weekend_nights_non-school_nights_non-work_nights_or_days','sched_3710')_
+- _('self-reported_total_sleep_duration_(i.e._total_sleep_time)_on_weekend_nights_non-school_nights_non-work_nights_or_days','sched_3800')_
+- _('self-reported_total_sleep_duration_(i.e._total_sleep_time)_on_weekend_nights_non-school_nights_non-work_nights_or_days','sched_3810')
+- _('self-reported_sleep_latency_on_week_nights_school_nights_work_nights_or_days_3rd_shift','sched_3200')_
+- _('self-reported_sleep_latency_on_week_nights_school_nights_work_nights_or_days_3rd_shift','sched_3210')_
+- _('self-reported_total_sleep_duration_(i.e._total_sleep_time)_on_week_nights_school_nights_work_nights_or_days_3rd_shift','sched_3300')_
+- _('self-reported_total_sleep_duration_(i.e._total_sleep_time)_on_week_nights_school_nights_work_nights_or_days_3rd_shift','sched_3310')_
+- _('self-reported_sleep_latency_on_week_nights_school_nights_work_nights_or_days_next_shift','sched_2700')_
+- _('self-reported_sleep_latency_on_week_nights_school_nights_work_nights_or_days_next_shift','sched_2710')_
+- _('self-reported_total_sleep_duration_(i.e._total_sleep_time)_on_week_nights_school_nights_work_nights_or_days_next_shift','sched_2800')_
+- _('self-reported_total_sleep_duration_(i.e._total_sleep_time)_on_week_nights_school_nights_work_nights_or_days_next_shift','sched_2810')_
+- ('self-reported_sleep_latency_on_week_nights_school_nights_work_nights_or_days_current_shift','sched_2200')
+- ('self-reported_sleep_latency_on_week_nights_school_nights_work_nights_or_days_current_shift','sched_2210')
+- ('self-reported_total_sleep_duration_(i.e._total_sleep_time)_on_week_nights_school_nights_work_nights_or_days_current_shift','sched_2300')_
+- _('self-reported_total_sleep_duration_(i.e._total_sleep_time)_on_week_nights_school_nights_work_nights_or_days_current_shift','sched_2310')_
+
+### Continuous Measures
+
+### Unsure
+
+- check latency columns in data dictionary
+- Get columns that have only 1 value .

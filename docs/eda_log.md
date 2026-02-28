@@ -162,7 +162,6 @@ observations, changes, notes, questions, etc.
 - the time frame features are associated with the count features, as in they mean if the count is over a week/month i think.
 - Categories for time of snack2-5 and usually yes/no snack2-5 will most likely be removed as they are sparsley answered and not very related to what I am looking to solve (i think)
 - as mentioned above the feature diet_0340 is only 1 value and should probably be removed
-
 - alcohol consumption features should probably be condensed as they are sparse and dont give a lot of info directly
 - same with cigarettes  and less so recreational drugs sets
 - look into correlation with survey answers ; if problematic then figure that out later
@@ -190,3 +189,19 @@ Changes will be made in first set of feature engineering, but for now will keep 
 the only notes here is of a column that has 98% missing and 1 unique response. features of family history of depression/anxiety/ psychiatric care are correlated moderatley but those also make sense. maybe will be condensed later
 
 right now changes made: ('dialysis_self-reported', 'mdhx_6420') removed
+
+## Sleep Patterns Notes
+
+2/28
+
+- latency colums have hours and minutes; at the very least combine but they may just end up dropped
+- this subset has multiple shift columns as well; will be dropped for the same reasons + for continuity with the demographics subset
+- ('self-reported_in-bed_time_on_week_nights_school_nights_work_nights_or_days_3rd_shift', 'sched_1700') and ('self-reported_in-bed_time_on_week_nights_school_nights_work_nights_or_days_3rd_shift', 'sched_1800') are the same feature. i don't know how this happened
+  - ('self-reported_in-bed_time_on_week_nights_school_nights_work_nights_or_days_3rd_shift_varies', 'sched_1701') and ('self-reported_in-bed_time_on_week_nights_school_nights_work_nights_or_days_3rd_shift_varies', 'sched_1801') have the same issue
+
+Changes made initially
+
+- coalesced bed time data split across current, next, third shift into one big column as later levels were very sparse
+  - dropped the columns used to make this new column + duplicates
+- simplified naming convention of all bed time features in the subset
+  - info on all of these will be found in post 1.0 eda data dictionary
