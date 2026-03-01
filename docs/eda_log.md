@@ -205,3 +205,7 @@ Changes made initially
   - dropped the columns used to make this new column + duplicates
 - simplified naming convention of all bed time features in the subset
   - info on all of these will be found in post 1.0 eda data dictionary
+- also unified quality, latency, duration, nap + weekend variation features
+- now 34 columns : )
+
+TODO FOR NEXT TIME: slp pattern type changes + correlation checks
