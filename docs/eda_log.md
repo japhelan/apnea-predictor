@@ -141,4 +141,8 @@ correlation similarities
 
 # Sleep Questionnaire Notes
 
-todo: this
+type conversions everything all pretty normal.
+
+- Alot of strong correlations though; will be parsed more thoroughly during initial round of feature engineering as there is so much currently that its not worth it to do it right now
+
+# Sleep Treatment Notes
