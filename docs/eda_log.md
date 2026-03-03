@@ -2,6 +2,19 @@
 
 observations, changes, notes, questions, etc.
 
+Subset checklist
+
+- [X] demographics
+- [X] health
+- [X] medhx
+- [X] sleep patterns
+- [ ] parasomnias
+- [ ] restless leg syndrome (rls)
+- [ ] narcolepsy (narc)
+- [ ] insomnia
+- [ ] sleep questionss
+- [ ] sleep treatment
+
 # Demographics Subset
 
 ## Feature Classification
@@ -208,4 +221,14 @@ Changes made initially
 - also unified quality, latency, duration, nap + weekend variation features
 - now 34 columns : )
 
-TODO FOR NEXT TIME: slp pattern type changes + correlation checks
+TODO FOR NEXT TIME: slp pattern type changes + correlation checks DONE
+
+3/2
+
+correlation notes
+
+- slp quality non work and work nights highly correlated
+- alot of the time in bed / out bed permeations are correlated, especially when the only difference is work/non work day
+- isq questions of feeling sleep is not sound and unrefreshing are very similar
+
+not changing anything now, but will most likely be rearranged into new features later.
