@@ -11,7 +11,7 @@ Subset checklist
 - [X] parasomnias
 - [X] restless leg syndrome (rls)
 - [X] narcolepsy (narc)
-- [ ] insomnia
+- [X] insomnia
 - [ ] sleep questionss
 - [ ] sleep treatment
 
@@ -124,3 +124,21 @@ correlation notes:
 
 - tons of highly correlated features here, between symtomps of narcolepsy/muscle weekness and their past and present variations. like way too many.
   - will cull a lot of these to alleviate the issue and check after
+
+# Insomnia Notes
+
+a row has 99 in the column ('self-reported_number_of_awakenings_on_week_nights_school_nights_work_nights_or_days_current_shift', 'sched_2400'). just a note.
+
+the tab_xxxx features are how often you think about (something) in bed
+
+time frame features refer to weekly/monthly amounts of whatever the assoicated (number) feature is
+
+condensed the shift sleep data again
+
+correlation similarities
+
+- as expected, similarities between the school/nonschool nights + columns that just sound similar + rumination group columns
+
+# Sleep Questionnaire Notes
+
+todo: this
