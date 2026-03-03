@@ -9,21 +9,31 @@ Subset checklist
 - [X] medhx
 - [X] sleep patterns
 - [X] parasomnias
-- [ ] restless leg syndrome (rls)
-- [ ] narcolepsy (narc)
+- [X] restless leg syndrome (rls)
+- [X] narcolepsy (narc)
 - [ ] insomnia
 - [ ] sleep questionss
 - [ ] sleep treatment
 
-# Demographics Subset
+# Demographics Notes
 
-## Demographics Notes
+- height in feet, height in inches, weight, and bmi are all different features and a subset should be selected. this will require more analysis later but is worth noting now.
+- Need to combine work and school columns
+- not going to mess with the columns related to people in the household as of right now, maybe in the future.
 
-they are in a different document i believe
+New columns made:
 
-# Health Subset
+- day_start_time: datetime, what time school/work starts
+- varying_day_start_time: yes/no; does the time your day start change
+- day_end_time: datetime, when does school/final shift start
+  - if needed go back and look at how this is calculated in relation to all 3 shifts potentially
+- days_per_week_at_work_or_school: intuitive really
 
-## Health Notes
+cut participants*ethnicity*(hispanic*or_latino)', 'participants_ethnicity*(sub_hispanic_or_latino_origin)',
+
+'participants*race*(main)', 'participants*race*(sub)', 'english_as_native_language' , 'participants_proficiency_in_english' as they are either not important and/or could lead to unethical biases
+
+# Health Notes
 
 2/25
 
@@ -50,7 +60,7 @@ Correlation Notes
 
 Changes will be made in first set of feature engineering, but for now will keep everything. first action will be to remove the total_score columns of all the quests and rerun the correlation scores.
 
-## Mdhx Notes
+# Mdhx Notes
 
 2/26
 
@@ -58,7 +68,7 @@ the only notes here is of a column that has 98% missing and 1 unique response. f
 
 right now changes made: ('dialysis_self-reported', 'mdhx_6420') removed
 
-## Sleep Patterns Notes
+# Sleep Patterns Notes
 
 2/28
 
@@ -105,3 +115,12 @@ changing some columns to booleans but other than that pretty standard.
 - from correlation:
   - two columns are fully correlated (rls_0500 and rls_0310)
   - the probability columns have a lot of semi correlation, most likely because it is algorithmically determined pretty directly. will figure out what to do with this later
+
+# Narc Notes
+
+dropped ('muscle_weakness_month_of_the_first_episode', 'narc_1710') for being completley useless
+
+correlation notes:
+
+- tons of highly correlated features here, between symtomps of narcolepsy/muscle weekness and their past and present variations. like way too many.
+  - will cull a lot of these to alleviate the issue and check after
