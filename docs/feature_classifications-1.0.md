@@ -285,3 +285,49 @@
 
 - check latency columns in data dictionary
 - Get columns that have only 1 value .
+
+# Parasomnias Subset
+
+## Categories
+
+### Nominal Categories
+
+- ('hypnogogic_hallucinations_time_frame', 'map_1120')
+- ('frequency_of_leg_twitch/kick_time_frame', 'par_0110')
+- ('frequency_of_acting_out_dreams_time_frame', 'par_0510')
+- ('frequency_of_violent_behavior_during_sleep_time_frame', 'par_0610')
+- ('frequency_of_nightmares_time_frame', 'par_0710')
+
+### Ordinal Categories
+
+- ('hypnogogic_hallucinations_age_of_the_first_episode', 'map_1130')
+- ('sleepwalk_age_of_the_first_episode', 'par_0230')
+- ('frequency_of_teeth_grinding', 'par_0400')
+- ('frequency_of_acting_out_dreams_times', 'par_0500')
+- ('acting_out_dreams_age_of_the_first_episode', 'par_0530')
+- ('frequency_of_violent_behavior_during_sleep_times', 'par_0600')
+- ('violent_behavior_during_sleep_age_of_the_first_episode', 'par_0630')
+- ('frequency_of_nightmares_times', 'par_0700')
+
+### Binary Categories
+
+- ('frequency_of_leg_twitch/kick_never_or_dont_know', 'par_0101')
+- ('frequency_of_sleepwalk_never_or_dont_know', 'par_0201')
+- ('frequency_of_acting_out_dreams_never_or_dont_know', 'par_0501')
+- ('acting_out_dreams_age_of_the_first_episode_dont_know', 'par_0531')
+- ('frequency_of_violent_behavior_during_sleep_never_or_dont_know', 'par_0601')
+- ('violent_behavior_during_sleep_age_of_the_first_episode_dont_know', 'par_0631')
+- ('frequency_of_nightmares_never_or_dont_know', 'par_0701')
+- ('seizures_during_sleep', 'par_0800')
+
+## Measures
+
+### Discrete Measures
+
+- ('hypnogogic_hallucinations_days_per_week', 'map_1100')
+- ('hypnogogic_hallucinations_number_of_times', 'map_1110')
+- ('frequency_of_leg_twitch/kick_number_of_times', 'par_0100')
+- ('frequency_of_sleepwalk_number_of_times', 'par_0200')
+-
+
+### Continuous Measures
