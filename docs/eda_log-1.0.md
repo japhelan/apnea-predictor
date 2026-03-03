@@ -12,8 +12,8 @@ Subset checklist
 - [X] restless leg syndrome (rls)
 - [X] narcolepsy (narc)
 - [X] insomnia
-- [ ] sleep questionss
-- [ ] sleep treatment
+- [X] sleep questionss
+- [X] sleep treatment
 
 # Demographics Notes
 
@@ -146,3 +146,9 @@ type conversions everything all pretty normal.
 - Alot of strong correlations though; will be parsed more thoroughly during initial round of feature engineering as there is so much currently that its not worth it to do it right now
 
 # Sleep Treatment Notes
+
+very simple dataset nothing out of the ordinary as of now
+
+correlation notes:
+
+- stuff between hours of use and frequency of use, cleaning and checking filter etc. all stuff that makes sense and will be condensed

@@ -602,12 +602,35 @@
 
 ### Nominal Categories
 
+- ('my_current_mask_type', 'pap_1300')
+- ('my_mask_size', 'pap_1400')
+
 ### Ordinal Categories
 
+- ('frequency_of_pap_use', 'mdhx_0700')
+- ('fall_asleep_before_your_mask/_pap_is_on', 'pap_0100')
+- ('remove_your_mask_unknowingly_while_sleeping', 'pap_0200')
+- ('forget_to_put_mask_on_after_bathroom', 'pap_0300')
+- ('forget_to_use_your_pap_with_naps', 'pap_0400')
+- ('how_often_do_you_use_your_heated_humidifier', 'pap_0800')
+- ('forget_to_take_your_pap_when_you_travel', 'pap_0500')
+- ('how_often_do_you_get_water_in_my_tubing/_mask', 'pap_1200')
+- ('when_was_the_last_time_you_replaced_your_mask', 'pap_1600')
+- ('when_was_the_last_time_you_checked_or_changed_your_filters', 'pap_1700')
+- ('when_was_the_last_time_you_checked_or_changed_your_tube', 'pap_1800')
+- ('how_do_you_feel_about_your_current_mask', 'pap_1900')
+- ('do_you_use_a_chin_strap', 'pap_2100')
+
 ### Binary Categories
+
+- ('type_of_pap_device', 'mdhx_0400')
+- ('do_you_use_a_heated_humidifier', 'pap_0600')
+- ('does_your_pap_have_a_heated_tube', 'pap_0700')
 
 ## Measures
 
 ### Discrete Measures
+
+- ('on_nights_pap_was_used_how_many_hours_of_pap_use', 'mdhx_0800')
 
 ### Continuous Measures
