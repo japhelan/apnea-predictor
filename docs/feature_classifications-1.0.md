@@ -432,7 +432,96 @@
 - ('muscle_weakness_month_of_the_first_episode', 'narc_1710')
   - i genuinely dont get the point of this one
 
+# Insomnia Subset
+
+## Categories
+
+### Nominal Categories
+
+- ('difficulty_falling_asleep_time_frame', 'isq_0120')
+- ('difficulty_staying_asleep_time_frame', 'isq_0220')
+- ('multiple_awakenings_time_frame', 'isq_0320')
+
+### Ordinal Categories
+
+- ('frequent_wakenings','map_0200')
+- ('frequent_tossing_turning_thrashing','map_0500')
+- ('trivial_things_of_no_importance','tab_0100')
+- ('what_happened_today_and_what_you_have_to_do_tomorrow','tab_0200')
+- ('how_long_youve_been_lying_awake','tab_0300')
+- ('how_you_are_going_to_cope_tomorrow_if_you_dont_sleep_well_tonight','tab_0400')
+- ('noises_you_can_hear_in_the_house_or_outside','tab_0500')
+- ('your_body_feeling_hot_or_cold','tab_0600')
+- ('your_heart_beat_pounding_in_your_head','tab_0700')
+- ('how_out_of_control_your_sleep_is_and_you_dont_know_what_to_do_about_it','tab_0800')
+- ('things_that_have_happened_in_the_past_and_how_they_worked_out','tab_0900')
+- ('what_the_future_might_hold_and_what_you_should_do_for_things_to_work_out_well','tab_1000')
+- ('difficulty_falling_asleep', 'isq_0100')
+- ('difficulty_staying_asleep', 'isq_0200')
+- ('multiple_awakenings', 'isq_0300')
+
+### Binary Categories
+
+- ('use_sleep_aids_at_least_once_per_week', 'mdhx_5600')
+- ('meets_diagnostic_insomnia_criteria', 'isq_score')
+
+## Measures
+
+### Discrete Measures
+
+- ('self-reported_number_of_awakenings_on_week_nights_school_nights_work_nights_or_days_current_shift', 'sched_2400')
+- ('self-reported_total_awake_duration_(i.e._wake_after_sleep_onset)_on_week_nights_school_nights_work_nights_or_days_current_shift', 'sched_2500')
+- ('self-reported_total_awake_duration_(i.e._wake_after_sleep_onset)_on_week_nights_school_nights_work_nights_or_days_current_shift', 'sched_2510')
+  - this is minutes i believe (so are the 3010 etc.)
+- ('self-reported_number_of_awakenings_on_week_nights_school_nights_work_nights_or_days_next_shift', 'sched_2900')
+- ('self-reported_total_awake_duration_(i.e._wake_after_sleep_onset)_on_week_nights_school_nights_work_nights_or_days_next_shift', 'sched_3000')
+- ('self-reported_total_awake_duration_(i.e._wake_after_sleep_onset)_on_week_nights_school_nights_work_nights_or_days_next_shift', 'sched_3010')
+- ('self-reported_number_of_awakenings_on_week_nights_school_nights_work_nights_or_days_3rd_shift', 'sched_3400')
+- ('self-reported_total_awake_duration_(i.e._wake_after_sleep_onset)_on_week_nights_school_nights_work_nights_or_days_3rd_shift', 'sched_3500')
+- ('self-reported_total_awake_duration_(i.e._wake_after_sleep_onset)_on_week_nights_school_nights_work_nights_or_days_next_shift', 'sched_3510')
+  - wrong name i believe
+- ('self-reported_number_of_awakenings_on_weekend_nights_non-school_nights_non-work_nights_or_days', 'sched_3900')
+- ('self-reported_total_awake_duration_(i.e._wake_after_sleep_onset)_on_weekend_nights_non-school_nightsnon-work_nights_or_days', 'sched_4000')
+- ('self-reported_total_awake_duration_(i.e._wake_after_sleep_onset)_on_weekend_nights_non-school_nightsnon-work_nights_or_days', 'sched_4010')
+- ('difficulty_falling_asleep_number_of_times', 'isq_0110')
+- ('difficulty_staying_asleep_number', 'isq_0210')
+- ('multiple_awakenings_number', 'isq_0310')
+
+### Continuous Measures
+
 # Subset Template
+
+## Categories
+
+### Nominal Categories
+
+### Ordinal Categories
+
+### Binary Categories
+
+## Measures
+
+### Discrete Measures
+
+### Continuous Measures
+
+# Sleep Questionnaire Subset
+
+## Categories
+
+### Nominal Categories
+
+### Ordinal Categories
+
+### Binary Categories
+
+## Measures
+
+### Discrete Measures
+
+### Continuous Measures
+
+# Sleep Treat Subset
 
 ## Categories
 
