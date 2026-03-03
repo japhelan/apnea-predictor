@@ -367,3 +367,83 @@
 - ('unpleasant_feelings_in_legs_age_of_the_first_episode_(present_and_past)', 'rls_0800')
 
 ### Continuous Measures
+
+# Narcolepsy Subset
+
+## Categories
+
+### Nominal Categories
+
+- ('feel_paralyzed_(cataplexy)_when', 'map_1010')
+- ('feel_paralyzed_(cataplexy)_time_frame', 'map_1030')
+- ('muscle_weakness_time_frame', 'narc_1610')
+
+### Ordinal Categories
+
+- ('frequency_of_muscle_weakness_when_tell_or_hear_joke_present', 'narc_0100')
+- ('frequency_of_muscle_weakness_when_tell_or_hear_joke_before_treatment', 'narc_0110')
+- ('frequency_of_muscle_weakness_when_laugh_current', 'narc_0200')
+- ('frequency_of_muscle_weakness_when_laugh_before_treatment', 'narc_0210')
+- ('frequency_of_muscle_weakness_when_angry_current', 'narc_0300')
+- ('frequency_of_muscle_weakness_when_angry_before_treatment', 'narc_0310')
+- ('frequency_of_muscle_weakness_when_stressed_current', 'narc_0400')
+- ('frequency_of_muscle_weakness_when_stressed_before_treatment', 'narc_0410')
+- ('frequency_of_muscle_weakness_when_making_verbal_response_in_playful_context_current', 'narc_0500')
+- ('frequency_of_muscle_weakness_when_making_verbal_response_in_playful_context_before_treatment', 'narc_0510')
+- ('duration_of_the_muscle_weakness', 'narc_1100')
+- ('can_you_hear_during_a_typical_episode', 'narc_1200')
+- ('can_you_see_during_a_typical_episode', 'narc_1300')
+- ('do_you_fall_asleep_during_a_typical_episode', 'narc_1400')
+- ('do_you_have_time_to_sit_or_break_your_fall_during_a_typical_episode', 'narc_1500')
+- ('muscle_weakness_last_experience', 'narc_1650') (i dont really understand this one based off name)
+- ('sleep_paralysis_frequency_score', 'narc_1900')
+- ('hypnagogic_hallucinations_(hh)_frequency_score', 'narc_2000') (this maybe should be in other subset)
+- ('cataplexy_frequency_score_current', 'narc_2100')
+- ('cataplexy_frequency_score_before_treatment', 'narc_2110')
+- ('cataplexy_severity_score_current', 'narc_2200')
+
+### Binary Categories
+
+- ('feel_paralyzed_(cataplexy)_age_of_the_first_episode_dont_know', 'map_1041')
+- ('currently_being_treated_for_narcolepsy', 'narc_0050')
+- ('sagging_or_dropping_of_jaw', 'narc_0600')
+- ('abrupt_dropping_of_head_and/or_shoulders', 'narc_0700')
+- ('weakness_in_arms', 'narc_0800')
+- ('slurring_of_speech', 'narc_0900')
+- ('fallen_to_ground_unable_to_move', 'narc_1000')
+- ('muscle_weakness_age_of_the_first_episode_dont_know', 'narc_1701')
+
+## Measures
+
+### Discrete Measures
+
+- ('feel_paralyzed_(cataplexy)_days_per_week', 'map_1000')
+- ('feel_paralyzed_(cataplexy)_number_of_times', 'map_1020')
+- ('feel_paralyzed_(cataplexy)_age_of_the_first_episode', 'map_1040')
+- ('muscle_weakness_number_of_episode', 'narc_1600')
+- ('muscle_weakness_age_of_the_first_episode', 'narc_1700')
+
+### Continuous Measures
+
+- ('map_index_4_narcolepsy_like_symptoms_score', 'index_4') (check this later)
+
+### Unsure
+
+- ('muscle_weakness_month_of_the_first_episode', 'narc_1710')
+  - i genuinely dont get the point of this one
+
+# Subset Template
+
+## Categories
+
+### Nominal Categories
+
+### Ordinal Categories
+
+### Binary Categories
+
+## Measures
+
+### Discrete Measures
+
+### Continuous Measures
