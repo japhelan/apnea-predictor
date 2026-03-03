@@ -511,15 +511,90 @@
 
 ### Nominal Categories
 
+- ('difficulty_staying_awake_during_the_day_time_frame', 'slpy_0110')
+- ('sleep_attacks_time_frame', 'slpy_0210')
+- ('perform_activities_without_awareness_when_sleepy_time_frame', 'slpy_0310')
+- ('remember_dreams_time_frame', 'par_0910')
+- horne-ostenberg ones; a bit off so look into them later
+  - ('horne-ostberg_morningness-eveningness_questionnaire_ideal_scheduled_wake_time', 'cir_0200')
+  - ('horne-ostberg_morningness-eveningness_questionnaire_tiredness_during_first_half-hour_after_waking', 'cir_0300')
+  - ('horne-ostberg_morningness-eveningness_questionnaire_time_of_evening_you_need_sleep', 'cir_0400')
+  - ('horne-ostberg_morningness-eveningness_questionnaire_time_of_day_reaching_"feeling_best"_peak', 'cir_0500')
+  - ('horne-ostberg_morningness-eveningness_questionnaire_morning_or_evening_type', 'cir_0600')
+  - ('rmeq_total_score', 'cir_0700')
+  -
+
 ### Ordinal Categories
 
+- ('loud_snoring','map_0100'),('snorting_gasping','map_0300')
+- ('fall_asleep_at_work','map_0400')
+- ('breathing_stops','map_0600')
+- ('excessive_sleepiness','map_0700')
+- ('morning_headache','map_0800')
+- ('fall_asleep_driving','map_0900')
+- ('epworth_sleepiness_scale_chance_of_dozing_while_sitting_and_reading','ess_0100')
+- ('epworth_sleepiness_scale_chance_of_dozing_while_watching_tv','ess_0200')
+- ('epworth_sleepiness_scale_chance_of_dozing_while_sitting_inactive_in_a_public_place','ess_0300')
+- ('epworth_sleepiness_scale_chance_of_dozing_as_a_passenger_in_a_car_for_an_hour_without_a_break','ess_0400')
+- ('epworth_sleepiness_scale_chance_of_dozing_while_lying_down_in_the_afternoon_when_circumstances_permit','ess_0500')
+- ('epworth_sleepiness_scale_chance_of_dozing_while_sitting_and_talking_to_someone','ess_0600')
+- ('epworth_sleepiness_scale_chance_of_dozing_while_sitting_quietly_after_lunch_without_alcohol','ess_0700')
+- ('epworth_sleepiness_scale_chance_of_dozing_while_in_a_car_while_stopped_for_a_few_minutes_in_traffic','ess_0800')
+- ('epworth_sleepiness_scale_total_score','ess_0900')
+- ('insomnia_severity_index_difficulty_falling_asleep','isi_0100')
+- ('insomnia_severity_index_difficulty_staying_asleep','isi_0200')
+- ('insomnia_severity_index_problems_waking_up_too_early','isi_0300')
+- ('insomnia_severity_index_how_satisfied_with_current_sleep_pattern','isi_0400')
+- ('insomnia_severity_index_how_noticeable_to_others_is_sleep_problem_impacting_quality_of_life','isi_0500')
+- ('insomnia_severity_index_how_worried/distressed_about_current_sleep_problem','isi_0600')
+- ('insomnia_severity_index_sleep_problem_intereferes_with_daily_functioning','isi_0700')
+- ('insomnia_severity_index_total_score','isi_score'),('sleep_affected_work','isq_0700')
+- ('sleep_affected_your_social_life','isq_0800'),('sleep_affected_other_important_parts_of_life','isq_0900')
+- ('sleep_made_you_irritable','isq_1000')
+- ('sleep_caused_trouble_concentrating','isq_1100')
+- ('sleep_made_you_fatigued','isq_1200')
+- ('how_sleepy_do_you_feel_during_the_day','isq_1300')
+- ('functional_outcomes_of_sleep_difficulty_concentrating','fosq_0100')
+- ('functional_outcomes_of_sleep_difficulty_remembering','fosq_0200')
+- ('functional_outcomes_of_sleep_difficulty_operating_motor_vehicles_for_short_distances_(less_than_100_miles)','fosq_0300')
+- ('functional_outcomes_of_sleep_difficulty_operating_motor_vehicles_for_long_distances_(greater_than_100_miles)','fosq_0400')
+- ('functional_outcomes_of_sleep_difficulty_visiting_family_or_friends_in_their_home','fosq_0500')
+- ('functional_outcomes_of_sleep_relationships_with_family_or_friends_affected','fosq_0600')
+- ('functional_outcomes_of_sleep_difficulty_watching_a_movie','fosq_0700')
+- ('functional_outcomes_of_sleep_difficulty_being_active_in_evening','fosq_0800')
+- ('functional_outcomes_of_sleep_difficulty_being_active_in_morning','fosq_0900')
+- ('functional_outcomes_of_sleep_effect_on_desire_for_intimacy_or_sex','fosq_1000')
+- ('functional_outcomes_of_sleep_summary_score','fosq_1100')
+
 ### Binary Categories
+
+- ('previously_been_to_a_sleep_specialist', 'mdhx_0200')
+- ('trigger_for_sleep_disorder', 'mdhx_5500')
+- ('difficulty_staying_awake_during_the_day_never', 'slpy_0101')
+- ('sleep_attacks_never', 'slpy_0201')
+- ('perform_activities_without_awareness_when_sleepy_never', 'slpy_0301')
+- ('remember_dreams_never_or_dont_know', 'par_0901')
+
+### Time Values
+
+- ('had_an_accident_or_near_miss_due_to_sleepiness_last_occurrence', 'slpy_0410') (this is just year)
 
 ## Measures
 
 ### Discrete Measures
 
+- ('difficulty_staying_awake_during_the_day_number_of_times', 'slpy_0100')
+- ('sleep_attacks_number_of_times', 'slpy_0200')
+- ('perform_activities_without_awareness_when_sleepy_number_of_times', 'slpy_0300')
+- ('had_an_accident_or_near_miss_due_to_sleepiness_number_of_event', 'slpy_0400')
+- ('remember_dreams_times', 'par_0900')
+
 ### Continuous Measures
+
+- ('map_index_1_apnea_score', 'index_1')
+- ('map_index_3_excessive_daytime_sleepiness_(eds)_score', 'index_3')
+- ('map_likelihood_ration_(lr)', 'map_lr')
+- ('map_score', 'score')
 
 # Sleep Treat Subset
 
