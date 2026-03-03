@@ -95,3 +95,13 @@ changing some columns to booleans but other than that pretty standard.
 - ('acting_out_dreams_age_of_the_first_episode_dont_know', 'par_0531') is 100% missing when -55 (placeholder NaN) is replaced with a real nan. will be dropped for hopefully self explanitory reasons.
   - also ("violent_behavior_during_sleep_age_of_the_first_episode_dont_know","par_0631",)
 - alot of correlation between the age of first episode columns across each of the parasomnias. considering how sparse this data is anyway i suppose it makes sense. will be handled later becasue I am sure the features will be condensed anyway.
+
+# RLS Notes
+
+- one column ('unpleasant_feelings_in_legs_age_of_the_first_episode_(present_and_past)_dont_know', 'rls_0801') was entirely missing so it was removed
+- ('restless_legs_syndrome_(rls)_current_probability', 'rls_probability') should be encoded into numbers at some pointer later
+  - the algorithm for determing probability is in the data dictionary : )
+  - i am going to one hot encode it for now so correlation can be done upon it but this will most likely be changed somehow in future iterations
+- from correlation:
+  - two columns are fully correlated (rls_0500 and rls_0310)
+  - the probability columns have a lot of semi correlation, most likely because it is algorithmically determined pretty directly. will figure out what to do with this later
