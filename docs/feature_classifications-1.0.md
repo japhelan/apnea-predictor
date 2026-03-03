@@ -331,3 +331,39 @@
 -
 
 ### Continuous Measures
+
+# RLS subset
+
+## Categories
+
+### Nominal Categories
+
+### Ordinal Categories
+
+- ('unpleasant_feelings_in_legs','rls_0100')
+- ('urge_to_move_legs','rls_0200')
+- ('how_distressing_are_sensations_present','rls_0600')
+- ('how_distressing_were_sensations_past','rls_0610')
+- ('how_often_do_sensations_occur_present','rls_0700')
+- ('how_often_did_sensations_occur_past','rls_0710')
+- ('restless_legs_syndrome_(rls)_current_severity','rls_severity')
+- ('restless_legs_syndrome_(rls)_current_probability', 'rls_probability') (needs to be encoded)
+
+### Binary Categories
+
+- ('unpleasant_sensation_was_always_due_to_muscle_cramp_past','rls_0310')
+- ('improve_with_movement_present','rls_0400')
+- ('improved_with_movement_past','rls_0410'),('sensations_worse_in_evening_present','rls_0500')
+- ('sensations_were_worse_in_evening_past','rls_0510')
+- ('unpleasant_sensation_always_due_to_muscle_cramp_present','rls_0300')
+- ('unpleasant_feelings_in_legs_age_of_the_first_episode_(present_and_past)_dont_know','rls_0801')
+- ('did_it_begin_with_pregnancy','rls_0900')
+- ('did_it_end_with_same_pregnancy','rls_0910')
+
+## Measures
+
+### Discrete Measures
+
+- ('unpleasant_feelings_in_legs_age_of_the_first_episode_(present_and_past)', 'rls_0800')
+
+### Continuous Measures

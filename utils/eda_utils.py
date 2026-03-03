@@ -265,24 +265,19 @@ def correlation_above_threshold(df, threshold=0.5, return_table=False):
     else: list of tuples of pairs of columns that are above the threshold
     """
     corr_matrix = df.corr().abs()
-    upper_triangle = corr_matrix.where(
-        np.triu(np.ones(corr_matrix.shape), k=1).astype(bool)
-    )
+    mask = np.triu(np.ones(corr_matrix.shape), k=1).astype(bool)
+
+    # Find indices where mask is True and correlation exceeds threshold
+    indices = np.argwhere(mask)
     correlated_pairs = [
-        (col1, col2)
-        for col1 in upper_triangle.columns
-        for col2 in upper_triangle.index
-        if upper_triangle.loc[col2, col1] > threshold
+        (corr_matrix.columns[j], corr_matrix.index[i], corr_matrix.iloc[i, j])
+        for i, j in indices
+        if corr_matrix.iloc[i, j] > threshold
     ]
 
     if return_table:
-        correlated_pairs = [
-            (col1, col2, upper_triangle.loc[col2, col1])
-            for col1, col2 in correlated_pairs
-        ]
-
         return pd.DataFrame(
             correlated_pairs, columns=["Column 1", "Column 2", "Correlation"]
         )
     else:
-        return correlated_pairs
+        return [(col1, col2) for col1, col2, _ in correlated_pairs]
