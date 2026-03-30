@@ -1,4 +1,4 @@
-name: /Users/jack/Repos/apnea-predictor/conda_env
+name: apnea-predictor
 channels:
   - defaults
   - conda-forge
@@ -110,4 +110,4 @@ dependencies:
   - zeromq=4.3.5=h2c7f8f0_1
   - zlib=1.3.1=h5f15de7_0
   - zstd=1.5.7=h817c040_0
-prefix: /Users/jack/Repos/apnea-predictor/conda_env
+prefix: . /.conda
