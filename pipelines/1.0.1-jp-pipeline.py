@@ -1,15 +1,18 @@
 import pickle as pkl
 
+import mlflow
 import pandas as pd
+from mlflow import sklearn
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import f1_score, precision_score, recall_score, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
 """
 pipeline for turning 1.0.1 dataset into a format that can be used for training and
 evaluation.
-by jack phelan (not japanese just my initials)
+very wonky as of right now but the goal is to get a baseline if I did nothing at all + initial feature importances
 """
 
 
@@ -35,6 +38,7 @@ class BinaryCategoricalTransformer(BaseEstimator, TransformerMixin):
         self.boolean_cols = boolean_cols
 
     def fit(self, X, y=None):
+        self.fitted_ = True
         return self
 
     def transform(self, X):
@@ -49,6 +53,7 @@ class MultiCategoryTransformer(BaseEstimator, TransformerMixin):
         self.categorical_cols = categorical_cols
 
     def fit(self, X, y=None):
+        self.fitted_ = True
         return self
 
     def transform(self, X):
@@ -65,6 +70,7 @@ class DateTimeTransformer(BaseEstimator, TransformerMixin):
         self.datetime_cols = datetime_cols
 
     def fit(self, X, y=None):
+        self.fitted_ = True
         return self
 
     def transform(self, X):
@@ -120,6 +126,7 @@ class TupleNameRemover(BaseEstimator, TransformerMixin):
         self.lowercase = lowercase
 
     def fit(self, X, y=None):
+        self.fitted_ = True
         return self
 
     def _flatten_name(self, col):
@@ -144,6 +151,14 @@ class TupleNameRemover(BaseEstimator, TransformerMixin):
             X_out.columns = [self._flatten_name(c) for c in X_out.columns]
 
         return X_out
+
+
+def fetch_logged_data(run_id):
+    client = mlflow.MlflowClient()
+    data = client.get_run(run_id).data
+    tags = {k: v for k, v in data.tags.items() if not k.startswith("mlflow.")}
+    artifacts = [f.path for f in client.list_artifacts(run_id, "model")]
+    return data.params, data.metrics, tags, artifacts
 
 
 def main():
@@ -178,21 +193,76 @@ def main():
     )
 
     # fit and transform data
+    pipe.fit(x_train, y_train)
     x_train_transformed = pipe.transform(x_train)
+    x_test_transformed = pipe.transform(x_test)
 
-    base_reg = LogisticRegression(max_iter=10000, solver="liblinear")
+    eval_data = pipe.transform(x_test.copy())
+    eval_data["ahi"] = y_test
 
-    base_reg.fit(x_train_transformed, y_train)
+    # Convert y_test to standard numpy type before adding
+    y_test_converted = y_test.astype("int64") if hasattr(y_test, "astype") else y_test
+    eval_data["ahi"] = y_test_converted
 
-    preds = base_reg.predict(pipe.transform(x_test))
+    # Convert all nullable pandas dtypes to standard numpy dtypes
+    for col in eval_data.columns:
+        if hasattr(eval_data[col].dtype, "name") and eval_data[col].dtype.name in [
+            "Int64",
+            "Int32",
+            "Int16",
+            "Int8",
+            "Float64",
+            "Float32",
+            "boolean",
+        ]:
+            if eval_data[col].dtype.name == "boolean":
+                eval_data[col] = eval_data[col].astype("int64")
+            elif "Int" in eval_data[col].dtype.name:
+                eval_data[col] = eval_data[col].astype("int64")
+            elif "Float" in eval_data[col].dtype.name:
+                eval_data[col] = eval_data[col].astype("float64")
 
-    train_preds = base_reg.predict(x_train_transformed)
+    sklearn.autolog(
+        log_model_signatures=True,
+        log_datasets=True,
+        log_input_examples=True,
+        log_models=True,
+    )
 
-    acc = (preds == y_test).mean()
-    print(f"Test Accuracy: {acc:.4f}")
+    base_rf = RandomForestClassifier(n_estimators=100, random_state=42)
 
-    train_acc = (train_preds == y_train).mean()
-    print(f"Train Accuracy: {train_acc:.4f}")
+    base_rf.fit(x_train_transformed, y_train)
+    base_rf_predictions = base_rf.predict(x_test_transformed)
+
+    acc = base_rf.score(x_test_transformed, y_test)
+    f1 = f1_score(y_test, base_rf_predictions)
+    precision = precision_score(y_test, base_rf_predictions)
+    recall = recall_score(y_test, base_rf_predictions)
+    roc_auc = roc_auc_score(y_test, base_rf_predictions)
+    print(f"Accuracy: {acc:.3f}")
+    print(f"Precision: {precision:.3f}")
+    print(f"Recall: {recall:.3f}")
+    print(f"F1 Score: {f1:.3f}")
+    print(f"ROC AUC: {roc_auc:.3f}")
+
+    """
+    feature importance stuff
+    """
+
+    # Feature importance for Random Forest
+    rf_importances = base_rf.feature_importances_
+    rf_importance_df = pd.DataFrame(
+        {"feature": x_train_transformed.columns, "importance": rf_importances}
+    ).sort_values(by="importance", ascending=False)
+
+    rf_importance_df.to_csv("./reports/feature_importances_rf_1_0_1.csv", index=False)
+
+    """
+    metrics if you forget of rf 
+    accuracy: 0.618
+    f1: 0.754
+    roc auc: 0.568
+    """
 
 
 if __name__ == "__main__":
