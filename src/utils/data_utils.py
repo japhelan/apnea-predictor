@@ -3,6 +3,8 @@ Docstring for python.functions
 This module contains various utility functions used throughout the project.
 """
 
+import pickle as pkl
+
 import pandas as pd
 
 
@@ -287,3 +289,9 @@ def df_quality_check(df):
     print("Performing Data Quality Check...")
     check_duplicates(df)
     check_nulls(df)
+
+
+def load_data(file_path):
+    with open(file_path, "rb") as f:
+        data = pkl.load(f)
+    return data
