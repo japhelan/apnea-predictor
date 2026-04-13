@@ -2,6 +2,7 @@
 model training pipeline for use with data 1.1.1
 """
 
+from pyexpat import model
 import re
 
 import joblib
@@ -12,6 +13,9 @@ from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+
 
 """ 
 transformer for the "x per y" columns to make them easier to one-hot encode
@@ -110,6 +114,7 @@ class One_Hot_Encoder(BaseEstimator, TransformerMixin):
             or (X[col].dtype == "int64" and X[col].nunique() == 2)
             or (X[col].dtype == "object" and X[col].nunique() < 10)
         ]
+        self.encoder.fit(X.loc[:, self.columns])
         return self
 
     def transform(self, X):
@@ -204,7 +209,7 @@ def main():
     cat_bucketizer = Column_Categorical_Bucketizer()
     ohe = One_Hot_Encoder()
 
-    pipe = Pipeline(
+    data_pipeline = Pipeline(
         steps=[
             ("type_transformer", type_transformer),
             ("median_imputer", median_imputer),
@@ -214,7 +219,31 @@ def main():
         ]
     )
 
-    pipe = pipe.fit(X_train, y_train)
+    data_pipeline_fitted = data_pipeline.fit(X_train, y_train)
+
+    model = RandomForestClassifier(random_state=42)
+
+    model.fit(data_pipeline_fitted.transform(X_train), y_train)
+
+    y_pred = model.predict(data_pipeline_fitted.transform(X_test))
+    print(classification_report(y_test, y_pred))
+
+    # feature importance
+
+    def feature_importance(model, data_pipeline, X_train):
+        feature_names = data_pipeline.named_steps[
+            "one_hot_encoder"
+        ].encoder.get_feature_names_out(
+            data_pipeline.named_steps["one_hot_encoder"].columns
+        )
+        importances = model.feature_importances_
+        feature_importance_df = pd.DataFrame(
+            {"feature": feature_names, "importance": importances}
+        ).sort_values(by="importance", ascending=False)
+        return feature_importance_df
+
+    feature_importance_df = feature_importance(model, data_pipeline_fitted, X_train)
+    print(feature_importance_df.head(20))
 
 
 if __name__ == "__main__":
