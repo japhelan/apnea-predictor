@@ -65,7 +65,9 @@ class Column_Weekly_Ratio_Transformer(BaseEstimator, TransformerMixin):
     def transform(self, X):
         X_transformed = X.copy()
         for col in self.columns:
-            X_transformed["numbers"] = re.findall(r"\d+", X_transformed[col])
+            X_transformed["numbers"] = (
+                X_transformed[col].str.extract(r"(\d+)").astype(float)
+            )
             # Further processing to calculate weekly ratio can be added here
             X_transformed[col] = np.where(
                 X_transformed[col].str.contains("per week"),
@@ -91,7 +93,9 @@ one hot encoder that takes wonky categories into account
 
 class One_Hot_Encoder(BaseEstimator, TransformerMixin):
     def __init__(self):
-        self.encoder = OneHotEncoder(handle_unknown="ignore", sparse_output=False)
+        self.encoder = OneHotEncoder(
+            handle_unknown="ignore", sparse_output=False, drop="first"
+        )
 
     def fit(self, X, y=None):
         self.columns_ = [
