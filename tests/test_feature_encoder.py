@@ -188,8 +188,8 @@ class TestMergeExercise:
 
         df = pd.DataFrame(
             {
-                "exercise_rarely_or_never": [True, False, True],
-                "exercise_time_of_day": [np.nan, 0, np.nan],
+                "exercise_rarely_or_never": [1.0, 0.0, 1.0, np.nan],
+                "exercise_time_of_day": [np.nan, 0, np.nan, 2],
             }
         )
         result = _merge_exercise(df)
@@ -197,6 +197,8 @@ class TestMergeExercise:
         assert "exercise_time_of_day" not in result.columns
         assert result["exercise_amt_or_time"].iloc[0] == "rarely_or_never"
         assert result["exercise_amt_or_time"].iloc[1] == "early morning"
+        assert result["exercise_amt_or_time"].iloc[2] == "rarely_or_never"
+        assert pd.isna(result["exercise_amt_or_time"].iloc[3])
 
 
 class TestMergeCaffeine:

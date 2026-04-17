@@ -544,6 +544,17 @@ def _compute_work_schedule_diffs(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def _recompute_map_lr(df: pd.DataFrame) -> pd.DataFrame:
+    """Recompute map_likelihood_ration from map_score.
+
+    The raw dataset has a broken map_lr column (nearly all values are identical).
+    The correct likelihood ratio is: LR = score / (1 - score).
+    """
+    if "map_score" in df.columns and "map_likelihood_ration" in df.columns:
+        df["map_likelihood_ration"] = df["map_score"] / (1 - df["map_score"])
+    return df
+
+
 def _merge_exercise(df: pd.DataFrame) -> pd.DataFrame:
     """Merge exercise_rarely_or_never + exercise_time_of_day → exercise_amt_or_time."""
     earlymorning_mapping = {
@@ -561,9 +572,8 @@ def _merge_exercise(df: pd.DataFrame) -> pd.DataFrame:
         )
 
     if "exercise_rarely_or_never" in df.columns:
-        df["exercise_rarely_or_never"] = df["exercise_rarely_or_never"].astype("string")
         is_na = df["exercise_rarely_or_never"].isna()
-        is_true = df["exercise_rarely_or_never"].fillna("").eq("True")
+        is_true = df["exercise_rarely_or_never"].fillna(0).astype(bool)
 
         df["exercise_rarely_or_never"] = np.where(
             is_na,
@@ -819,14 +829,14 @@ def _encode_dream_recall(df: pd.DataFrame) -> pd.DataFrame:
 def _convert_booleans(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     """Convert boolean columns to int (fillna False first)."""
     for col in columns:
-        if col in df.columns and df[col].dtype == "boolean":
-            df[col] = df[col].fillna(False).astype(int)
+        if col in df.columns:
+            df[col] = df[col].fillna(0).astype(int)
     return df
 
 
 def _replace_placeholders(df: pd.DataFrame) -> pd.DataFrame:
     """Replace -66 and -55 placeholder values with NA across all columns."""
-    df = df.replace([-55, -66], pd.NA)
+    df = df.replace([-55, -66, -44], pd.NA)
     return df
 
 
@@ -893,10 +903,13 @@ def encode_features(df: pd.DataFrame) -> pd.DataFrame:
     # Step 2: Compute work schedule time diffs
     df = _compute_work_schedule_diffs(df)
 
-    # Step 3: One-hot encode RLS probability
+    # Step 3: Recompute map_likelihood_ration from map_score (raw data is broken)
+    df = _recompute_map_lr(df)
+
+    # Step 4: One-hot encode RLS probability
     df = _one_hot_encode_rls(df)
 
-    # Step 4: Merge compound columns
+    # Step 5: Merge compound columns
     df = _merge_exercise(df)
     df = _merge_caffeine(df)
     df = _merge_naps(df)
