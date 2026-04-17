@@ -825,12 +825,8 @@ def _convert_booleans(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
 
 
 def _replace_placeholders(df: pd.DataFrame) -> pd.DataFrame:
-    """Replace -66 and -55 placeholder values with NA."""
-    df["slp_quality_sw"] = df["slp_quality_sw"].replace(-66, pd.NA)
-    df["feel_sleep_not_sound_isq"] = df["feel_sleep_not_sound_isq"].replace(-55, pd.NA)
-    df["feel_sleep_unrefreshing_isq"] = df["feel_sleep_unrefreshing_isq"].replace(
-        -55, pd.NA
-    )
+    """Replace -66 and -55 placeholder values with NA across all columns."""
+    df = df.replace([-55, -66], pd.NA)
     return df
 
 
