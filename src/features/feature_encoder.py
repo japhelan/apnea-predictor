@@ -547,7 +547,8 @@ def _compute_work_schedule_diffs(df: pd.DataFrame) -> pd.DataFrame:
 def _recompute_map_lr(df: pd.DataFrame) -> pd.DataFrame:
     """Recompute map_likelihood_ration from map_score.
 
-    The raw dataset has a broken map_lr column (nearly all values are identical).
+    TODO: investiage this and check online source datasets
+    The raw dataset has a broken map_lr column (nearly all values are identical). MAYBE
     The correct likelihood ratio is: LR = score / (1 - score).
     """
     if "map_score" in df.columns and "map_likelihood_ration" in df.columns:
