@@ -210,3 +210,24 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
         return pd.concat(
             [X_transformed.drop(columns=self.columns_), factors_df], axis=1
         )
+
+    def get_factor_loadings(self):
+        loadings = pd.DataFrame(
+            self.fa.loadings_,
+            index=self.columns_,
+            columns=[f"factor_{i+1}" for i in range(self.n_factors)],
+        )
+        return loadings
+
+    def get_top_loadings(self):
+        loadings = self.get_factor_loadings()
+        loadings_df = pd.DataFrame(loadings, index=self.columns_)
+        loadings_df.columns = [f"Factor_{i+1}" for i in range(loadings_df.shape[1])]
+        loadings_df.head(10)
+
+        for i in range(loadings.shape[1]):
+            print(f"Top loadings for Factor_{i+1}:")
+            print(
+                loadings_df[f"Factor_{i+1}"].abs().sort_values(ascending=False).head(8)
+            )
+            print("\n")
