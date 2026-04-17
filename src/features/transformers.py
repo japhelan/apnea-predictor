@@ -9,6 +9,7 @@ import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
+from factor_analyzer import FactorAnalyzer
 
 
 class Column_Categorical_Bucketizer(BaseEstimator, TransformerMixin):
@@ -181,3 +182,31 @@ class Type_Transformer(BaseEstimator, TransformerMixin):
                         X_transformed[col].astype("object").fillna(np.nan)
                     )
         return X_transformed
+
+
+class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
+    """
+    2.1.0-jp-pipeline transformer that applies factor analysis to numeric features
+    params gotten from the 2.1-jp-feature-engineering notebook
+    """
+
+    def __init__(self, n_factors=18, rotation="promax"):
+        self.n_factors = n_factors
+        self.rotation = rotation
+        self.fa = FactorAnalyzer(n_factors=self.n_factors, rotation=self.rotation)
+
+    def fit(self, X, y=None):
+        numeric_cols = X.select_dtypes(include=["number"]).columns
+        variances = X[numeric_cols].var()
+        self.columns_ = variances[variances > 1e-10].index
+        self.fa.fit(X.loc[:, self.columns_])
+        return self
+
+    def transform(self, X):
+        X_transformed = X.copy()
+        factors = self.fa.transform(X_transformed.loc[:, self.columns_])
+        factor_cols = [f"factor_{i+1}" for i in range(self.n_factors)]
+        factors_df = pd.DataFrame(factors, columns=factor_cols, index=X.index)
+        return pd.concat(
+            [X_transformed.drop(columns=self.columns_), factors_df], axis=1
+        )

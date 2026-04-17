@@ -5,6 +5,7 @@ This module contains various utility functions used throughout the project.
 
 import pickle as pkl
 
+from numpy import dtype
 import pandas as pd
 
 
@@ -295,3 +296,15 @@ def load_data(file_path):
     with open(file_path, "rb") as f:
         data = pkl.load(f)
     return data
+
+
+def convert_ahi(df, threshold=5):
+    """
+    takes a series/column (call after splitting X and y)
+    coverts ahi to binary based on selected threshold
+    """
+    df_transformed = df.copy()
+
+    df_transformed = df_transformed.apply(lambda x: 1 if x >= threshold else 0)
+
+    return df_transformed
