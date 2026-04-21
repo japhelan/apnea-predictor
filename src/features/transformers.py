@@ -4,11 +4,14 @@ holds all transformers for piplines. wip as of 4/2
 
 # 1.1.1 jp pipeline transfomrers
 import re
+from typing import cast
+
 import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
+from factor_analyzer import FactorAnalyzer
 
 
 class Column_Categorical_Bucketizer(BaseEstimator, TransformerMixin):
@@ -181,3 +184,55 @@ class Type_Transformer(BaseEstimator, TransformerMixin):
                         X_transformed[col].astype("object").fillna(np.nan)
                     )
         return X_transformed
+
+
+class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
+    """
+    2.1.0-jp-pipeline transformer that applies factor analysis to numeric features
+    params gotten from the 2.1-jp-feature-engineering notebook
+    """
+
+    def __init__(self, n_factors: int = 18, rotation: str | None = "promax"):
+        self.n_factors = n_factors
+        self.rotation = rotation
+
+    def fit(self, X, y=None):
+        numeric_cols = X.select_dtypes(include=["number"]).columns
+        variances = X[numeric_cols].var()
+        self.columns_ = variances[variances > 1e-10].index
+        self.fa_ = FactorAnalyzer(
+            n_factors=self.n_factors,
+            rotation=cast(str, self.rotation),
+        )
+        self.fa_.fit(X.loc[:, self.columns_])
+        return self
+
+    def transform(self, X):
+        X_transformed = X.copy()
+        factors = self.fa_.transform(X_transformed.loc[:, self.columns_])
+        factor_cols = [f"factor_{i+1}" for i in range(self.n_factors)]
+        factors_df = pd.DataFrame(factors, columns=factor_cols, index=X.index)
+        return pd.concat(
+            [X_transformed.drop(columns=self.columns_), factors_df], axis=1
+        )
+
+    def get_factor_loadings(self):
+        loadings = pd.DataFrame(
+            self.fa_.loadings_,
+            index=self.columns_,
+            columns=[f"factor_{i+1}" for i in range(self.n_factors)],
+        )
+        return loadings
+
+    def get_top_loadings(self):
+        loadings = self.get_factor_loadings()
+        loadings_df = pd.DataFrame(loadings, index=self.columns_)
+        loadings_df.columns = [f"Factor_{i+1}" for i in range(loadings_df.shape[1])]
+        loadings_df.head(10)
+
+        for i in range(loadings.shape[1]):
+            print(f"Top loadings for Factor_{i+1}:")
+            print(
+                loadings_df[f"Factor_{i+1}"].abs().sort_values(ascending=False).head(8)
+            )
+            print("\n")
