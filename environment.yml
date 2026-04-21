@@ -109,4 +109,5 @@ dependencies:
   - pytz=2025.2=py314hca03da5_0
   - ipykernel=6.31.0=py314h7136c26_0
   - openpyxl
+  - optuna
 prefix: /Users/jack/Repos/apnea-predictor/conda_env

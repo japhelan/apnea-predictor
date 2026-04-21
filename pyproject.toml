@@ -23,6 +23,7 @@ dependencies = [
     "seaborn>=0.13",
     "pillow>=11.0",
     "ipython>=9.0",
+    "optuna>=4.0",
 ]
 
 [project.optional-dependencies]
@@ -30,6 +31,7 @@ dev = [
     "jupyter>=1.0",
     "notebook>=7.0",
     "ipython>=9.0",
+    "pytest>=7.0",
 ]
 
 [tool.setuptools.packages.find]
