@@ -23,6 +23,7 @@ dependencies = [
     "seaborn>=0.13",
     "pillow>=11.0",
     "ipython>=9.0",
+    "optuna>=4.0",
 ]
 
 [project.optional-dependencies]

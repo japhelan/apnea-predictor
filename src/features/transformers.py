@@ -4,6 +4,8 @@ holds all transformers for piplines. wip as of 4/2
 
 # 1.1.1 jp pipeline transfomrers
 import re
+from typing import cast
+
 import numpy as np
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -190,21 +192,24 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
     params gotten from the 2.1-jp-feature-engineering notebook
     """
 
-    def __init__(self, n_factors=18, rotation="promax"):
+    def __init__(self, n_factors: int = 18, rotation: str | None = "promax"):
         self.n_factors = n_factors
         self.rotation = rotation
-        self.fa = FactorAnalyzer(n_factors=self.n_factors, rotation=self.rotation)
 
     def fit(self, X, y=None):
         numeric_cols = X.select_dtypes(include=["number"]).columns
         variances = X[numeric_cols].var()
         self.columns_ = variances[variances > 1e-10].index
-        self.fa.fit(X.loc[:, self.columns_])
+        self.fa_ = FactorAnalyzer(
+            n_factors=self.n_factors,
+            rotation=cast(str, self.rotation),
+        )
+        self.fa_.fit(X.loc[:, self.columns_])
         return self
 
     def transform(self, X):
         X_transformed = X.copy()
-        factors = self.fa.transform(X_transformed.loc[:, self.columns_])
+        factors = self.fa_.transform(X_transformed.loc[:, self.columns_])
         factor_cols = [f"factor_{i+1}" for i in range(self.n_factors)]
         factors_df = pd.DataFrame(factors, columns=factor_cols, index=X.index)
         return pd.concat(
@@ -213,7 +218,7 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
 
     def get_factor_loadings(self):
         loadings = pd.DataFrame(
-            self.fa.loadings_,
+            self.fa_.loadings_,
             index=self.columns_,
             columns=[f"factor_{i+1}" for i in range(self.n_factors)],
         )
