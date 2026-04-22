@@ -856,7 +856,7 @@ def _impute(df: pd.DataFrame) -> pd.DataFrame:
         mode_vals = df[cat_cols].mode().iloc[0]
         with pd.option_context("future.no_silent_downcasting", True):
             for col in cat_cols:
-                df[col] = df[col].fillna(mode_vals[col]).infer_objects(copy=False)
+                df[col] = df[col].fillna(mode_vals[col]).infer_objects()
 
     return df
 
@@ -882,13 +882,15 @@ def _one_hot_encode_dream_recall(df: pd.DataFrame) -> pd.DataFrame:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 
-def encode_features(df: pd.DataFrame) -> pd.DataFrame:
+def encode_features(df: pd.DataFrame, impute: bool = True) -> pd.DataFrame:
     """Stage 2: convert Stage 1 MultiIndex DataFrame into encoded flat DataFrame.
 
     Parameters
     ----------
     df : pd.DataFrame
         Stage 1 output with 3-level MultiIndex (descriptive, original, subset).
+    impute : bool, default=True
+        Whether to impute missing values.
 
     Returns
     -------
@@ -941,11 +943,12 @@ def encode_features(df: pd.DataFrame) -> pd.DataFrame:
     # Step 8: Drop rows missing AHI
     df = df.dropna(subset=["ahi"])
 
-    # Step 9: Replace placeholder values
-    df = _replace_placeholders(df)
+    if impute:
+        # Step 9: Replace placeholder values
+        df = _replace_placeholders(df)
 
-    # Step 10: Impute
-    df = _impute(df)
+        # Step 10: Impute
+        df = _impute(df)
 
     # Step 11: One-hot encode dream_recall_frequency
     df = _one_hot_encode_dream_recall(df)
