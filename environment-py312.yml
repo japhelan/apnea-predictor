@@ -1,4 +1,4 @@
-name: /Users/jack/Repos/apnea-predictor/conda_env
+name: py312_env
 channels:
   - defaults
   - conda-forge
@@ -19,7 +19,6 @@ dependencies:
   - decorator=5.2.1
   - et_xmlfile=2.0.0
   - executing=2.2.1
-  - expat=2.7.3
   - fontconfig=2.15.0
   - fonttools=4.60.1
   - freetype=2.13.3
@@ -42,8 +41,6 @@ dependencies:
   - libavif=1.3.0
   - libcxx=20.1.8
   - libdeflate=1.22
-  - libexpat=2.7.3
-  - libffi=3.4.4
   - libgfortran5=15.2.0
   - libglib=2.84.4
   - libiconv=1.16
@@ -90,7 +87,6 @@ dependencies:
   - python=3.12
   - python-dateutil=2.9.0post0
   - python-tzdata=2025.2
-  - python_abi=3.14
   - pytz=2025.2
   - pyzmq=27.1.0
   - readline=8.3
@@ -115,7 +111,6 @@ dependencies:
       - annotated-doc==0.0.4
       - annotated-types==0.7.0
       - anyio==4.13.0
-      - apnea-predictor==0.1.0
       - blinker==1.9.0
       - cachetools==7.0.5
       - certifi==2026.2.25

@@ -15,10 +15,12 @@ Requires-Dist: matplotlib>=3.8
 Requires-Dist: seaborn>=0.13
 Requires-Dist: pillow>=11.0
 Requires-Dist: ipython>=9.0
+Requires-Dist: optuna>=4.0
 Provides-Extra: dev
 Requires-Dist: jupyter>=1.0; extra == "dev"
 Requires-Dist: notebook>=7.0; extra == "dev"
 Requires-Dist: ipython>=9.0; extra == "dev"
+Requires-Dist: pytest>=7.0; extra == "dev"
 
 # Sleep Apnea Predictor
 

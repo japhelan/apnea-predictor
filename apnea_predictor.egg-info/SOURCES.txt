@@ -8,8 +8,14 @@ apnea_predictor.egg-info/top_level.txt
 src/__init__.py
 src/eval.py
 src/plots.py
+src/features/feature_encoder.py
+src/features/raw_data_loader.py
+src/features/transformers.py
+src/modeling/fa_tuning.py
 src/modeling/predict.py
 src/modeling/train.py
 src/utils/__init__.py
 src/utils/data_utils.py
 src/utils/eda_utils.py
+tests/test_feature_encoder.py
+tests/test_raw_data_loader.py
