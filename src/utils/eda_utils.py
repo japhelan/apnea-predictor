@@ -302,7 +302,11 @@ def get_iqr_stats(df: pd.DataFrame):
 
 
 def flag_iqr_outliers(
-    df: pd.DataFrame, q1: pd.Series, q3: pd.Series, iqr: pd.Series, multiplier: float = 1.5
+    df: pd.DataFrame,
+    q1: pd.Series,
+    q3: pd.Series,
+    iqr: pd.Series,
+    multiplier: float = 1.5,
 ) -> pd.DataFrame:
     """Return a boolean DataFrame — True where a value is an IQR outlier.
 
@@ -350,8 +354,8 @@ def run_detector_ensemble(X: pd.DataFrame, contamination: float = 0.05) -> pd.Da
     results = {}
     for name, det in [
         ("IForest", IForest(contamination=contamination, random_state=42)),
-        ("LOF",     LOF(contamination=contamination)),
-        ("ECOD",    ECOD(contamination=contamination)),
+        ("LOF", LOF(contamination=contamination)),
+        ("ECOD", ECOD(contamination=contamination)),
     ]:
         det.fit(arr)
         results[name] = det.labels_.astype(bool)  # True = outlier
@@ -411,11 +415,15 @@ def class_conditional_iforest(
         if verbose:
             n = mask.sum()
             n_out = (preds == -1).sum()
-            print(f"  {cls:8s} (n={n:4d}): {n_out:3d} outliers ({100 * n_out / n:.1f}%)")
+            print(
+                f"  {cls:8s} (n={n:4d}): {n_out:3d} outliers ({100 * n_out / n:.1f}%)"
+            )
 
     if verbose:
         n_out_total = (labels == -1).sum()
-        print(f"\nTotal: {n_out_total} outliers ({100 * n_out_total / len(labels):.1f}%)")
+        print(
+            f"\nTotal: {n_out_total} outliers ({100 * n_out_total / len(labels):.1f}%)"
+        )
 
     return labels
 

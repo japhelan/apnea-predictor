@@ -329,7 +329,9 @@ def ahi_to_severity(val: float) -> str:
         return "severe"
 
 
-def check_sentinel_values(df: pd.DataFrame, sentinels: tuple = (-55, -66)) -> pd.DataFrame:
+def check_sentinel_values(
+    df: pd.DataFrame, sentinels: tuple = (-55, -66)
+) -> pd.DataFrame:
     """Check whether any sentinel placeholder values remain in *df*.
 
     Prints a summary and returns a DataFrame of flagged columns.
@@ -352,7 +354,9 @@ def check_sentinel_values(df: pd.DataFrame, sentinels: tuple = (-55, -66)) -> pd
 
     if remaining.empty:
         vals = " / ".join(str(s) for s in sentinels)
-        print(f"\u2713 No {vals} sentinel values remain — feature_encoder already handled them.")
+        print(
+            f"\u2713 No {vals} sentinel values remain — feature_encoder already handled them."
+        )
     else:
         print(
             f"\u26a0 {len(remaining)} column(s) still contain sentinel values "
@@ -361,3 +365,38 @@ def check_sentinel_values(df: pd.DataFrame, sentinels: tuple = (-55, -66)) -> pd
         print(remaining.to_string())
 
     return remaining
+
+
+def make_multiclass_y(
+    ahi_series: pd.Series,
+    bins: list | None = None,
+    labels: list | None = None,
+) -> pd.Series:
+    """Map a raw AHI series to 4 ordinal class labels.
+
+    Uses standard clinical thresholds:
+
+    - 0 (none):     AHI < 5
+    - 1 (mild):     5 ≤ AHI < 15
+    - 2 (moderate): 15 ≤ AHI < 30
+    - 3 (severe):   AHI ≥ 30
+
+    Parameters
+    ----------
+    ahi_series : pd.Series
+        Raw AHI values.
+    bins : list, optional
+        Custom cut-point edges (left-closed). Defaults to [0, 5, 15, 30, inf].
+    labels : list, optional
+        Integer labels for each bin. Defaults to [0, 1, 2, 3].
+
+    Returns
+    -------
+    pd.Series
+        Integer class labels with the same index as *ahi_series*.
+    """
+    if bins is None:
+        bins = [0, 5, 15, 30, float("inf")]
+    if labels is None:
+        labels = [0, 1, 2, 3]
+    return pd.cut(ahi_series, bins=bins, labels=labels, right=False).astype(int)
