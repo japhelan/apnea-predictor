@@ -327,3 +327,34 @@ def parallel_analysis(df, n_iterations=100):
     plt.show()
 
     print(f"\nParallel analysis suggests {n_factors_parallel} factors")
+
+
+def plot_outliers(coords_2d, labels, title: str, ax) -> None:
+    """Scatter PCA-projected points coloured by outlier status.
+
+    Parameters
+    ----------
+    coords_2d : array-like of shape (n_samples, 2)
+        2-D projection (e.g. from PCA) of the feature matrix.
+    labels : array-like of int
+        sklearn convention: 1 = normal, -1 = outlier.
+    title : str
+        Axes title.
+    ax : matplotlib.axes.Axes
+        Axes to draw on.
+    """
+    labels = np.asarray(labels)
+    normal = labels == 1
+    outlier = labels == -1
+    ax.scatter(
+        coords_2d[normal, 0], coords_2d[normal, 1],
+        s=8, alpha=0.4, c="steelblue", label=f"Normal (n={normal.sum()})",
+    )
+    ax.scatter(
+        coords_2d[outlier, 0], coords_2d[outlier, 1],
+        s=14, alpha=0.75, c="tomato", label=f"Outlier (n={outlier.sum()})",
+    )
+    ax.set_title(title, fontsize=10)
+    ax.legend(fontsize=8)
+    ax.set_xlabel("PC1")
+    ax.set_ylabel("PC2")

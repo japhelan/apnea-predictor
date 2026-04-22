@@ -308,3 +308,56 @@ def convert_ahi(df, threshold=5):
     df_transformed = df_transformed.apply(lambda x: 1 if x >= threshold else 0)
 
     return df_transformed
+
+
+def ahi_to_severity(val: float) -> str:
+    """Map a raw AHI float to a severity label string.
+
+    Thresholds follow standard clinical definitions:
+    - none:     AHI < 5
+    - mild:     5 ≤ AHI < 15
+    - moderate: 15 ≤ AHI < 30
+    - severe:   AHI ≥ 30
+    """
+    if val < 5:
+        return "none"
+    elif val < 15:
+        return "mild"
+    elif val < 30:
+        return "moderate"
+    else:
+        return "severe"
+
+
+def check_sentinel_values(df: pd.DataFrame, sentinels: tuple = (-55, -66)) -> pd.DataFrame:
+    """Check whether any sentinel placeholder values remain in *df*.
+
+    Prints a summary and returns a DataFrame of flagged columns.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        DataFrame to inspect (typically the imputed feature matrix).
+    sentinels : tuple of int, default (-55, -66)
+        Placeholder values that should have been replaced before this check.
+
+    Returns
+    -------
+    pd.DataFrame
+        Rows are columns that still contain sentinel values;
+        columns are the sentinel values themselves. Empty if none found.
+    """
+    result = pd.DataFrame({str(s): (df == s).sum() for s in sentinels})
+    remaining = result[(result > 0).any(axis=1)]
+
+    if remaining.empty:
+        vals = " / ".join(str(s) for s in sentinels)
+        print(f"\u2713 No {vals} sentinel values remain — feature_encoder already handled them.")
+    else:
+        print(
+            f"\u26a0 {len(remaining)} column(s) still contain sentinel values "
+            "(will skew detection):"
+        )
+        print(remaining.to_string())
+
+    return remaining

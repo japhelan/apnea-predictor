@@ -281,3 +281,184 @@ def correlation_above_threshold(df, threshold=0.5, return_table=False):
         )
     else:
         return [(col1, col2) for col1, col2, _ in correlated_pairs]
+
+
+### Outlier detection utilities
+
+
+def get_iqr_stats(df: pd.DataFrame):
+    """Compute Q1, Q3, and IQR for every numeric column in *df*.
+
+    Returns
+    -------
+    tuple[pd.Series, pd.Series, pd.Series]
+        (Q1, Q3, IQR) indexed by column name.
+    """
+    num_cols = df.select_dtypes(include="number").columns
+    q1 = df[num_cols].quantile(0.25)
+    q3 = df[num_cols].quantile(0.75)
+    iqr = q3 - q1
+    return q1, q3, iqr
+
+
+def flag_iqr_outliers(
+    df: pd.DataFrame, q1: pd.Series, q3: pd.Series, iqr: pd.Series, multiplier: float = 1.5
+) -> pd.DataFrame:
+    """Return a boolean DataFrame — True where a value is an IQR outlier.
+
+    Only checks columns present in both *df* and the IQR stats index.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Data to check.
+    q1, q3, iqr : pd.Series
+        Output of :func:`get_iqr_stats`.
+    multiplier : float, default 1.5
+        Use 1.5 for mild outliers, 3.0 for extreme outliers.
+    """
+    shared_cols = df.columns.intersection(q1.index)
+    sub = df[shared_cols]
+    return (sub < (q1[shared_cols] - multiplier * iqr[shared_cols])) | (
+        sub > (q3[shared_cols] + multiplier * iqr[shared_cols])
+    )
+
+
+def run_detector_ensemble(X: pd.DataFrame, contamination: float = 0.05) -> pd.DataFrame:
+    """Fit IForest, LOF, and ECOD on *X* and return a vote DataFrame.
+
+    Requires ``pyod``.
+
+    Parameters
+    ----------
+    X : pd.DataFrame
+        Feature matrix (no target column).
+    contamination : float, default 0.05
+        Expected fraction of outliers passed to each detector.
+
+    Returns
+    -------
+    pd.DataFrame
+        Boolean columns IForest / LOF / ECOD (True = outlier) plus
+        an integer ``n_votes`` column.
+    """
+    from pyod.models.iforest import IForest
+    from pyod.models.lof import LOF
+    from pyod.models.ecod import ECOD
+
+    arr = X.to_numpy()
+    results = {}
+    for name, det in [
+        ("IForest", IForest(contamination=contamination, random_state=42)),
+        ("LOF",     LOF(contamination=contamination)),
+        ("ECOD",    ECOD(contamination=contamination)),
+    ]:
+        det.fit(arr)
+        results[name] = det.labels_.astype(bool)  # True = outlier
+
+    votes = pd.DataFrame(results, index=X.index)
+    votes["n_votes"] = votes.sum(axis=1)
+    return votes
+
+
+def class_conditional_iforest(
+    X,
+    class_labels: pd.Series,
+    contamination: float = 0.05,
+    n_estimators: int = 200,
+    random_state: int = 42,
+    verbose: bool = True,
+) -> np.ndarray:
+    """Run IsolationForest independently within each class.
+
+    Parameters
+    ----------
+    X : array-like of shape (n_samples, n_features)
+        Feature matrix.
+    class_labels : pd.Series
+        Per-row class membership (e.g. AHI severity strings).
+    contamination : float, default 0.05
+    n_estimators : int, default 200
+    random_state : int, default 42
+    verbose : bool, default True
+        Print per-class outlier counts.
+
+    Returns
+    -------
+    np.ndarray of int
+        sklearn convention: 1 = normal, -1 = outlier.
+    """
+    from sklearn.ensemble import IsolationForest
+
+    X_arr = X if isinstance(X, np.ndarray) else np.asarray(X)
+    labels = np.ones(len(X_arr), dtype=int)
+
+    if verbose:
+        print(f"Class-conditional IsolationForest (contamination={contamination}):")
+
+    for cls in sorted(class_labels.unique()):
+        mask = (class_labels == cls).values
+        if mask.sum() == 0:
+            continue
+        clf = IsolationForest(
+            n_estimators=n_estimators,
+            contamination=contamination,
+            random_state=random_state,
+        )
+        clf.fit(X_arr[mask])
+        preds = clf.predict(X_arr[mask])
+        labels[mask] = preds
+        if verbose:
+            n = mask.sum()
+            n_out = (preds == -1).sum()
+            print(f"  {cls:8s} (n={n:4d}): {n_out:3d} outliers ({100 * n_out / n:.1f}%)")
+
+    if verbose:
+        n_out_total = (labels == -1).sum()
+        print(f"\nTotal: {n_out_total} outliers ({100 * n_out_total / len(labels):.1f}%)")
+
+    return labels
+
+
+def build_outlier_flags(label_dict: dict, index=None) -> pd.DataFrame:
+    """Build a boolean outlier membership DataFrame.
+
+    Parameters
+    ----------
+    label_dict : dict
+        Mapping of method name → boolean array/series (True = outlier).
+    index : array-like, optional
+        Row index for the resulting DataFrame.
+
+    Returns
+    -------
+    pd.DataFrame
+        Boolean columns per method plus an integer ``n_methods`` column.
+    """
+    df = pd.DataFrame(label_dict, index=index)
+    df["n_methods"] = df.sum(axis=1)
+    return df
+
+
+def jaccard_similarity_matrix(flag_df: pd.DataFrame) -> pd.DataFrame:
+    """Compute pairwise Jaccard similarity between boolean columns.
+
+    Parameters
+    ----------
+    flag_df : pd.DataFrame
+        DataFrame of boolean columns (True = outlier). Must not contain
+        non-boolean columns like ``n_methods``.
+
+    Returns
+    -------
+    pd.DataFrame
+        Square matrix of Jaccard scores (1.0 = identical outlier sets).
+    """
+    cols = flag_df.columns.tolist()
+    matrix = pd.DataFrame(index=cols, columns=cols, dtype=float)
+    for a in cols:
+        for b in cols:
+            both = (flag_df[a] & flag_df[b]).sum()
+            union = (flag_df[a] | flag_df[b]).sum()
+            matrix.loc[a, b] = both / union if union > 0 else 1.0
+    return matrix
