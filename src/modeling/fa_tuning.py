@@ -25,6 +25,8 @@ DEFAULT_ROTATIONS = (
     "equamax",
 )
 
+DEFAULT_METHODS = ("minres", "ml", "principal")
+
 DEFAULT_XGB_PARAMS = {
     "n_estimators": 250,
     "max_depth": 4,
@@ -35,13 +37,14 @@ DEFAULT_XGB_PARAMS = {
     "random_state": 42,
 }
 
-FA_PARAM_NAMES = {"rotation", "n_factors"}
+FA_PARAM_NAMES = {"rotation", "n_factors", "method"}
 
 
 @dataclass
 class FactorAnalysisTuningResult:
     study: optuna.Study
     best_rotation: str | None
+    best_method: str | None
     best_score: float
     best_params: dict[str, object]
     trial_results: pd.DataFrame
@@ -66,10 +69,14 @@ def _build_classifier_params(
     classifier_params: dict[str, object] | None,
     random_state: int,
 ) -> dict[str, object]:
-    params = DEFAULT_XGB_PARAMS.copy()
-    params.update(classifier_params or {})
-    params.setdefault("eval_metric", "logloss")
-    params["random_state"] = random_state
+    if classifier_params is None:
+        params = DEFAULT_XGB_PARAMS.copy()
+        params.update(classifier_params or {})
+        params.setdefault("eval_metric", "logloss")
+        params["random_state"] = random_state
+    else:
+        params = classifier_params.copy()
+        params["random_state"] = random_state
     return params
 
 
@@ -80,13 +87,18 @@ def _validate_scoring(scoring: str) -> None:
 
 def _build_study(
     rotation_labels: list[str],
+    method_labels: list[str],
     n_factors_range: tuple[int, int] | None,
     xgb_search_space: dict[str, object] | None,
     random_state: int,
     direction: str,
 ) -> optuna.Study:
     if n_factors_range is None and not xgb_search_space:
-        sampler = optuna.samplers.GridSampler({"rotation": rotation_labels})
+        grid: dict[str, list[str]] = {
+            "rotation": rotation_labels,
+            "method": method_labels,
+        }
+        sampler = optuna.samplers.GridSampler(grid)
     else:
         sampler = optuna.samplers.TPESampler(seed=random_state)
     return optuna.create_study(direction=direction, sampler=sampler)
@@ -167,6 +179,7 @@ def tune_factor_analysis_rotation(
     y: pd.Series | np.ndarray,
     *,
     rotations: tuple[str | None, ...] | list[str | None] = DEFAULT_ROTATIONS,
+    methods: tuple[str, ...] | list[str] = ("minres",),
     n_factors: int = 18,
     n_factors_range: tuple[int, int] | None = None,
     n_trials: int = 30,
@@ -202,11 +215,13 @@ def tune_factor_analysis_rotation(
         for rotation in rotations
     }
     rotation_labels = list(rotation_lookup.keys())
+    method_labels = list(methods)
     classifier_kwargs = _build_classifier_params(classifier_params, random_state)
     cv = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=random_state)
 
     study = _build_study(
         rotation_labels,
+        method_labels,
         n_factors_range,
         xgb_search_space,
         random_state,
@@ -215,6 +230,7 @@ def tune_factor_analysis_rotation(
 
     def objective(trial: optuna.Trial) -> float:
         rotation_label = trial.suggest_categorical("rotation", rotation_labels)
+        method = trial.suggest_categorical("method", method_labels)
         candidate_n_factors = n_factors
         if n_factors_range is not None:
             candidate_n_factors = trial.suggest_int(
@@ -233,6 +249,7 @@ def tune_factor_analysis_rotation(
                     Factor_Analyzer_Transformer(
                         n_factors=candidate_n_factors,
                         rotation=rotation_lookup[rotation_label],
+                        method=str(method),
                     ),
                 ),
                 ("classifier", XGBClassifier(**candidate_classifier_kwargs)),
@@ -258,7 +275,7 @@ def tune_factor_analysis_rotation(
     if n_factors_range is None and not xgb_search_space:
         study.optimize(
             objective,
-            n_trials=len(rotation_labels),
+            n_trials=len(rotation_labels) * len(method_labels),
             show_progress_bar=show_progress_bar,
         )
     else:
@@ -273,6 +290,7 @@ def tune_factor_analysis_rotation(
         row = {
             "trial": trial.number,
             "rotation": trial.params["rotation"],
+            "method": trial.params.get("method", method_labels[0]),
             "n_factors": trial.params.get("n_factors", n_factors),
             "mean_score": float(trial.value),
             "score_std": float(trial.user_attrs.get("score_std", np.nan)),
@@ -283,7 +301,7 @@ def tune_factor_analysis_rotation(
             {
                 key: value
                 for key, value in trial.params.items()
-                if key not in {"rotation", "n_factors"}
+                if key not in {"rotation", "method", "n_factors"}
             }
         )
         rows.append(row)
@@ -299,18 +317,22 @@ def tune_factor_analysis_rotation(
             average_std=("score_std", "mean"),
             trials=("trial", "count"),
             best_n_factors=("n_factors", "first"),
+            best_method=("method", "first"),
         )
         .sort_values(by=["best_score", "average_score"], ascending=[False, False])
         .reset_index()
     )
 
     best_rotation = _normalize_rotation(study.best_params["rotation"])
+    best_method = str(study.best_params.get("method", method_labels[0]))
     best_params = study.best_params.copy()
     best_params["rotation"] = best_rotation
+    best_params["method"] = best_method
 
     return FactorAnalysisTuningResult(
         study=study,
         best_rotation=best_rotation,
+        best_method=best_method,
         best_score=float(study.best_value),
         best_params=best_params,
         trial_results=trial_results.reset_index(drop=True),
@@ -344,6 +366,7 @@ def build_best_factor_analysis_pipeline(
                 Factor_Analyzer_Transformer(
                     n_factors=resolved_n_factors,
                     rotation=cast(str | None, tuning_result.best_rotation),
+                    method=cast(str, tuning_result.best_method or "minres"),
                 ),
             ),
             ("classifier", XGBClassifier(**classifier_kwargs)),

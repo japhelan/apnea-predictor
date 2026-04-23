@@ -192,9 +192,15 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
     params gotten from the 2.1-jp-feature-engineering notebook
     """
 
-    def __init__(self, n_factors: int = 18, rotation: str | None = "promax"):
+    def __init__(
+        self,
+        n_factors: int = 18,
+        rotation: str | None = "promax",
+        method: str = "minres",
+    ):
         self.n_factors = n_factors
         self.rotation = rotation
+        self.method = method
 
     def fit(self, X, y=None):
         numeric_cols = X.select_dtypes(include=["number"]).columns
@@ -203,6 +209,7 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
         self.fa_ = FactorAnalyzer(
             n_factors=self.n_factors,
             rotation=cast(str, self.rotation),
+            method=cast(str, self.method),
         )
         self.fa_.fit(X.loc[:, self.columns_])
         return self
