@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from typing import cast
+from types import SimpleNamespace
+from typing import Union, cast
 
 import numpy as np
 import optuna
@@ -38,6 +40,8 @@ DEFAULT_XGB_PARAMS = {
 }
 
 FA_PARAM_NAMES = {"rotation", "n_factors", "method"}
+
+_TuningResultLike = Union["FactorAnalysisTuningResult", SimpleNamespace]
 
 
 @dataclass
@@ -89,7 +93,7 @@ def _build_study(
     rotation_labels: list[str],
     method_labels: list[str],
     n_factors_range: tuple[int, int] | None,
-    xgb_search_space: dict[str, object] | None,
+    xgb_search_space: Mapping[str, object] | None,
     random_state: int,
     direction: str,
 ) -> optuna.Study:
@@ -163,7 +167,7 @@ def _suggest_xgb_param(trial: optuna.Trial, name: str, spec: object) -> object:
 def _suggest_xgb_params(
     trial: optuna.Trial,
     base_params: dict[str, object],
-    xgb_search_space: dict[str, object] | None,
+    xgb_search_space: Mapping[str, object] | None,
 ) -> dict[str, object]:
     if not xgb_search_space:
         return base_params
@@ -178,7 +182,7 @@ def tune_factor_analysis_rotation(
     X: pd.DataFrame,
     y: pd.Series | np.ndarray,
     *,
-    rotations: tuple[str | None, ...] | list[str | None] = DEFAULT_ROTATIONS,
+    rotations: Sequence[str | None] = DEFAULT_ROTATIONS,
     methods: tuple[str, ...] | list[str] = ("minres",),
     n_factors: int = 18,
     n_factors_range: tuple[int, int] | None = None,
@@ -186,7 +190,7 @@ def tune_factor_analysis_rotation(
     n_splits: int = 5,
     scoring: str = "roc_auc",
     classifier_params: dict[str, object] | None = None,
-    xgb_search_space: dict[str, object] | None = None,
+    xgb_search_space: Mapping[str, object] | None = None,
     random_state: int = 42,
     direction: str = "maximize",
     show_progress_bar: bool = False,
@@ -341,7 +345,7 @@ def tune_factor_analysis_rotation(
 
 
 def build_best_factor_analysis_pipeline(
-    tuning_result: FactorAnalysisTuningResult,
+    tuning_result: _TuningResultLike,
     *,
     classifier_params: dict[str, object] | None = None,
     random_state: int = 42,
