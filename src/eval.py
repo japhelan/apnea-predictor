@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import (
     accuracy_score,
+    average_precision_score,
     classification_report,
     confusion_matrix,
     f1_score,
@@ -236,14 +237,15 @@ def evaluate_binary(
     if proba_pos.ndim == 2:
         proba_pos = proba_pos[:, 1]
     auc = roc_auc_score(y_true, proba_pos)
+    ap  = average_precision_score(y_true, proba_pos)
     acc = accuracy_score(y_true, y_pred)
     f1m = f1_score(y_true, y_pred, average="macro", zero_division=0)
     print(f"\n{'─' * 58}")
     print(f"  {name}")
     print(f"{'─' * 58}")
     print(
-        f"  ROC-AUC : {auc:.4f}  |  Accuracy : {acc:.4f}"
-        f"  |  F1-macro : {f1m:.4f}  (thresh={threshold:.2f})"
+        f"  Avg-Prec: {ap:.4f}  |  ROC-AUC : {auc:.4f}"
+        f"  |  Accuracy : {acc:.4f}  |  F1-macro : {f1m:.4f}  (thresh={threshold:.2f})"
     )
     print(
         classification_report(
@@ -252,6 +254,7 @@ def evaluate_binary(
     )
     return {
         "model": name,
+        "avg_precision": round(float(ap), 4),
         "roc_auc": round(float(auc), 4),
         "accuracy": round(float(acc), 4),
         "f1_macro": round(float(f1m), 4),
@@ -288,17 +291,19 @@ def evaluate_multiclass(
     if class_names is None:
         class_names = _MC_NAMES_DEFAULT
     auc = roc_auc_score(y_true, y_proba, multi_class="ovr", average="macro")
+    ap  = average_precision_score(y_true, y_proba, average="macro")
     acc = accuracy_score(y_true, y_pred)
     f1m = f1_score(y_true, y_pred, average="macro", zero_division=0)
     print(f"\n{'─' * 58}")
     print(f"  {name}")
     print(f"{'─' * 58}")
-    print(f"  ROC-AUC(OvR/macro): {auc:.4f}  |  Acc: {acc:.4f}  |  F1-macro: {f1m:.4f}")
+    print(f"  Avg-Prec(OvR/macro): {ap:.4f}  |  ROC-AUC(OvR): {auc:.4f}  |  Acc: {acc:.4f}  |  F1-macro: {f1m:.4f}")
     print(
         classification_report(y_true, y_pred, target_names=class_names, zero_division=0)
     )
     return {
         "model": name,
+        "avg_precision_ovr": round(float(ap), 4),
         "roc_auc_ovr": round(float(auc), 4),
         "accuracy": round(float(acc), 4),
         "f1_macro": round(float(f1m), 4),
@@ -316,7 +321,7 @@ def safe_mlflow_key(name: str) -> str:
 def tag_comparison_df(
     df: pd.DataFrame,
     approach: str,
-    auc_col: str = "roc_auc",
+    auc_col: str = "avg_precision",
 ) -> pd.DataFrame:
     """Normalize a results DataFrame for the cross-approach summary.
 
@@ -326,16 +331,16 @@ def tag_comparison_df(
         Per-model results with at least columns: model, <auc_col>, accuracy, f1_macro.
     approach : str
         Approach label inserted as the first column.
-    auc_col : str, default "roc_auc"
-        Column to rename to "roc_auc" in the output.
+    auc_col : str, default "avg_precision"
+        Column to rename to "avg_precision" in the output.
 
     Returns
     -------
     pd.DataFrame
-        Columns: approach, model, roc_auc, accuracy, f1_macro.
+        Columns: approach, model, avg_precision, accuracy, f1_macro.
     """
     out = df[["model", auc_col, "accuracy", "f1_macro"]].copy()
-    out = out.rename(columns={auc_col: "roc_auc"})
+    out = out.rename(columns={auc_col: "avg_precision"})
     out.insert(0, "approach", approach)
     return out
 
