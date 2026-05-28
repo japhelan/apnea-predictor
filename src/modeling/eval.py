@@ -3,9 +3,12 @@ Evaluation utilities for binary and multiclass classification model performance.
 """
 
 import re
+import time
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.inspection import permutation_importance
 from sklearn.metrics import (
     accuracy_score,
     average_precision_score,
@@ -477,3 +480,43 @@ def run_fa_shap_eval(
         "classification_report": class_report,
         "confusion_matrix": conf_matrix,
     }
+
+
+def plot_permutation_importance(model, X, y, vis=True, **kwargs):
+    """Compute and optionally plot permutation importances for a fitted model.
+
+    Parameters
+    ----------
+    model : estimator
+        Fitted sklearn-compatible model.
+    X : pd.DataFrame
+        Feature matrix.
+    y : array-like
+        Target vector.
+    vis : bool, default True
+        Whether to display a bar chart of importances.
+    **kwargs
+        Passed to ``sklearn.inspection.permutation_importance``
+        (e.g. ``scoring``).
+
+    Returns
+    -------
+    importances : pd.Series
+        Mean permutation importances sorted descending.
+    """
+    start = time.time()
+    result = permutation_importance(model, X, y, n_repeats=20, random_state=42, n_jobs=2, **kwargs)
+    print(f"Elapsed time to compute the importances: {time.time() - start:.3f} seconds")
+
+    importances = pd.Series(result.importances_mean, index=X.columns).sort_values(ascending=False)
+    print(importances.to_string())
+
+    if vis:
+        fig, ax = plt.subplots()
+        importances.plot.bar(yerr=result.importances_std, ax=ax)
+        ax.set_title("Feature importances using permutation on full model")
+        ax.set_ylabel("Mean accuracy decrease")
+        fig.tight_layout()
+        plt.show()
+
+    return importances

@@ -347,14 +347,97 @@ def plot_outliers(coords_2d, labels, title: str, ax) -> None:
     normal = labels == 1
     outlier = labels == -1
     ax.scatter(
-        coords_2d[normal, 0], coords_2d[normal, 1],
-        s=8, alpha=0.4, c="steelblue", label=f"Normal (n={normal.sum()})",
+        coords_2d[normal, 0],
+        coords_2d[normal, 1],
+        s=8,
+        alpha=0.4,
+        c="steelblue",
+        label=f"Normal (n={normal.sum()})",
     )
     ax.scatter(
-        coords_2d[outlier, 0], coords_2d[outlier, 1],
-        s=14, alpha=0.75, c="tomato", label=f"Outlier (n={outlier.sum()})",
+        coords_2d[outlier, 0],
+        coords_2d[outlier, 1],
+        s=14,
+        alpha=0.75,
+        c="tomato",
+        label=f"Outlier (n={outlier.sum()})",
     )
     ax.set_title(title, fontsize=10)
     ax.legend(fontsize=8)
     ax.set_xlabel("PC1")
     ax.set_ylabel("PC2")
+
+
+def efa_elbow_plot(X, max_factors=None, ax=None):
+    """Scree / elbow plot for EFA with parallel analysis.
+
+    Fits a no-rotation FactorAnalyzer to extract eigenvalues and plots them
+    alongside a Kaiser criterion line (eigenvalue = 1) and a parallel-analysis
+    reference line estimated from the mean of 100 random permutations.
+
+    Parameters
+    ----------
+    X : pd.DataFrame
+        Feature matrix (no target column).
+    max_factors : int, optional
+        Max number of factors to show. Defaults to min(n_features, n_samples - 1).
+    ax : matplotlib.axes.Axes, optional
+        Existing axes to draw on.
+
+    Returns
+    -------
+    ax : matplotlib.axes.Axes
+    """
+    n_samples, n_features = X.shape
+    if max_factors is None:
+        max_factors = min(n_features, n_samples - 1)
+
+    fa = FactorAnalyzer(n_factors=max_factors, rotation=None)
+    fa.fit(X)
+    ev, _ = fa.get_eigenvalues()
+    ev = ev[:max_factors]
+
+    rng = np.random.default_rng(42)
+    pa_evs = np.zeros((100, max_factors))
+    X_arr = X.values.copy()
+    for i in range(100):
+        X_perm = np.column_stack(
+            [rng.permutation(X_arr[:, j]) for j in range(X_arr.shape[1])]
+        )
+        fa_pa = FactorAnalyzer(n_factors=max_factors, rotation=None)
+        fa_pa.fit(X_perm)
+        pa_ev, _ = fa_pa.get_eigenvalues()
+        pa_evs[i] = pa_ev[:max_factors]
+    pa_mean = pa_evs.mean(axis=0)
+
+    suggested = int(np.sum(ev > pa_mean))
+
+    if ax is None:
+        _, ax = plt.subplots(figsize=(10, 5))
+
+    factors = np.arange(1, max_factors + 1)
+    ax.plot(factors, ev, "o-", color="steelblue", label="Observed eigenvalues")
+    ax.plot(
+        factors,
+        pa_mean,
+        "s--",
+        color="tomato",
+        alpha=0.7,
+        label="Parallel analysis (mean)",
+    )
+    ax.axhline(
+        1, color="gray", linestyle=":", linewidth=1, label="Kaiser criterion (ev = 1)"
+    )
+    ax.axvline(
+        suggested,
+        color="green",
+        linestyle="--",
+        linewidth=1,
+        label=f"Suggested factors = {suggested}",
+    )
+    ax.set_xlabel("Factor number")
+    ax.set_ylabel("Eigenvalue")
+    ax.set_title("EFA scree plot")
+    ax.legend()
+    plt.tight_layout()
+    return ax
