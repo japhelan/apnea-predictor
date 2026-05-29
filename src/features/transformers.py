@@ -243,3 +243,27 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
                 loadings_df[f"Factor_{i+1}"].abs().sort_values(ascending=False).head(8)
             )
             print("\n")
+
+
+def int_transform(x: np.ndarray) -> np.ndarray:
+    """Blom (1958) rank-based inverse normal transform.
+
+    Applies a rank-based transformation that maps any continuous distribution
+    to approximate normality. Useful as a pre-processing step before fitting
+    CFA or other models that assume normality.
+
+    Parameters
+    ----------
+    x : np.ndarray
+        1-D array of values to transform.
+
+    Returns
+    -------
+    np.ndarray
+        Transformed values, approximately standard-normal.
+    """
+    from scipy import stats
+
+    n = len(x)
+    ranks = stats.rankdata(x)
+    return stats.norm.ppf((ranks - 0.375) / (n + 0.25))
