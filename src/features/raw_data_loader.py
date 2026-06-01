@@ -15,7 +15,6 @@ from pathlib import Path
 
 from src.utils.data_utils import add_multi_index, strip_text
 
-
 # ── paths (relative to project root) ────────────────────────────────────────
 
 RAW_DATASET = "data/raw/stages/datasets/stages-dataset-0.3.0.csv"
@@ -379,7 +378,7 @@ def load_and_clean_raw(project_root: str | Path = ".") -> pd.DataFrame:
 
     # build display-name mapping
     display_names = data_dict.set_index("id")["display_name"].to_dict()
-    stripped = strip_text(list(display_names.values()))
+    stripped = raw_data_loader.strip_text(list(display_names.values()))
     keys = list(display_names.keys())
     name_map = {keys[i]: stripped[i] for i in range(len(keys))}
 
