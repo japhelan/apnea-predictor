@@ -11,6 +11,7 @@ from importlib import import_module
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+<<<<<<< HEAD
     from . import eval, plots
     from .modeling import predict, train
     from .utils import data_utils, eda_utils
@@ -22,6 +23,19 @@ _MODULE_PATHS = {
     "train": ".modeling.train",
     "data_utils": ".utils.data_utils",
     "eda_utils": ".utils.eda_utils",
+=======
+    from .modeling import eval, predict, train
+    from .utils import data_utils
+    from .visualization import eda_utils, plots
+
+_MODULE_PATHS = {
+    "eval": ".modeling.eval",
+    "plots": ".visualization.plots",
+    "predict": ".modeling.predict",
+    "train": ".modeling.train",
+    "data_utils": ".utils.data_utils",
+    "eda_utils": ".visualization.eda_utils",
+>>>>>>> 3.0-jp
 }
 
 __all__ = [

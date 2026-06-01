@@ -192,9 +192,21 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
     params gotten from the 2.1-jp-feature-engineering notebook
     """
 
+<<<<<<< HEAD
     def __init__(self, n_factors: int = 18, rotation: str | None = "promax"):
         self.n_factors = n_factors
         self.rotation = rotation
+=======
+    def __init__(
+        self,
+        n_factors: int = 18,
+        rotation: str | None = "promax",
+        method: str = "minres",
+    ):
+        self.n_factors = n_factors
+        self.rotation = rotation
+        self.method = method
+>>>>>>> 3.0-jp
 
     def fit(self, X, y=None):
         numeric_cols = X.select_dtypes(include=["number"]).columns
@@ -203,6 +215,10 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
         self.fa_ = FactorAnalyzer(
             n_factors=self.n_factors,
             rotation=cast(str, self.rotation),
+<<<<<<< HEAD
+=======
+            method=cast(str, self.method),
+>>>>>>> 3.0-jp
         )
         self.fa_.fit(X.loc[:, self.columns_])
         return self
@@ -236,3 +252,30 @@ class Factor_Analyzer_Transformer(BaseEstimator, TransformerMixin):
                 loadings_df[f"Factor_{i+1}"].abs().sort_values(ascending=False).head(8)
             )
             print("\n")
+<<<<<<< HEAD
+=======
+
+
+def int_transform(x: np.ndarray) -> np.ndarray:
+    """Blom (1958) rank-based inverse normal transform.
+
+    Applies a rank-based transformation that maps any continuous distribution
+    to approximate normality. Useful as a pre-processing step before fitting
+    CFA or other models that assume normality.
+
+    Parameters
+    ----------
+    x : np.ndarray
+        1-D array of values to transform.
+
+    Returns
+    -------
+    np.ndarray
+        Transformed values, approximately standard-normal.
+    """
+    from scipy import stats
+
+    n = len(x)
+    ranks = stats.rankdata(x)
+    return stats.norm.ppf((ranks - 0.375) / (n + 0.25))
+>>>>>>> 3.0-jp

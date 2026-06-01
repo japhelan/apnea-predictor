@@ -496,6 +496,12 @@ def _flatten_multiindex(df: pd.DataFrame) -> pd.DataFrame:
     Uses _ORIGINAL_ID_TO_FLAT for most columns and _SCHED_9910_MAP
     for the duplicate sched_9910 disambiguation.
     """
+<<<<<<< HEAD
+=======
+    if not isinstance(df.columns, pd.MultiIndex):
+        return df
+
+>>>>>>> 3.0-jp
     flat_names = []
     for col in df.columns:
         descriptive, original, subset = col
@@ -593,7 +599,14 @@ def _merge_exercise(df: pd.DataFrame) -> pd.DataFrame:
 
 def _merge_caffeine(df: pd.DataFrame) -> pd.DataFrame:
     """If rarely_or_never caffeine, set daily_servings to 0."""
+<<<<<<< HEAD
     if "caffeine_consumption_rarely_or_never" in df.columns:
+=======
+    if (
+        "caffeine_consumption_rarely_or_never" in df.columns
+        and "daily_caffeine_servings" in df.columns
+    ):
+>>>>>>> 3.0-jp
         is_true = df["caffeine_consumption_rarely_or_never"].fillna(False).eq(True)
         is_na = df["daily_caffeine_servings"].isna() & ~is_true
 
@@ -757,11 +770,21 @@ def _one_hot_encode_rls(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _encode_sex(df: pd.DataFrame) -> pd.DataFrame:
+<<<<<<< HEAD
+=======
+    if "sex" not in df.columns:
+        return df
+>>>>>>> 3.0-jp
     df["sex"] = df["sex"].map({"M": 0, "F": 1})
     return df
 
 
 def _encode_exercise(df: pd.DataFrame) -> pd.DataFrame:
+<<<<<<< HEAD
+=======
+    if "exercise_amt_or_time" not in df.columns:
+        return df
+>>>>>>> 3.0-jp
     df["exercise_amt_or_time"] = df["exercise_amt_or_time"].map(
         {
             "rarely_or_never": 0,
@@ -777,6 +800,11 @@ def _encode_exercise(df: pd.DataFrame) -> pd.DataFrame:
 
 def _encode_naps(df: pd.DataFrame) -> pd.DataFrame:
     """Encode nap_num string → binary frequent_naps (1 if per week, else 0)."""
+<<<<<<< HEAD
+=======
+    if "nap_num" not in df.columns:
+        return df
+>>>>>>> 3.0-jp
     df["nap_num"] = np.where(
         df["nap_num"].astype(str).str.contains("per week", na=False),
         1,
@@ -856,7 +884,11 @@ def _impute(df: pd.DataFrame) -> pd.DataFrame:
         mode_vals = df[cat_cols].mode().iloc[0]
         with pd.option_context("future.no_silent_downcasting", True):
             for col in cat_cols:
+<<<<<<< HEAD
                 df[col] = df[col].fillna(mode_vals[col]).infer_objects(copy=False)
+=======
+                df[col] = df[col].fillna(mode_vals[col]).infer_objects()
+>>>>>>> 3.0-jp
 
     return df
 
@@ -882,13 +914,22 @@ def _one_hot_encode_dream_recall(df: pd.DataFrame) -> pd.DataFrame:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 
+<<<<<<< HEAD
 def encode_features(df: pd.DataFrame) -> pd.DataFrame:
+=======
+def encode_features(df: pd.DataFrame, impute: bool = True) -> pd.DataFrame:
+>>>>>>> 3.0-jp
     """Stage 2: convert Stage 1 MultiIndex DataFrame into encoded flat DataFrame.
 
     Parameters
     ----------
     df : pd.DataFrame
         Stage 1 output with 3-level MultiIndex (descriptive, original, subset).
+<<<<<<< HEAD
+=======
+    impute : bool, default=True
+        Whether to impute missing values.
+>>>>>>> 3.0-jp
 
     Returns
     -------
@@ -898,6 +939,13 @@ def encode_features(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = df.copy()
 
+<<<<<<< HEAD
+=======
+    # Normalise AHI column name (flat CSV uses full name, MultiIndex path uses 'ahi')
+    if "apnea_hypopnea_index" in df.columns and "ahi" not in df.columns:
+        df = df.rename(columns={"apnea_hypopnea_index": "ahi"})
+
+>>>>>>> 3.0-jp
     # Step 1: Flatten MultiIndex → flat column names
     df = _flatten_multiindex(df)
 
@@ -941,11 +989,20 @@ def encode_features(df: pd.DataFrame) -> pd.DataFrame:
     # Step 8: Drop rows missing AHI
     df = df.dropna(subset=["ahi"])
 
+<<<<<<< HEAD
     # Step 9: Replace placeholder values
     df = _replace_placeholders(df)
 
     # Step 10: Impute
     df = _impute(df)
+=======
+    if impute:
+        # Step 9: Replace placeholder values
+        df = _replace_placeholders(df)
+
+        # Step 10: Impute
+        df = _impute(df)
+>>>>>>> 3.0-jp
 
     # Step 11: One-hot encode dream_recall_frequency
     df = _one_hot_encode_dream_recall(df)

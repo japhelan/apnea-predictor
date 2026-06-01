@@ -1,2 +1,24 @@
 conda_env/
+<<<<<<< HEAD
 mlruns/
+=======
+mlruns/
+mlflow.db
+.github/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Data artifacts
+*.pkl
+*.joblib
+
+# Notebooks
+notebooks/mlflow.db
+
+# macOS
+.DS_Store
+>>>>>>> 3.0-jp
